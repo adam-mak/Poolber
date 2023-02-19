@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+actor Passenger
+actor Driver
+actor Dispatcher << Supporting Actor >>
+rectangle "Carpooling Application System" {
+  usecase "Sign Up" as UC1
+  usecase "Sign In" as UC2
+  usecase "Sign Out" as UC3
+  usecase "Update Profile" as UC4
+  usecase "Choose Ride" as UC5
+  usecase "Cancel Ride" as UC6
+  usecase "Request Taxi Carpool" as UC7
+  usecase "Rate User" as UC8
+  usecase "Offer Taxi Carpool" as UC9
+  usecase "Enter Ride Info" as UC10
+  usecase "Select Driver" as UC11
+  usecase "List Potential Rides" as UC12
+  usecase "Forward Request" as UC13
+  usecase "Process Offer" as UC14
+}
+Passenger -- UC1
+Passenger -- UC2
+Passenger -- UC3
+Passenger -- UC4
+Passenger -- UC5
+Passenger -- UC6
+Passenger -- UC7
+Passenger -- UC8
+Driver -- UC1
+Driver -- UC2
+Driver -- UC3
+Driver -- UC4
+Driver -- UC9
+UC12 -- Dispatcher
+UC13 -- Dispatcher
+UC14 -- Dispatcher
+UC11 .> UC7 : <<extends>>
+UC7 .> UC10 : <<includes>>
+UC9 .> UC10 : <<includes>>
+UC7 .> UC12 : <<includes>>
+UC9 .> UC14 : <<includes>>
+UC5 .> UC13 : <<includes>>
+@enduml

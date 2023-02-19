@@ -14,6 +14,7 @@
 %\usepackage{setspace}
 %\usepackage{xcolor}
 \usepackage{color}
+\usepackage{parskip}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -36,12 +37,16 @@
 \begin{document}
 
 \maketitle	
-\noindent{\bf Tutorial Number:} T0x\\
-{\bf Group Number:} Gx \\
+\noindent{\bf Tutorial Number:} T03\\
+{\bf Group Number:} G8 \\
 {\bf Group Members:} 
 \begin{itemize}
-	\item Group Member Name (as listed in Avenue)
-	\item You do not need to use student \#s or macid (keep those private).
+	\item Adam Mak
+	\item Eric Chen
+	\item Justin Ho
+	\item Ahmad Hamadi
+	\item Kevin Ishak
+	\item Jonathan Jiang
 \end{itemize}
 
 \section*{IMPORTANT NOTES}
@@ -60,38 +65,50 @@
 \label{sec:introduction}
 % Begin Section
 
-\begin{itemize}
-	\item Provide an overview of the document/SRS.
-\end{itemize}
-
-
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
+The purpose of this SRS is to define the functionality and characteristics that the carpool app should have. It should provide a detailed overview of all the processes and systems that needs to be present in the final product. It describes the system and user interaction with the application. Intended audience for the SRS:
 \begin{itemize}
-	\item Specify the purpose of the SRS.
-	\item Specify the intended audience for the SRS.
+	\item Developers
+	\item UI/UX Designers
+	\item Product Managers
+	\item Engineers
+	\item System Architects
+	\item Quality Assurance Testers
 \end{itemize}
 % End SubSection
 
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
-\begin{itemize}
-	\item Identify the software product(s) to be produced, and name each (e.g., Host DBMS, Report Generator, etc.)
-	\item Explain what the software product(s) will do (and, if necessary, also state what they will not do).
-	\item Describe the application of the software being specified, including relevant benefits, objectives, and goals.
-%	\item Be consistent with similar statements in higher-level specifications (e.g., the system requirements specification), if they exist
-\end{itemize}
+The software product is a taxi carpool service. It will provide a communication environment for passengers to carpool via taxis. This service is not meant to be replacement for taxi services (i.e. Uber-like services).
+
+The objective of the software (local taxi system) being implemented is to transport users from one destination to another using a carpool method. This software allows user to enter a destination along with some optional search criteria that they want to arrive at. The software will then match the user with a taxi nearby which may or may not carry other individuals who are travelling in the same general direction. This benefits both the users, taxi driver as well as the environment by as it helps reduce costs, whether it be the fare for the ride or the reduction in environmental pollutants by the means of carpooling.
+
+There are no higher-level specifications that exist, thus, any lower-level specifications must be consistent with this document, as it is the highest-level specification.
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
-\begin{itemize}
-	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly interpret the SRS.
-	\item This should be in alphabetical order.
-\end{itemize}
+\begin{center} \begin{tabular} {|c|p{35em}|}
+	\hline
+	\textbf{Abbreviation/Acronym} & \textbf{Definition} \\
+	\hline \hline
+	API & Application Programming Interface \\
+	\hline
+	Carpool & To collectively share a ride (either to help reduce the cost of transit or as an act of being more environmentally “green”) \\
+	\hline
+	DBMS & Database Management System \\
+	\hline
+	GoPlay Store & The default Android distribution platform \\
+	\hline
+	SMS & Software Requirements Specification \\
+	\hline
+	SRS & Simple Message Service \\
+	\hline
+\end{tabular} \end{center}
 % End SubSection
 
 \subsection{References}
@@ -108,11 +125,7 @@
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{itemize}
-	\item Describe what the remainder of the document/SRS contains.\\
-	(e.g. "Section 2 discusses...Section 3...")
-%	\item Explain how the SRS is organized
-\end{itemize}
+In the order of occurrence, the remainder of the SRS contains an overview of the system, which includes product perspective, product functions, user characteristics, constraints, and dependencies. The SRS will have a descriptive model, which will be represented visually in the form of a use-case diagram. Furthermore, the document also includes various system-specific requirements which are consist of functional and non-functional requirements.  Finally, at the end of the document, there is a record which represents the division of labour of all contributors to the project.
 % End SubSection
 
 % End Section
@@ -121,79 +134,100 @@
 \label{sec:overall_description}
 % Begin Section
 
-\begin{itemize}
-	\item This section should describe the general factors that affect the product and its requirements. 
-	\item It does not state specific requirements.
-	\item It provides a \emph{background} for those requirements and makes them easier to understand.
-\end{itemize}
-
-
 \subsection{Product Perspective}
 \label{sub:product_perspective}
 % Begin SubSection
-\begin{itemize}
-	\item Put the product into perspective with other related products, i.e., context
-	\item If the product is independent and totally self-contained, it should be stated here
-	\item If the SRS defines a product that is a component of a larger system, then this subsection should relate the requirements of that larger system to the functionality of the software being developed. Identify interfaces between that larger system and the software to be developed.
-	\item A block diagram showing the major components of the larger system, interconnections, and external interfaces can be helpful
-\end{itemize}
+The carpool app product is independent and self-contained, as it does not build upon any existing products/applications. However, the standalone system uses and owns interfaces to and from external systems, such as hardware, users, databases, and other API's, to provide essential functionality to the app. Figure \ref{fig:blockdiagram} shows how these external systems will interact in a block diagram.
+
+The carpooling app is developed for Android devices, providing users owning these devices with easy access to this service. Also, the app's user interface interacts with an Android device to allow users to see information and interact with the application through a touchscreen.
+
+The app sends and receives data from a database that stores information about users, rides, route information, and other related data. This is managed by a DBMS.
+
+The carpooling app uses the Google Map API to provide maps and location-related services such as route planning and estimating travel times. The API provides information about the locations of users and destinations, as well as real-time traffic data, to help drivers make more informed decisions about their routes.
+
+To protect sensitive information such as passwords, payment information, transmitted messages, and other confidential data, the carpooling app uses a cryptosystem to encrypt this information before it is stored in the DBMS. When the data is needed, it is decrypted and used by the app. This ensures that information is protected from unauthorized access.
+
+The carpooling app uses SMS functionality to provide communication between users to provide updates, confirm ride details, and more. For instance, when a ride is requested, the app may send a message to the driver to notify them of the request, and then another message to the passenger to confirm the ride details.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=30em]{ProductPerspectiveBlockDiagram.png}
+	\caption{A block diagram showing the major layers of the carpooling application, interconnections, and external interfaces.}
+	\label{fig:blockdiagram}
+\end{figure}
 % End SubSection
 
 \subsection{Product Functions}
 \label{sub:product_functions}
 % Begin SubSection
 \begin{itemize}
-	\item Provide a \emph{summary} of the major functions that the software will perform.
-	\begin{itemize}
-		\item \textbf{Example}: An SRS for an accounting program may use this part to address customer account maintenance, customer statement, and invoice preparation without mentioning the vast amount of detail that each of those functions requires.
-	\end{itemize}
-	\item Functions should be organized in a way that makes the list of functions understandable to the customer or to anyone else reading the document for the first time 
-	\item Present the functions in a list format - each item should be one function, with a brief description of it
-	\item Textual or graphical methods can be used to show the different functions and their relationships
-	\begin{itemize}
-		\item Such a diagram is not intended to show a design of a product, but simply shows the logical relationships among variables
-	\end{itemize} 
+	\item App should compare carpool price with non carpool price and display the money saved as a point system.
+	\item App should allow carpoolers to setup/join other carpoolers using the app.
+	\item When requesting a carpool, carpoolers should be able to filter through different travel options (i.e. sort by closest cab/highest rated cab driver). The app should return a list of cab options according to the specification.
+	\item Carpoolers looking to set up a carpool should be able to input the taxi ID , destination, maximum number of other carpoolers,  as well as potential auxiliary information. They system should post this info and allow other carpoolers to join.
+	\item Users should be able to create and delete accounts, which the system should store.
+	\item The system should check if a user that wants to request/setup a carpool is a registered user. It should reject unregistered users.
 \end{itemize}
 % End SubSection
 
 \subsection{User Characteristics}
 \label{sub:user_characteristics}
 % Begin SubSection
-\begin{itemize}
-	\item Describe those general characteristics of the intended users of the product including educational level, experience, and technical expertise 
-	\item Since there will be many users, you may wish to divide into different user types or personas
-%	\item Do not state specific requirements, but rather provide the reasons why certain specific requirements are later specified
-\end{itemize}
+Users include both passengers and drivers, of which age and education level may vary. The users of the product are expected to have a basic knowledge of technology and are familiar with smartphones, which the app is developed for.	 
 % End SubSection
 
 \subsection{Constraints}
 \label{sub:constraints}
 % Begin SubSection
 \begin{itemize}
-	\item Provide a general description of any constraints that will limit the developer's options
+	\item Legal and regulatory restrictions: The developer needs to ensure that the application complies with the local laws and regulations.
+	\item Technical limitations: The developer may face limitations with regards to the technology used to build the application, such as compatibility with different platforms, scalability, and security.
+	\item Competition: They need to differentiate their product and offer unique features.
+	\item Budget and resources: The availability of financial and human resources can impact the scope and timeline of the project.
 \end{itemize}
 % End SubSection
 
 \subsection{Assumptions and Dependencies}
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
-\begin{itemize}
-	\item List any assumptions you made in interpreting what the software being developed is aiming to achieve
-	\item List any other assumptions you made that, if it fails to hold, could require you to change the requirements
-	%\item List each of the factors that affect the requirements stated in the SRS
-	%\item These factors are not design constraints on the software but are, rather, any changes to them that can affect the requirements in the SRS
-	\begin{itemize}
-		\item \textbf{Example}: An assumption may be that a specific operating system will be available on the hardware designated for the software product. If, in fact, the operating system is not available, the SRS would then have to change accordingly.
-	\end{itemize}
-\end{itemize}
+The carpool app will be available for installation/download through the Apple and Google Play store for users to use. It is assumed that Apple/Google Play will streamline our app upon the necessary guidelines being met (I.e., Safety, Privacy, Performance, Business, Design, Legal).
+
+It is assumed that the Google Maps API will be available to use with an 100\% uptime which our carpool app will utilize to plan its routes and navigate users around cities. If the Google Maps API, for some extenuating circumstances, is unable to provide the services for route navigation, then another GIS API system may have to be utilized (e.g., OpenLayers, ESRI, etc…).
+
+A primary telecommunication company will be managing the SMS traffic of the carpool app as the app makes use of SMS functionality to inform users about the status of their ride. If for some reason, any of the telecommunication companies listed within this SRS document disbands, terminates the contract or breach some sort of confidentiality between both parties, and/or something similar in nature, then the SRS might have to change accordingly to fill up the vacant SMS management company.
+
+It is assumed that the carpool app will be systematically be calculating the cost of the trip per person on a reduced per mileage basis. 
 % End SubSection
 
 \subsection{Apportioning of Requirements}
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
-\begin{itemize}
-	\item Identify requirements that may be delayed until future versions of the system
-\end{itemize}
+The following requirements are usually delayed until later versions to meet the initial launch deadline and budget, or to focus on delivering the most valuable features to users first.
+
+\begin{enumerate}
+	\item Advanced features: These are features that are not essential to the core functionality of the app, but can be added later as the app evolves.
+	\begin{itemize}
+		\item[-] For example, an in-app tipping feature, or integration with a rewards program. 
+	\end{itemize}
+	\item Non-critical performance optimizations: Improving the app's performance can be a continuous process, and some optimizations can be deferred until later versions.
+	\begin{itemize}
+		\item[-] For example, optimizations that improve the app's speed, reliability or efficiency, but are not essential to its basic functionality.  
+	\end{itemize}
+	\item Complex user interfaces: Advanced user interfaces can be time-consuming to develop and may be deferred in favor of a simpler interface in the initial release. 
+	\begin{itemize}
+		\item[-] For example, a more sophisticated design that includes augmented reality, or a chatbot interface.  
+	\end{itemize}
+	\item Integrations with third-party systems: Integrating the app with other systems can be a significant effort, and this work may be deferred until later versions. 
+	\begin{itemize}
+		\item[-] For example, integration with a payment system, or with a local transit system. 
+	\end{itemize}
+	\item Support for older platforms: Supporting older platforms can be time-consuming, and this work may be deferred until later versions or only supported for critical security and bug fixes.
+	\begin{itemize}
+		\item[-] For example, supporting older versions of the iOS or Android operating systems. 
+	\end{itemize}
+\end{enumerate}
+
+\noindent It is important to prioritize the most critical requirements, such as the core functionality of booking a ride, and ensuring that the app is easy to use. Other requirements can be deferred until future versions to meet the initial launch deadline and budget. 
 % End SubSection
 
 % End Section
