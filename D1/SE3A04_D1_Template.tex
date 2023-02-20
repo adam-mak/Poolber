@@ -426,7 +426,9 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF-A}1. ]
-	\item 
+	\item The app should have a modern aesthetic to it, conforming to a standardized colour scheme which is to be used throughout the app. The choice of colour should be consistent all throughout the app and the must provide enough vibrance amongst each other so that in no shape of form gives off a “dull” image.
+	\item The app should be organized by related content with little to no cluttering of text/images to provide for visually appealing and easy to read navigation. The cluttering of text/images should follow a basis of having at minimum 5 vw/vh between unrelated images/text bodies and 2.5 vw/vh for related ones.
+	\item The font family will remain consistent throughout the interface of the app. The size of the font will be increased amongst reasonable intervals and there shall be no difference in text size which varies ever so slightly.  There shall not be font size of something of the sort: 13.5, 13.7 and 13.9. Instead, a font size with more appropriate intervals will be an interval of 10, 12, 16 as it provides an easy way to distinguish the size of the text and remain consistent all throughout the app.
 \end{enumerate}
 % End SubSubSection
 
@@ -448,7 +450,9 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-EOU}1. ]
-	\item 
+	\item The app should be relatively easy to learn for beginners and should require no more than 3 minutes of tutorial time to learn. A tutorial will be provided upon creating of a new account that helps navigate the user through the app if they so choose to.
+	\item ll accessibility and navigation buttons should be intuitive and easy to find. Likewise, the content should be organized in a way so that finding related content is relatively easy and intuitive.
+	\item The app should be accessible, and convenient for the general public to use. The app shall allow users to create an account through various forms of media (e.g. Gmail OAuth, SMS Login, Apple Login, etc...) so that users with only one source of media are not limited.
 \end{enumerate}
 % End SubSubSection
 
@@ -456,7 +460,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:personalization_and_internationalization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-PI}1. ]
-	\item 
+	\item The app shall have the basic US English language implemented in its initial run and can take on various languages afterwards.
 \end{enumerate}
 % End SubSubSection
 
@@ -464,7 +468,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-L}1. ]
-	\item 
+	\item The app should not require users to have any pre-existing knowledge beside knowing where the user wants to get to.
 \end{enumerate}
 % End SubSubSection
 
@@ -472,7 +476,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
-	\item 
+	\item The carpool app should not make use of any vulgar speech in any dialogue/informational sections throughout the app.
+	\item Has buttons labelled with different actions the user can take.
 \end{enumerate}
 % End SubSubSection
 
@@ -480,7 +485,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
-	\item 
+	\item App must have a text-to-speech functionality for visually impaired users.
 \end{enumerate}
 % End SubSubSection
 
@@ -494,7 +499,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SL}1. ]
-	\item 
+	\item The app should run reliably fast with a responsive user interface with minimal lag. The latency shall not exceed 200ms when transitioning between different pages on the app and that new content should be displayed within the 200ms.
+	\item The app must also calculate a suitable travel route for carpool users within 5 seconds of matching.
 \end{enumerate}
 % End SubSubSection
 
@@ -502,7 +508,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SC}1. ]
-	\item 
+	\item The system should provide information about the correct vehicle for their trip. This includes the make/model of the car that the driver is driving, the license plate attributed with the car, and the location of the car/driver when they are ready to receive passengers.
+	\item Route should not be recalculated when driver is in motion. Travel route should only be able to be changed/updated accordingly if there’s a faster route (e.g., due to traffic or something) and that the car has been stationary for at least 15 seconds.
+	\item The system should ensure that the drivers are physically well before allowing them to take customers.
+	\item System should not disclose personal information of any user to other user. This includes the profile of the user along with any information that may identify the passengers who are carpooling in.
 \end{enumerate}
 % End SubSubSection
 
@@ -510,7 +519,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-PA}1. ]
-	\item 
+	\item The locations of pick-up/destinations should be accurate within 50m.
+	\item Estimated times of pickup/arrival should be accurate within 5 minutes.
 \end{enumerate}
 % End SubSubSection
 
@@ -518,7 +528,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
-	\item 
+	\item The app should functionally run with an uptime of 100\%.
 \end{enumerate}
 % End SubSubSection
 
@@ -526,7 +536,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RFT}1. ]
-	\item 
+	\item In the event of an internet outage, the system should prevent users from using the app, and should Continue displaying any committed trips.
+	\item In the event the system goes down, any ongoing trips should continue.
 \end{enumerate}
 % End SubSubSection
 
@@ -534,7 +545,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-C}1. ]
-	\item 
+	\item The functional capacity of the app should scale with the number of users.
+	\item The application installation size shall not exceed 40 MB.
 \end{enumerate}
 % End SubSubSection
 
@@ -542,7 +554,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SE}1. ]
-	\item 
+	\item The system shall adapt to any increase in user influx while maintaining performance.
 \end{enumerate}
 % End SubSubSection
 
@@ -550,7 +562,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-L}1. ]
-	\item 
+	\item The application will be operational until the service is no longer required by a minimum population of users.
 \end{enumerate}
 % End SubSubSection
 
@@ -564,7 +576,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{OE-EPE}1. ]
-	\item 
+	\item Expected physical environments include urbanized areas which have paved roads and cellular/wireless connectivity.
 \end{enumerate}
 % End SubSubSection
 
@@ -572,7 +584,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE-IA}1. ]
-	\item 
+	\item All the tech stack used in the development of the carpool app is expected to interface correctly with all other components of our app. In extreme cases where any of the interfaces (e.g. Google Maps API/MongoDB) exhibits severely poor performance, it may recommended to swap out the interface with another one similar (e.g. OpenLayers/MySQL).
 \end{enumerate}
 % End SubSubSection
 
@@ -580,7 +592,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-P}1. ]
-	\item 
+	\item System should must be tested on multiple devices before deployment.
+	\item System should be accessible to customers In the GoPlay store.
 \end{enumerate}
 % End SubSubSection
 
@@ -588,7 +601,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-R}1. ]
-	\item 
+	\item The application shall be released to the GoPlay store.
 \end{enumerate}
 % End SubSubSection
 
@@ -602,7 +615,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-M}1. ]
-	\item 
+	\item In the event that maintenance/shutdown is required, users must be informed via the app’s homepage a week in advance.
+	\item New feature updates should not conflict with previous versions of the app and can be pulled by updating through the App/Google Play store when users decide to update the app - This can also be set to automatic for automatic updates.
 \end{enumerate}
 % End SubSubSection
 
@@ -610,7 +624,9 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-S}1. ]
-	\item 
+	\item Forward Compatibility with Android devices in newer versions.
+	\item The repo to the project’s main repository shall be made public to allow for improvements and suggestions from other developers.
+	\item The source code shall be fully documented through Javadoc comments and shall adhere to correct coding styles.
 \end{enumerate}
 % End SubSubSection
 
@@ -618,7 +634,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-A}1. ]
-	\item 
+	\item The app shall be accessible on the GoPlay store.
 \end{enumerate}
 % End SubSubSection
 
@@ -632,7 +648,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AC}1. ]
-	\item 
+	\item Users can only access their accounts after entering their own set password and email.
 \end{enumerate}
 % End SubSubSection
 
@@ -640,7 +656,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-INT}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -648,7 +664,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-P}1. ]
-	\item 
+	\item User's private information will always be kept private and only accessible by the user and certain components of the application.
+	\item All personal data stored in the database shall be encrypted, and data shall only be decrypted once the user has authorized access to view or modify the information. 
 \end{enumerate}
 % End SubSubSection
 
@@ -656,7 +673,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:audit_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AU}1. ]
-	\item 
+	\item Internal audits will be conducted once every month per fiscal period and external audits will be conducted at random intervals throughout the fiscal year to check for discrepancies.
 \end{enumerate}
 % End SubSubSection
 
@@ -664,7 +681,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-IM}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -678,7 +695,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP-C}1. ]
-	\item 
+	\item Documentation shall include an inclusion and diversity statement to ensure all users have the right to access and utilize the website.
 \end{enumerate}
 % End SubSubSection
 
@@ -686,7 +703,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:political_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP-P}1. ]
-	\item 
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -700,7 +717,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-COMP}1. ]
-	\item 
+	\item The application shall not violate any Canadian or American laws. For instance, all data will be encrypted so that personal information privacy is preserved.
+	\item Payment and Income logs shall be stored for tax purposes and accounting.
 \end{enumerate}
 % End SubSubSection
 
@@ -708,7 +726,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-STD}1. ]
-	\item 
+	\item All drivers must have obtained their permanent driving license (e.g. G license at minimum) in order to qualify as an employee who can transport users around the city.
 \end{enumerate}
 % End SubSubSection
 
@@ -721,6 +739,23 @@ The following requirements are usually delayed until later versions to meet the 
 \label{sec:division_of_labour}
 % Begin Section
 Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
+\begin{center} \begin{tabular} {|c|p{35em}|}
+	\hline
+	\textbf{Team Member} & \textbf{Contribution} \\
+	\hline \hline
+	Adam Mak &  \\
+	\hline
+	Eric Chen &  \\
+	\hline
+	Justin Ho &  \\
+	\hline
+	Ahmad Hamadi &  \\
+	\hline
+	Kevin Ishak &  \\
+	\hline
+	Jonathan Jiang &  \\
+	\hline
+\end{tabular} \end{center}
 % End Section
 
 %\newpage
