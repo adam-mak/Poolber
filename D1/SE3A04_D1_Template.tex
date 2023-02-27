@@ -26,7 +26,7 @@
 
 % Title Details
 %------------------------------------------------------------------------------
-\title{Deliverable \#1 Template : Software Requirement Specification (SRS)}
+\title{Deliverable \#1 Template : Software Requirement Specification (\textbf{SRS})}
 \author{SE 3A04: Software Design II -- Large System Design}
 \date{}
                             
@@ -36,11 +36,11 @@
 %------------------------------------------------------------------------------
 \begin{document}
 
-\maketitle	
+\maketitle\begin{center}
 \noindent{\bf Tutorial Number:} T03\\
 {\bf Group Number:} G8 \\
 {\bf Group Members:} 
-\begin{itemize}
+\begin{itemize} \centering
 	\item Adam Mak
 	\item Eric Chen
 	\item Justin Ho
@@ -48,17 +48,7 @@
 	\item Kevin Ishak
 	\item Jonathan Jiang
 \end{itemize}
-
-\section*{IMPORTANT NOTES}
-\begin{itemize}
-	\item Be sure to include all sections of the template in your document regardless whether you have something to write for each or not
-	\begin{itemize}
-		\item If you do not have anything to write in a section, indicate this by the \emph{N/A}, \emph{void}, \emph{none}, etc.
-	\end{itemize}
-	\item Uniquely number each of your requirements for easy identification and cross-referencing
-	\item Highlight terms that are defined in Section~1.3 (\textbf{Definitions, Acronyms, and Abbreviations}) with \textbf{bold}, \emph{italic} or \underline{underline}
-	\item For Deliverable 1, please highlight, in some fashion, all (you may have more than one) creative and innovative features. Your creative and innovative features will generally be described in Section~2.2 (\textbf{Product Functions}), but it will depend on the type of creative or innovative features you are including.
-\end{itemize}
+\end{center}
 
 \newpage
 \section{Introduction}
@@ -68,7 +58,7 @@
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-The purpose of this SRS is to define the functionality and characteristics that the carpool app should have. It should provide a detailed overview of all the processes and systems that needs to be present in the final product. It describes the system and user interaction with the application. Intended audience for the SRS:
+The purpose of this \textbf{SRS} is to define the functionality and characteristics that the carpool app should have. It should provide a detailed overview of all the processes and systems that needs to be present in the final product. It describes the system and user interaction with the application. Intended audience for the \textbf{SRS}:
 \begin{itemize}
 	\item Developers
 	\item UI/UX Designers
@@ -115,7 +105,7 @@ There are no higher-level specifications that exist, thus, any lower-level speci
 \label{sub:references}
 % Begin SubSection
 \begin{itemize}
-	\item Provide a complete list of all documents referenced elsewhere in the SRS.
+	\item Provide a complete list of all documents referenced elsewhere in the \textbf{SRS}.
 	\item Identify each document by title, report number (if applicable), date, and publishing organization.
 	\item Specify the sources from which the references can be obtained.
 	\item Order this list in some sensible manner (alphabetical by author, or something else that makes more sense).
@@ -125,7 +115,7 @@ There are no higher-level specifications that exist, thus, any lower-level speci
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-In the order of occurrence, the remainder of the SRS contains an overview of the system, which includes product perspective, product functions, user characteristics, constraints, and dependencies. The SRS will have a descriptive model, which will be represented visually in the form of a use-case diagram. Furthermore, the document also includes various system-specific requirements which are consist of functional and non-functional requirements.  Finally, at the end of the document, there is a record which represents the division of labour of all contributors to the project.
+In the order of occurrence, the remainder of the \textbf{SRS} contains an overview of the system, which includes product perspective, product functions, user characteristics, constraints, and dependencies. The \textbf{SRS} will have a descriptive model, which will be represented visually in the form of a use-case diagram. Furthermore, the document also includes various system-specific requirements which are consist of functional and non-functional requirements.  Finally, at the end of the document, there is a record which represents the division of labour of all contributors to the project.
 % End SubSection
 
 % End Section
@@ -137,17 +127,17 @@ In the order of occurrence, the remainder of the SRS contains an overview of the
 \subsection{Product Perspective}
 \label{sub:product_perspective}
 % Begin SubSection
-The carpool app product is independent and self-contained, as it does not build upon any existing products/applications. However, the standalone system uses and owns interfaces to and from external systems, such as hardware, users, databases, and other API's, to provide essential functionality to the app. Figure \ref{fig:blockdiagram} shows how these external systems will interact in a block diagram.
+The carpool app product is independent and self-contained, as it does not build upon any existing products/applications. However, the standalone system uses and owns interfaces to and from external systems, such as hardware, users, databases, and other \textbf{API}'s, to provide essential functionality to the app. Figure \ref{fig:blockdiagram} shows how these external systems will interact in a block diagram.
 
 The carpooling app is developed for Android devices, providing users owning these devices with easy access to this service. Also, the app's user interface interacts with an Android device to allow users to see information and interact with the application through a touchscreen.
 
-The app sends and receives data from a database that stores information about users, rides, route information, and other related data. This is managed by a DBMS.
+The app sends and receives data from a database that stores information about users, rides, route information, and other related data. This is managed by a \textbf{DBMS}.
 
-The carpooling app uses the Google Map API to provide maps and location-related services such as route planning and estimating travel times. The API provides information about the locations of users and destinations, as well as real-time traffic data, to help drivers make more informed decisions about their routes.
+The carpooling app uses the Google Map \textbf{API} to provide maps and location-related services such as route planning and estimating travel times. The \textbf{API} provides information about the locations of users and destinations, as well as real-time traffic data, to help drivers make more informed decisions about their routes.
 
-To protect sensitive information such as passwords, payment information, transmitted messages, and other confidential data, the carpooling app uses a cryptosystem to encrypt this information before it is stored in the DBMS. When the data is needed, it is decrypted and used by the app. This ensures that information is protected from unauthorized access.
+To protect sensitive information such as passwords, payment information, transmitted messages, and other confidential data, the carpooling app uses a cryptosystem to encrypt this information before it is stored in the \textbf{DBMS}. When the data is needed, it is decrypted and used by the app. This ensures that information is protected from unauthorized access.
 
-The carpooling app uses SMS functionality to provide communication between users to provide updates, confirm ride details, and more. For instance, when a ride is requested, the app may send a message to the driver to notify them of the request, and then another message to the passenger to confirm the ride details.
+The carpooling app uses \textbf{SMS} functionality to provide communication between users to provide updates, confirm ride details, and more. For instance, when a ride is requested, the app may send a message to the driver to notify them of the request, and then another message to the passenger to confirm the ride details.
 
 \begin{figure}[h!]
 	\centering
@@ -164,9 +154,10 @@ The carpooling app uses SMS functionality to provide communication between users
 	\item App should compare carpool price with non carpool price and display the money saved as a point system.
 	\item App should allow carpoolers to setup/join other carpoolers using the app.
 	\item When requesting a carpool, carpoolers should be able to filter through different travel options (i.e. sort by closest cab/highest rated cab driver). The app should return a list of cab options according to the specification.
-	\item Carpoolers looking to set up a carpool should be able to input the taxi ID , destination, maximum number of other carpoolers,  as well as potential auxiliary information. They system should post this info and allow other carpoolers to join.
+	\item Carpoolers looking to set up a carpool should be able to input the taxi ID , destination, maximum number of other carpoolers, as well as potential auxiliary information. They system should post this info and allow other carpoolers to join.
 	\item Users should be able to create and delete accounts, which the system should store.
 	\item The system should check if a user that wants to request/setup a carpool is a registered user. It should reject unregistered users.
+	\item App should have a reward system that allows users to obtain free rides based on their accumulated cost savings.
 \end{itemize}
 % End SubSection
 
@@ -192,9 +183,9 @@ Users include both passengers and drivers, of which age and education level may 
 % Begin SubSection
 The carpool app will be available for installation/download through the Apple and Google Play store for users to use. It is assumed that Apple/Google Play will streamline our app upon the necessary guidelines being met (I.e., Safety, Privacy, Performance, Business, Design, Legal).
 
-It is assumed that the Google Maps API will be available to use with an 100\% uptime which our carpool app will utilize to plan its routes and navigate users around cities. If the Google Maps API, for some extenuating circumstances, is unable to provide the services for route navigation, then another GIS API system may have to be utilized (e.g., OpenLayers, ESRI, etc…).
+It is assumed that the Google Maps \textbf{API} will be available to use with an 100\% uptime which our carpool app will utilize to plan its routes and navigate users around cities. If the Google Maps \textbf{API}, for some extenuating circumstances, is unable to provide the services for route navigation, then another GIS \textbf{API} system may have to be utilized (e.g., OpenLayers, ESRI, etc…).
 
-A primary telecommunication company will be managing the SMS traffic of the carpool app as the app makes use of SMS functionality to inform users about the status of their ride. If for some reason, any of the telecommunication companies listed within this SRS document disbands, terminates the contract or breach some sort of confidentiality between both parties, and/or something similar in nature, then the SRS might have to change accordingly to fill up the vacant SMS management company.
+A primary telecommunication company will be managing the \textbf{SMS} traffic of the carpool app as the app makes use of \textbf{SMS} functionality to inform users about the status of their ride. If for some reason, any of the telecommunication companies listed within this \textbf{SRS} document disbands, terminates the contract or breach some sort of confidentiality between both parties, and/or something similar in nature, then the \textbf{SRS} might have to change accordingly to fill up the vacant \textbf{SMS} management company.
 
 It is assumed that the carpool app will be systematically be calculating the cost of the trip per person on a reduced per mileage basis. 
 % End SubSection
@@ -254,152 +245,380 @@ The following requirements are usually delayed until later versions to meet the 
 \section{Highlights of Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
-\begin{itemize}
-	\item Specify all use cases (or other scenarios triggered by other events), organized by Business Event. 
-	\item For each Business Event, show the scenario from every Viewpoint. You should have the same set of Viewpoints across all Business Events. If a Viewpoint doesn't participate, write N/A so we know you considered it still. You can choose how to present this - keep in mind it should be easy to follow. 
-	\item At the end, combine them all into a Global Scenario.
-	%\item Specify the "use cases" (or other triggering events) organized by Business Event. (The Global Scenario is what you might think of as a use case). Be sure to consider Business Events that aren't just triggered by users with goals (e.g. something happens in the environment that your system needs to respond to)
-	\item Your focus should be on what the system needs to do, not how to do it. Specify it in enough detail that it clearly specifies what needs to be accomplished, but not so detailed that you start programming or making design decisions.
-	\item Keep the length of each use case (Global Scenario) manageable. If it's getting too long, split into sub-cases.
-	\item You are \emph{not} specifying a complete and consistent set of functional requirements here. (i.e. you are providing them in the form of use cases/global scenarios, not a refined list). For the purpose of this project, you do not need to reduce them to a list; the global scenarios format is all you need.
-	\item Red text below is just to highlight where you need to insert a scenario - don't actually write it all in red.
-\end{itemize}
+The business events we will present are:
+\begin{enumerate}
+    \item[] \textbf{BE1.} Partake in a ride
+    \item[] \textbf{BE2.} Leave a rating on the app
+    \item[] \textbf{BE3.} Setup/Update user profile/account information
+    \item[] \textbf{BE4.} Cancel a ride
+    \item[] \textbf{BE5.} Login/Logout of an account
+    \item[] \textbf{BE6.} Edit Payment Information
+\end{enumerate}
 
-\noindent {\bf Main Business Events:} List out all the main business events you are presenting. If you sub-divided into smaller ones, you don't need to include the smaller ones in this list.\\
-
-\noindent {\bf Viewpoints:} List out all the viewpoints you will be considering.\\
+The viewpoints we will consider are:
+\begin{enumerate}
+    \item[] \textbf{VP1.} Passenger
+    \item[] \textbf{VP2.} Driver
+\end{enumerate}
 
 \noindent {\bf Interpretation:} Specify any liberties you took in interpreting business events, if necessary.\\
 
 \begin{enumerate}[{\bf BE1.}]
-	\item Business Event Name \#1
+	\item Partake in a ride
 		\begin{enumerate}[{\bf VP1.}]
-			\item Viewpoint Name \#1 \\
-				\textcolor{red}{Insert Scenario Here}
-			\item Viewpoint Name \#2 \\
-				\textcolor{red}{Insert Scenario Here}
+			\item Passenger \\
+			\noindent\fbox{
+				\parbox{0.85\textwidth}{
+					\begin{itemize}
+						\item {$S_{1}$:} System asks user for a pickup location and a destination point.
+						\item {$E_{1}$:} Passenger inputs a pickup location and a destination point.
+						\item {$S_{2}$:} System asks if passenger would like to carpool with nearby users travelling in the same general direction.
+						\item {$E_{2}$:} Passenger decides whether to carpool with nearby users. \begin{itemize}
+							\item[] $E_{2.1}$: User inputs their intent to carpool with nearby users. \textbf{\color{red}\textlangle Branch BE1.VP1.S3.1 \textrangle}
+							\item[]$E_{2.2}$: User inputs their intent to not carpool with nearby users. \textbf{\color{red}\textlangle BE1.VP1.1.S3.2 \textrangle}
+						\end{itemize}
+						\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
+							\item[] $S_{3.1}$: System calculates a one-way route from pickup to destination location with no stops.
+							\item[] $S_{3.2}$: System calculates a suitable route from pickup to destination with the capability of other users partaking in a carpool ride.
+						\end{itemize}
+						\item {$E_{3}$:} User decides whether to take the ride or not. \begin{itemize}
+							\item[] $E_{3.1}$: User decides to reject the ride. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+							\item[] $E_{3.2}$: User decides to accept the ride. \textbf{\color{red}\textlangle Branch to BE1.VP1.2.S1 \textrangle}
+						\end{itemize}
+					\end{itemize}
+				}
+			}
+			\item Driver \\
+			\noindent\fbox{
+				\parbox{0.85\textwidth}{
+					\begin{itemize}
+						\item {$S_{1}$:} System notifies driver to pick up passenger.
+						\item {$E_{1}$:} Driver picks up the passenger and drops them off at their destination.
+					\end{itemize}
+				}
+			}
 		\end{enumerate}
 		{\bf Global Scenario:}\\
-		\textcolor{red}{Insert Scenario Here}
-	\item Business Event Name \#2
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System asks user for a pickup location and a destination point.
+					\item {$E_{1}$:} Passenger inputs a pickup location and a destination point.
+					\item {$S_{2}$:} System asks if passenger would like to carpool with nearby users travelling in the same general direction.
+					\item {$E_{2}$:} Passenger decides whether to carpool with nearby users. \begin{itemize}
+						\item[] $E_{2.1}$: User inputs their intent to carpool with nearby users. \textbf{\color{red}\textlangle Branch BE1.VP1.S3.1 \textrangle}
+						\item[] $E_{2.2}$: User inputs their intent to not carpool with nearby users. \textbf{\color{red}\textlangle BE1.VP1.1.S3.2 \textrangle}
+					\end{itemize}
+					\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
+						\item[] $S_{3.1}$: System calculates a one-way route from pickup to destination location with no stops.
+						\item[] $S_{3.2}$: System calculates a suitable route from pickup to destination with the capability of other users partaking in a carpool ride.
+					\end{itemize}
+					\item {$E_{3}$:} User decides whether to take the ride or not. \begin{itemize}
+						\item[] $E_{3.1}$: User decides to reject the ride. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $E_{3.2}$: User decides to accept the ride. \textbf{\color{red}\textlangle Branch to BE1.VP1.2.S1 \textrangle}
+					\end{itemize}
+					\item {$S_{4}$:} System notifies driver to pick up passenger.
+					\item {$E_{4}$:} Driver picks up the passenger and drops them off at their destination.
+				\end{itemize}
+			}
+		}
+	\item Leaving a rating on the app
 	\begin{enumerate}[{\bf VP1.}]
-		\item Viewpoint Name \#1 \\
-		\textcolor{red}{Insert Scenario Here}
-		\item Viewpoint Name \#2 \\
-		\textcolor{red}{Insert Scenario Here}
+		\item Passenger \\
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System attempts to authenticate the passenger and confirm that passenger has taken a ride previously. \begin{itemize}
+						\item[] $S_{1.1}$: System successfully authenticates the passenger and displays a list of applicable (previous carpool partners) passengers to leave a review for \textbf{\color{red}\textlangle Branch to BE3.VP2.1. \textrangle}
+						\item[]$S_{1.2}$: System fails to authenticate the passenger. \textbf{\color{red}\textlangle Branch EXIT\textrangle} 
+					\end{itemize}
+					\item {$E_{1}$:} Passenger selects an individual to leave a rating for.
+					\item {$S_{2}$:} System receives response and prompts passenger for a message/rating for the selected individual. System waits for user response.
+					\item {$E_{2}$:} Passenger responds to the system \begin{itemize}
+						\item[] $E_{2.1}$: Passenger cancels the review process
+						\item[]$E_{2.2}$: Passenger inputs a valid response (I.e. gives a rating and a potential message response) to the system
+					\end{itemize}
+					\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
+						\item[] $S_{3.1}$: System receives an invalid response (e.g., passenger cancels review process) \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $S_{3.2}$: System receives a valid response and updates the individual's profile with the new rating
+					\end{itemize}
+					\item {$E_{3}$:} Passenger is returned to ratings screen.
+				\end{itemize}
+			}
+		}
+		\item Driver \\
+		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
 	\end{enumerate}
 	{\bf Global Scenario:}\\
-	\textcolor{red}{Insert Scenario Here}
+	\noindent\fbox{
+		\parbox{0.85\textwidth}{
+			\begin{itemize}
+				\item {$S_{1}$:} System attempts to authenticate the passenger and confirm that passenger has taken a ride previously. \begin{itemize}
+					\item[] $S_{1.1}$: System successfully authenticates the passenger and displays a list of applicable (previous carpool partners) passengers to leave a review for \textbf{\color{red}\textlangle Branch to BE3.VP2.1. \textrangle}
+					\item[]$S_{1.2}$: System fails to authenticate the passenger. \textbf{\color{red}\textlangle Branch EXIT\textrangle} 
+				\end{itemize}
+				\item {$E_{1}$:} Passenger selects an individual to leave a rating for.
+				\item {$S_{2}$:} System receives response and prompts passenger for a message/rating for the selected individual. System waits for user response.
+				\item {$E_{2}$:} Passenger responds to the system \begin{itemize}
+					\item[] $E_{2.1}$: Passenger cancels the review process
+					\item[]$E_{2.2}$: Passenger inputs a valid response (I.e. gives a rating and a potential message response) to the system
+				\end{itemize}
+				\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
+					\item[] $S_{3.1}$: System receives an invalid response (e.g., passenger cancels review process) \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $S_{3.2}$: System receives a valid response and updates the individual's profile with the new rating
+				\end{itemize}
+				\item {$E_{3}$:} Passenger is returned to ratings screen.
+			\end{itemize}
+		}
+	}
+	\item Setup/Update user profile/account information
+	\begin{enumerate}[{\bf VP1.}]
+		\item Passenger \\
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System prompts passenger for personal information (Full name, phone number, email).
+					\item {$E_{1}$:} Passenger inputs their information.
+					\item {$S_{2}$:} System stores personal information of user and allows carpool services under the account.
+				\end{itemize}
+			}
+		}
+		\item Driver \\
+		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
+	\end{enumerate}
+	{\bf Global Scenario:}\\
+	\noindent\fbox{
+		\parbox{0.85\textwidth}{
+			\begin{itemize}
+				\item {$S_{1}$:} System prompts passenger for personal information (Full name, phone number, email).
+				\item {$E_{1}$:} Passenger inputs their information.
+				\item {$S_{2}$:} System stores personal information of user and allows carpool services under the account.
+			\end{itemize}
+		}
+	}
+	\item Cancel a ride
+	\begin{enumerate}[{\bf VP1.}]
+		\item Passenger \\
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System re-asks user if they want to cancel the ride.
+					\item {$E_{1}$:} User indicates that they are sure they want to cancel the ride.
+					\item {$S_{2}$:} System notifies the driver that the ride has been canceled.
+				\end{itemize}
+			}
+		}
+		\item Driver \\
+		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
+	\end{enumerate}
+	{\bf Global Scenario:}\\
+	\noindent\fbox{
+		\parbox{0.85\textwidth}{
+			\begin{itemize}
+				\item {$S_{1}$:} System re-asks user if they want to cancel the ride.
+				\item {$E_{1}$:} User indicates that they are sure they want to cancel the ride.
+				\item {$S_{2}$:} System notifies the driver that the ride has been canceled.
+			\end{itemize}
+		}
+	}
+	\item Login/logout of an account
+	\begin{enumerate}[{\bf VP1.}]
+		\item Passenger \\
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System prompts passenger for login information (username and password).
+					\item {$E_{1}$:} Passenger inputs their information.
+					\item {$S_{2}$:} System checks if username and password matches any accounts information. \begin{itemize}
+						\item[] $S_{2.1}$: Customers login info matches an account and they are granted access.
+						\item[]$S_{2.2}$: Customers login does not match an account \textbf{\color{red}\textlangle Branch to VP1.S1 \textrangle}
+					\end{itemize}
+				\end{itemize}
+			}
+		}
+		\item Driver \\
+		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
+	\end{enumerate}
+	{\bf Global Scenario:}\\
+	\noindent\fbox{
+		\parbox{0.85\textwidth}{
+			\begin{itemize}
+				\item {$S_{1}$:} System re-asks user if they want to cancel the ride.
+				\item {$E_{1}$:} User indicates that they are sure they want to cancel the ride.
+				\item {$S_{2}$:} System notifies the driver that the ride has been canceled.
+			\end{itemize}
+		}
+	}
+	\item Edit payment information
+	\begin{enumerate}[{\bf VP1.}]
+		\item Passenger \\
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System authenticates user login and displays current payment method information (e.g., cards/email/PayPal).
+					\item {$E_{1}$:} User selects payment method desired to modify.
+					\item {$S_{2}$:} System allows for modification of payment method.
+					\item {$E_{1}$:} User inputs new information.
+					\item {$S_{2}$:} System saves edited information to the database.
+				\end{itemize}
+			}
+		}
+		\item Driver \\
+		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
+	\end{enumerate}
+	{\bf Global Scenario:}\\
+	\noindent\fbox{
+		\parbox{0.85\textwidth}{
+			\begin{itemize}
+				\item {$S_{1}$:} System authenticates user login and displays current payment method information (e.g., cards/email/PayPal).
+				\item {$E_{1}$:} User selects payment method desired to modify.
+				\item {$S_{2}$:} System allows for modification of payment method.
+				\item {$E_{1}$:} User inputs new information.
+				\item {$S_{2}$:} System saves edited information to the database.
+			\end{itemize}
+		}
+	}
+	\item Redeem a free ride
+	\begin{enumerate}[{\bf VP1.}]
+		\item Passenger \\
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System checks if the user has a free ride available. \begin{itemize}
+						\item[] $S_{1.1}$: System confirms that the user has a free ride available. System prompts user for a 
+						response with a display message: “Do you want to redeem a free ride?” 
+						\item[]$S_{1.2}$: System confirms that the user does not currently have a free ride available. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\end{itemize}
+					\item {$E_{1}$:} User responds to the system's prompt. \begin{itemize}
+						\item[] $E_{1.1}$: User responds with “No” and decides not to redeem a free ride. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[]$E_{1.2}$: User responds with “Yes” and would like to redeem a free ride.
+					\end{itemize}
+					\item {$S_{2}$:} System consumes the free ride coupon and removes the coupon (remove one if the user has more than one free-ride coupon) from the user's list of coupons/promotions available.
+					\item {$E_{2}$:} User proceeds with confirming their travel route. \textbf{\color{red}\textlangle Branch to BE1 \textrangle}
+				\end{itemize}
+			}
+		}
+		\item Driver \\
+		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
+	\end{enumerate}
+	{\bf Global Scenario:}\\
+	\noindent\fbox{
+		\parbox{0.85\textwidth}{
+			\begin{itemize}
+				\item {$S_{1}$:} .
+			\end{itemize}
+		}
+	}
 \end{enumerate}
 
-%	Below, we organize by Business Event.
-%	\begin{enumerate}[{BE}1.]
-%		\item Business Event name
-%		\begin{enumerate}[{VP1}.1]
-%			\item Viewpoint name \newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{n}$:}  Response of the system to $E_{(n-1)}$
-%						\item {\bf $E_{n}$:}  Reaction of the environment to $E_{(n-1)}$
-%						\item {\bf $S_{(n+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item Viewpoint name\newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{k}$:}  Response of the system to $E_{(k-1)}$
-%						\item {\bf $E_{k}$:}  Reaction of the environment to $E_{(k-1)}$
-%						\item {\bf $S_{(k+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item \dots
-%			\item \dots
-%			\item \dots
-%			\item[\dots]
-%		\end{enumerate}	
-%		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE1.\newline
-%		\noindent\fbox{%
-%			\parbox{0.5\textwidth}{%
-%				\begin{itemize}
-%					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%					\item[] $\cdots$
-%					\item {\bf $S_{m}$:}  Response of the system to $E_{(m-1)}$
-%					\item {\bf $E_{m}$:}  Reaction of the environment to $E_{(m-1)}$
-%					\item {\bf $S_{(m+1)}$:} Final response of the system concluding its function regarding the Business Event
-%				\end{itemize}
-%			}%
-%		}	
-%		%\end{enumerate}
-%		\item Business Event name
-%		\begin{enumerate}[{VP1}.1]
-%			\item Viewpoint name \newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{n'}$:}  Response of the system to $E_{(n'-1)}$
-%						\item {\bf $E_{n'}$:}  Reaction of the environment to $E_{(n'-1)}$
-%						\item {\bf $S_{(n'+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item Viewpoint name\newline
-%			\noindent\fbox{%
-%				\parbox{0.5\textwidth}{%
-%					\begin{itemize}
-%						\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%						\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%						\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%						\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%						\item[] $\cdots$
-%						\item {\bf $S_{k'}$:}  Response of the system to $E_{(k'-1)}$
-%						\item {\bf $E_{k'}$:}  Reaction of the environment to $E_{(k'-1)}$
-%						\item {\bf $S_{(k'+1)}$:} Final response of the system concluding its function regarding the Business Event
-%					\end{itemize}
-%				}%
-%			}
-%			\item \dots
-%			\item \dots
-%			\item \dots
-%			\item[\dots]
-%		\end{enumerate}	
-%		\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE2.\newline
-%		\noindent\fbox{%
-%			\parbox{0.5\textwidth}{%
-%				\begin{itemize}
-%					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
-%					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
-%					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
-%					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
-%					\item[] $\cdots$
-%					\item {\bf $S_{m'}$:}  Response of the system to $E_{(m'-1)}$
-%					\item {\bf $E_{m'}$:}  Reaction of the environment to $E_{(m'-1)}$
-%					\item {\bf $S_{(m'+1)}$:} Final response of the system concluding its function regarding the Business Event
-%				\end{itemize}
-%			}%
-%		}		
-%	\end{enumerate}
+% Below, we organize by Business Event.
+% \begin{enumerate}[{BE}1.]
+% 	\item Business Event name
+% 	\begin{enumerate}[{VP1}.1]
+% 		\item Viewpoint name \newline
+% 		\noindent\fbox{%
+% 			\parbox{0.5\textwidth}{%
+% 				\begin{itemize}
+% 					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+% 					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+% 					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+% 					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+% 					\item[] $\cdots$
+% 					\item {\bf $S_{n}$:}  Response of the system to $E_{(n-1)}$
+% 					\item {\bf $E_{n}$:}  Reaction of the environment to $E_{(n-1)}$
+% 					\item {\bf $S_{(n+1)}$:} Final response of the system concluding its function regarding the Business Event
+% 				\end{itemize}
+% 			}%
+% 		}
+% 		\item Viewpoint name\newline
+% 		\noindent\fbox{%
+% 			\parbox{0.5\textwidth}{%
+% 				\begin{itemize}
+% 					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+% 					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+% 					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+% 					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+% 					\item[] $\cdots$
+% 					\item {\bf $S_{k}$:}  Response of the system to $E_{(k-1)}$
+% 					\item {\bf $E_{k}$:}  Reaction of the environment to $E_{(k-1)}$
+% 					\item {\bf $S_{(k+1)}$:} Final response of the system concluding its function regarding the Business Event
+% 				\end{itemize}
+% 			}%
+% 		}
+% 		\item \dots
+% 		\item \dots
+% 		\item \dots
+% 		\item[\dots]
+% 	\end{enumerate}	
+% 	\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE1.\newline
+% 	\noindent\fbox{%
+% 		\parbox{0.5\textwidth}{%
+% 			\begin{itemize}
+% 				\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+% 				\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+% 				\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+% 				\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+% 				\item[] $\cdots$
+% 				\item {\bf $S_{m}$:}  Response of the system to $E_{(m-1)}$
+% 				\item {\bf $E_{m}$:}  Reaction of the environment to $E_{(m-1)}$
+% 				\item {\bf $S_{(m+1)}$:} Final response of the system concluding its function regarding the Business Event
+% 			\end{itemize}
+% 		}%
+% 	}	
+% 	%\end{enumerate}
+% 	\item Business Event name
+% 	\begin{enumerate}[{VP1}.1]
+% 		\item Viewpoint name \newline
+% 		\noindent\fbox{%
+% 			\parbox{0.5\textwidth}{%
+% 				\begin{itemize}
+% 					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+% 					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+% 					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+% 					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+% 					\item[] $\cdots$
+% 					\item {\bf $S_{n'}$:}  Response of the system to $E_{(n'-1)}$
+% 					\item {\bf $E_{n'}$:}  Reaction of the environment to $E_{(n'-1)}$
+% 					\item {\bf $S_{(n'+1)}$:} Final response of the system concluding its function regarding the Business Event
+% 				\end{itemize}
+% 			}%
+% 		}
+% 		\item Viewpoint name\newline
+% 		\noindent\fbox{%
+% 			\parbox{0.5\textwidth}{%
+% 				\begin{itemize}
+% 					\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+% 					\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+% 					\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+% 					\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+% 					\item[] $\cdots$
+% 					\item {\bf $S_{k'}$:}  Response of the system to $E_{(k'-1)}$
+% 					\item {\bf $E_{k'}$:}  Reaction of the environment to $E_{(k'-1)}$
+% 					\item {\bf $S_{(k'+1)}$:} Final response of the system concluding its function regarding the Business Event
+% 				\end{itemize}
+% 			}%
+% 		}
+% 		\item \dots
+% 		\item \dots
+% 		\item \dots
+% 		\item[\dots]
+% 	\end{enumerate}	
+% 	\item[] {\bf Global Scenario of {\it Business Event Name}:} It is the scenario corresponding to the integration of all the above scenarios from the different Viewpoints of the Business Event BE2.\newline
+% 	\noindent\fbox{%
+% 		\parbox{0.5\textwidth}{%
+% 			\begin{itemize}
+% 				\item {\bf $S_{1}$:} Initial response of the system to the Business Event
+% 				\item {\bf $E_{1}$:}  Reaction of the environment to $S_{1}$
+% 				\item {\bf $S_{2}$:}  Response of the system to $E_{1}$
+% 				\item {\bf $E_{2}$:}  Reaction of the environment to $S_{2}$
+% 				\item[] $\cdots$
+% 				\item {\bf $S_{m'}$:}  Response of the system to $E_{(m'-1)}$
+% 				\item {\bf $E_{m'}$:}  Reaction of the environment to $E_{(m'-1)}$
+% 				\item {\bf $S_{(m'+1)}$:} Final response of the system concluding its function regarding the Business Event
+% 			\end{itemize}
+% 		}%
+% 	}		
+% \end{enumerate}
 
 %End Section
 
@@ -410,7 +629,7 @@ The following requirements are usually delayed until later versions to meet the 
 \begin{itemize}
 	\item For each non-functional requirement, provide a justification/rationale for it.\\
 	{\bf Example:} \\
-	SC1. \emph{The device should not explode in a customer’s pocket.}\\
+	SC1. \emph{The device should not explode in a customer's pocket.}\\
 	{\bf Rationale:} Other companies have had issues with the batteries they used in their phones randomly exploding [insert citation]. This causes a safety issue, as the phone is often carried in a person's hand or pocket.	
 	\item If you need to make a guess because you couldn't really talk to stakeholders, you can say "We imagined stakeholders would want...because..."
 	\item Each requirement should have a unique label/number for it.
@@ -421,14 +640,16 @@ The following requirements are usually delayed until later versions to meet the 
 \subsection{Look and Feel Requirements}
 \label{sub:look_and_feel_requirements}
 % Begin SubSection
-
 \subsubsection{Appearance Requirements}
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF-A}1. ]
-	\item The app should have a modern aesthetic to it, conforming to a standardized colour scheme which is to be used throughout the app. The choice of colour should be consistent all throughout the app and the must provide enough vibrance amongst each other so that in no shape of form gives off a “dull” image.
-	\item The app should be organized by related content with little to no cluttering of text/images to provide for visually appealing and easy to read navigation. The cluttering of text/images should follow a basis of having at minimum 5 vw/vh between unrelated images/text bodies and 2.5 vw/vh for related ones.
-	\item The font family will remain consistent throughout the interface of the app. The size of the font will be increased amongst reasonable intervals and there shall be no difference in text size which varies ever so slightly.  There shall not be font size of something of the sort: 13.5, 13.7 and 13.9. Instead, a font size with more appropriate intervals will be an interval of 10, 12, 16 as it provides an easy way to distinguish the size of the text and remain consistent all throughout the app.
+	\item The app should have a modern aesthetic to it, conforming to a standardized colour scheme which is to be used throughout the app. The choice of colour should be consistent all throughout the app and the must provide enough vibrance amongst each other so that in no shape of form gives off a “dull” image.\\
+	{\bf Rationale:} Having a modern aesthetic and consistent color scheme help create a more engaging and enjoyable user experience while also reinforcing the brand and establishing a sense of professionalism. The vibrance also makes the app more accessible for those with visual impairments.
+	\item The app should be organized by related content with little to no cluttering of text/images to provide for visually appealing and easy to read navigation. The cluttering of text/images should follow a basis of having at minimum 5 vw/vh between unrelated images/text bodies and 2.5 vw/vh for related ones.\\
+	{\bf Rationale:} Organizing content and following a reasonable minimum spacing guideline help create a visually appealing and user-friendly experience that is easy to navigate and accessible to all users.
+	\item The font family will remain consistent throughout the interface of the app. The size of the font will be increased amongst reasonable intervals and there shall be no difference in text size which varies ever so slightly.  There shall not be font size of something of the sort: 13.5, 13.7 and 13.9. Instead, a font size with more appropriate intervals will be an interval of 10, 12, 16 as it provides an easy way to distinguish the size of the text and remain consistent all throughout the app.\\
+	{\bf Rationale:} Consistent font sizes make it easier for users to read and understand the text. If there are variations in font size, it can cause confusion and make it difficult for users to read and comprehend the content. 
 \end{enumerate}
 % End SubSubSection
 
@@ -436,7 +657,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:style_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF-S}1. ]
-	\item The app shall have a monochromatic appearance, with appropriate font size and font type.
+	\item The app shall have a monochromatic appearance, with appropriate font size and font type.\\
+	{\bf Rationale:} See rationale for LF-A1.
 \end{enumerate}
 % End SubSubSection
 
@@ -452,7 +674,8 @@ The following requirements are usually delayed until later versions to meet the 
 \begin{enumerate}[{UH-EOU}1. ]
 	\item The app should be relatively easy to learn for beginners and should require no more than 3 minutes of tutorial time to learn. A tutorial will be provided upon creating of a new account that helps navigate the user through the app if they so choose to.
 	\item ll accessibility and navigation buttons should be intuitive and easy to find. Likewise, the content should be organized in a way so that finding related content is relatively easy and intuitive.
-	\item The app should be accessible, and convenient for the general public to use. The app shall allow users to create an account through various forms of media (e.g. Gmail OAuth, SMS Login, Apple Login, etc...) so that users with only one source of media are not limited.
+	\item The app should be accessible, and convenient for the general public to use. The app shall allow users to create an account through various forms of media (e.g. Gmail OAuth, \textbf{SMS} Login, Apple Login, etc...) so that users with only one source of media are not limited.\\
+	{\bf Rationale:} The requirement for all accessibility and navigation buttons to be intuitive and easy to find ensures that users can easily navigate the app's interface and access the content they need. Organizing related content in an easy and intuitive way improves user experience and minimizes frustration when searching for information.
 \end{enumerate}
 % End SubSubSection
 
@@ -460,7 +683,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:personalization_and_internationalization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-PI}1. ]
-	\item The app shall have the basic US English language implemented in its initial run and can take on various languages afterwards.
+	\item The app shall have the basic US English language implemented in its initial run and can take on various languages afterwards.\\
+	{\bf Rationale:} Initial target audience is based in US and Canada, whose primary languages are both English. Internationalization will be considered in later iterations of the application, in which other languages mu
 \end{enumerate}
 % End SubSubSection
 
@@ -468,7 +692,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-L}1. ]
-	\item The app should not require users to have any pre-existing knowledge beside knowing where the user wants to get to.
+	\item The app should not require users to have any pre-existing knowledge beside knowing where the user wants to get to.\\
+	{\bf Rationale:} An application that does not require pre-existing knowledge is more accessible to users with varying levels of technical expertise, which leads to greater accessibility and market audiences.
 \end{enumerate}
 % End SubSubSection
 
@@ -476,8 +701,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-UP}1. ]
-	\item The carpool app should not make use of any vulgar speech in any dialogue/informational sections throughout the app.
-	\item Has buttons labelled with different actions the user can take.
+	\item The carpool app should not make use of any vulgar speech in any dialogue/informational sections throughout the app.\\
+	{\bf Rationale:} The carpool app should be appropriate to use for all ages and should maintain a degree of professionalism. Vulgar speech can limit the target audience and impair reputation.
+	\item Has buttons labelled with different actions the user can take.\\
+	{\bf Rationale:} It should be clear to users what they are doing when interacting with the app.
 \end{enumerate}
 % End SubSubSection
 
@@ -485,7 +712,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH-A}1. ]
-	\item App must have a text-to-speech functionality for visually impaired users.
+	\item App must have a text-to-speech functionality for visually impaired users.\\
+	{\bf Rationale:} Visually impaired users are unable to see the user interface, and thus they are not able to use the app's functionality even though they are just as capable of using the carpool's services. Text-to-speech increases accessibility for those that are visually impaired.
 \end{enumerate}
 % End SubSubSection
 
@@ -499,8 +727,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SL}1. ]
-	\item The app should run reliably fast with a responsive user interface with minimal lag. The latency shall not exceed 200ms when transitioning between different pages on the app and that new content should be displayed within the 200ms.
-	\item The app must also calculate a suitable travel route for carpool users within 5 seconds of matching.
+	\item The app should run reliably fast with a responsive user interface with minimal lag. The latency shall not exceed 200ms when transitioning between different pages on the app and that new content should be displayed within the 200ms.\\
+	{\bf Rationale:} A slow user interface risks users losing patience, becoming frustrated, and tending towards competitors. This is vice-versa with consistently high-responsive user interface. Google recommends aiming for a latency of no more than 200ms, and that it is consistent for all users.$^1$
+	\item The app must also calculate a suitable travel route for carpool users within 5 seconds of matching.\\
+	{\bf Rationale:} Similar rationale to PR-SL1. However, since calculating routes take up much more computational power than displaying context on a screen, a time of 5 seconds accounts for that while maintaining a degree of efficiency.
 \end{enumerate}
 % End SubSubSection
 
@@ -508,10 +738,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SC}1. ]
-	\item The system should provide information about the correct vehicle for their trip. This includes the make/model of the car that the driver is driving, the license plate attributed with the car, and the location of the car/driver when they are ready to receive passengers.
-	\item Route should not be recalculated when driver is in motion. Travel route should only be able to be changed/updated accordingly if there’s a faster route (e.g., due to traffic or something) and that the car has been stationary for at least 15 seconds.
-	\item The system should ensure that the drivers are physically well before allowing them to take customers.
-	\item System should not disclose personal information of any user to other user. This includes the profile of the user along with any information that may identify the passengers who are carpooling in.
+	\item The system should provide information about the correct vehicle for their trip. This includes the make/model of the car that the driver is driving, the license plate attributed with the car, and the location of the car/driver when they are ready to receive passengers.\\
+	{\bf Rationale:} Ensuring correct information helps to ensure that passengers are getting into the correct vehicle with a verified driver, and not unauthorized or unsafe vehicles/drivers. This prevents instances of fraud, theft, or other safety concerns. 
+	\item Route should not be recalculated when driver is in motion. Travel route should only be able to be changed/updated accordingly if there's a faster route (e.g., due to traffic or something) and that the car has been stationary for at least 15 seconds.\\
+	{\bf Rationale:} This helps to ensure that the driver remains focused on the road and does not become distracted by changes to the travel route. 
 \end{enumerate}
 % End SubSubSection
 
@@ -519,8 +749,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-PA}1. ]
-	\item The locations of pick-up/destinations should be accurate within 50m.
-	\item Estimated times of pickup/arrival should be accurate within 5 minutes.
+	\item The locations of pick-up/destinations should be accurate within 50m.\\
+	{\bf Rationale:} Inaccurate destinations cause inconveniences for all parties participating in the carpool, such as having to walk further than expected or missing the carpool altogether because the taxi's location is inaccessible from the user's location. 
+	\item Estimated times of pickup/arrival should be accurate within 5 minutes.\\
+	{\bf Rationale:} Inaccurate pickup/arrival times cause unnecessary delays (early arrival delays the taxi and late arrival delays the user). This may turn people away from using the app as this is an inconvenience to all parties participating in the carpool. 
 \end{enumerate}
 % End SubSubSection
 
@@ -528,7 +760,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
-	\item The app should functionally run with an uptime of 100\%.
+	\item The app should functionally run with an uptime of 100\%.\\
+	{\bf Rationale:} While it is not safety-critical to have the app crash or go on maintenance, any downtime directly affects any users that are looking for carpools, in a carpool. This can also cause confusion and complications between users and the taxi company in terms of payment. Furthermore, it may turn customers away from using the app is it is not reliable. Many of today's leading SaaS vendors offer at least 99.5\% availability.$^2$
 \end{enumerate}
 % End SubSubSection
 
@@ -536,8 +769,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RFT}1. ]
-	\item In the event of an internet outage, the system should prevent users from using the app, and should Continue displaying any committed trips.
-	\item In the event the system goes down, any ongoing trips should continue.
+	\item In the event of an internet outage, the system should prevent users from using the app, and should Continue displaying any committed trips.\\
+	{\bf Rationale:} 
+	\item In the event the system goes down, any ongoing trips should continue.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -545,8 +780,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-C}1. ]
-	\item The functional capacity of the app should scale with the number of users.
-	\item The application installation size shall not exceed 40 MB.
+	\item The functional capacity of the app should scale with the number of users.\\
+	{\bf Rationale:} 
+	\item The application installation size shall not exceed 40 MB.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -554,7 +791,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-SE}1. ]
-	\item The system shall adapt to any increase in user influx while maintaining performance.
+	\item The system shall adapt to any increase in user influx while maintaining performance.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -562,7 +800,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-L}1. ]
-	\item The application will be operational until the service is no longer required by a minimum population of users.
+	\item The application will be operational until the service is no longer required by a minimum population of users.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -576,7 +815,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{OE-EPE}1. ]
-	\item Expected physical environments include urbanized areas which have paved roads and cellular/wireless connectivity.
+	\item Expected physical environments include urbanized areas which have paved roads and cellular/wireless connectivity.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -584,7 +824,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE-IA}1. ]
-	\item All the tech stack used in the development of the carpool app is expected to interface correctly with all other components of our app. In extreme cases where any of the interfaces (e.g. Google Maps API/MongoDB) exhibits severely poor performance, it may recommended to swap out the interface with another one similar (e.g. OpenLayers/MySQL).
+	\item All the tech stack used in the development of the carpool app is expected to interface correctly with all other components of our app. In extreme cases where any of the interfaces (e.g. Google Maps \textbf{API}/MongoDB) exhibits severely poor performance, it may recommended to swap out the interface with another one similar (e.g. OpenLayers/MySQL).\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -592,8 +833,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-P}1. ]
-	\item System should must be tested on multiple devices before deployment.
-	\item System should be accessible to customers In the GoPlay store.
+	\item System should must be tested on multiple devices before deployment.\\
+	{\bf Rationale:} 
+	\item System should be accessible to customers In the \textbf{GoPlay} store.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -601,7 +844,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE-R}1. ]
-	\item The application shall be released to the GoPlay store.
+	\item The application shall be released to the \textbf{GoPlay} store.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -615,8 +859,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-M}1. ]
-	\item In the event that maintenance/shutdown is required, users must be informed via the app’s homepage a week in advance.
-	\item New feature updates should not conflict with previous versions of the app and can be pulled by updating through the App/Google Play store when users decide to update the app - This can also be set to automatic for automatic updates.
+	\item In the event that maintenance/shutdown is required, users must be informed via the app's homepage a week in advance.\\
+	{\bf Rationale:} 
+	\item New feature updates should not conflict with previous versions of the app and can be pulled by updating through the App/Google Play store when users decide to update the app - This can also be set to automatic for automatic updates.\\
+	{\bf Rationale:} 
 \end{enumerate}
 % End SubSubSection
 
@@ -624,9 +870,12 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-S}1. ]
-	\item Forward Compatibility with Android devices in newer versions.
-	\item The repo to the project’s main repository shall be made public to allow for improvements and suggestions from other developers.
-	\item The source code shall be fully documented through Javadoc comments and shall adhere to correct coding styles.
+	\item Forward Compatibility with Android devices in newer versions.\\
+	{\bf Rationale:} Naturally, the general population will update their devices when newer versions of Android releases. This should not break or crash the application, as people seldomly rollback versions just to use the app.
+	\item The repo to the project's main repository shall be made public to allow for improvements and suggestions from other developers.\\
+	{\bf Rationale:} Along with users, other developers can provide valuable feedback, particularly things that are too technical for a user to notice. Having more feedback and improvement ideas help support the app with bug fixes, missing features, and so forth.
+	\item The source code shall be fully documented through Javadoc comments and shall adhere to correct coding styles.\\
+	{\bf Rationale:} Having coding standards make it easier for the project to be maintained and extended. Consist coding styles and thorough comments allow anyone involved in the project to look at any part of the code, comprehend it, and change it regardless of when it was written during the project. It will also reduce code complexity, which in turn is more likely be better safeguarded against bugs.
 \end{enumerate}
 % End SubSubSection
 
@@ -634,7 +883,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS-A}1. ]
-	\item The app shall be accessible on the GoPlay store.
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
@@ -648,7 +897,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AC}1. ]
-	\item Users can only access their accounts after entering their own set password and email.
+	\item Users can only access their accounts after entering their own set password and email.\\
+	{\bf Rationale:} Sensitive information are stored in accounts and should remain confidential to the user. Unwanted access can lead to a violation of LR1. and unwanted use of the app. 
 \end{enumerate}
 % End SubSubSection
 
@@ -664,8 +914,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-P}1. ]
-	\item User's private information will always be kept private and only accessible by the user and certain components of the application.
-	\item All personal data stored in the database shall be encrypted, and data shall only be decrypted once the user has authorized access to view or modify the information. 
+	\item User's private information will always be kept private and only accessible by the user and certain components of the application.\\
+	{\bf Rationale:} By assuring users that their personal information will be kept confidential and secure, it builds trust between the users and the software application, leading to increased user adoption and retention. 
+	\item All personal data stored in the database shall be encrypted, and data shall only be decrypted once the user has authorized access to view or modify the information.\\
+	\item {\bf Rationale:} This adds another layer of security to ensure any unauthorised access of the database will not be able to retrieve any sensitive information about users. 
 \end{enumerate}
 % End SubSubSection
 
@@ -673,7 +925,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:audit_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR-AU}1. ]
-	\item Internal audits will be conducted once every month per fiscal period and external audits will be conducted at random intervals throughout the fiscal year to check for discrepancies.
+	\item Internal audits will be conducted once every month per fiscal period and external audits will be conducted at random intervals throughout the fiscal year to check for discrepancies.\\
+	{\bf Rationale:} By conducting internal and external audits, the software application can demonstrate its commitment to compliance with regulatory requirements and best practices, build trust with users and stakeholders, and reduce the risk of financial and reputational losses by detecting and acting on discrepancies.$^3$
 \end{enumerate}
 % End SubSubSection
 
@@ -695,7 +948,8 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP-C}1. ]
-	\item Documentation shall include an inclusion and diversity statement to ensure all users have the right to access and utilize the website.
+	\item Documentation shall include an inclusion and diversity statement to ensure all users have the right to access and utilize the website.\\
+	{\bf Rationale:} As the target audience is made up of a range of different social and ethnic backgrounds, genders, ages, etc., the app should demonstrate a commitment to building an inclusive and welcoming product for all people. 
 \end{enumerate}
 % End SubSubSection
 
@@ -717,8 +971,10 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-COMP}1. ]
-	\item The application shall not violate any Canadian or American laws. For instance, all data will be encrypted so that personal information privacy is preserved.
-	\item Payment and Income logs shall be stored for tax purposes and accounting.
+	\item The application shall not violate any Canadian or American laws. For instance, all data will be encrypted so that personal information privacy is preserved.\\
+	{\bf Rationale:} By complying with laws such as the Personal Information Protection and Electronic Documents Act (PIPEDA) in Canada, the application can avoid any legal liabilities and potential lawsuits.$^4$
+	\item Payment and Income logs shall be stored for tax purposes and accounting.\\
+	{\bf Rationale:} The logs help ensure compliance with tax laws, such as the Internal Revenue Service (IRS) in the United States and the Canada Revenue Agency (CRA) in Canada. By keeping detailed records of all financial transactions, the software application can provide an accurate record of income and expenses, and thus tax returns.$^5$
 \end{enumerate}
 % End SubSubSection
 
@@ -726,7 +982,7 @@ The following requirements are usually delayed until later versions to meet the 
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-STD}1. ]
-	\item All drivers must have obtained their permanent driving license (e.g. G license at minimum) in order to qualify as an employee who can transport users around the city.
+	\item N/A
 \end{enumerate}
 % End SubSubSection
 
