@@ -259,8 +259,7 @@ The viewpoints we will consider are:
     \item[] \textbf{VP1.} Requester
     \item[] \textbf{VP2.} Offerer
 \end{enumerate}
-
-\noindent {\bf Interpretation:} Specify any liberties you took in interpreting business events, if necessary.\\
+Some business events only have 1 viewpoint, the passenger. This represents both the requester and offerer as their course of action will not differ from each other.
 
 \begin{enumerate}[{\bf BE1.}]
 	\item Partake in a ride
@@ -277,7 +276,7 @@ The viewpoints we will consider are:
 						\end{itemize}
 						\item {$E_{2}$:} User decides whether to choose any of the carpool events. \begin{itemize}
 							\item[] $E_{2.1}$: Requester rejects all carpool events. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-							\item[]$E_{2.2}$: Requester chooses a carpool event.
+							\item[] $E_{2.2}$: Requester chooses a carpool event.
 						\end{itemize}
 						\item {$S_{3}$:} System notifies offerer of the request.
 					\end{itemize}
@@ -294,11 +293,11 @@ The viewpoints we will consider are:
 					\item {$E_{1}$:} Passenger inputs a pickup location and a destination point, as well as any optional information.
 					\item {$S_{2}$:} System checks if there are any available carpoolers. \begin{itemize}
 						\item[] $S_{2.1}$: There are no available carpool events. The system displays that there are no available carpools \textbf{\color{red}\textlangle Branch EXIT \textrangle}.
-						\item[]$S_{2.2}$: There are available carpool events. The system lists out the Carpool events that correspond to the users inputted preferences, as well as a choice to reject all carpool events.
+						\item[] $S_{2.2}$: There are available carpool events. The system lists out the Carpool events that correspond to the users inputted preferences, as well as a choice to reject all carpool events.
 					\end{itemize}
 					\item {$E_{2}$:} User decides whether to choose any of the carpool events. \begin{itemize}
 						\item[] $E_{2.1}$: Requester rejects all carpool events. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-						\item[]$E_{2.2}$: Requester chooses a carpool event.
+						\item[] $E_{2.2}$: Requester chooses a carpool event.
 					\end{itemize}
 					\item {$S_{3}$:} System notifies offerer of the request.
 				\end{itemize}
@@ -316,7 +315,7 @@ The viewpoints we will consider are:
 					\end{itemize}
 					\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
 						\item[] $E_{1.1}$: Passenger skips the review process. \textbf{\color{red}\textlangle Branch BE2.VP1.S3 \textrangle}
-						\item[]$E_{1.2}$: Passenger inputs a valid response (i.e., gives a rating and a potential message response) to the system
+						\item[] $E_{1.2}$: Passenger inputs a valid response (i.e., gives a rating and a potential message response) to the system
 					\end{itemize}
 					\item {$S_{2}$:} System receives a valid response and updates the individual's profile with the new rating.
 					\item {$E_{2}$:} Passenger is notified of the change(s) made or the cancellation process.
@@ -337,7 +336,7 @@ The viewpoints we will consider are:
 				\end{itemize}
 				\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
 					\item[] $E_{1.1}$: Passenger skips the review process. \textbf{\color{red}\textlangle Branch GS2.S3 \textrangle}
-					\item[]$E_{1.2}$: Passenger inputs a valid response (i.e., gives a rating and a potential message response) to the system
+					\item[] $E_{1.2}$: Passenger inputs a valid response (i.e., gives a rating and a potential message response) to the system
 				\end{itemize}
 				\item {$S_{2}$:} System receives a valid response and updates the individual's profile with the new rating.
 				\item {$E_{2}$:} Passenger is notified of the change(s) made or the cancellation process.
@@ -357,7 +356,7 @@ The viewpoints we will consider are:
 					\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
 						\item[] $E_{1.1}$: Passenger does not make any new changes to their profile or discards their 
 						current changes. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-						\item[]$E_{1.2}$: Passenger makes new changes to their profile. 
+						\item[] $E_{1.2}$: Passenger makes new changes to their profile. 
 					\end{itemize}
 					\item {$S_{2}$:} System updates the personal information of user and allows carpool services under the account and returns the user back to the settings page.
 				\end{itemize}
@@ -372,34 +371,62 @@ The viewpoints we will consider are:
 				\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
 					\item[] $E_{1.1}$: Passenger does not make any new changes to their profile or discards their 
 					current changes. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-					\item[]$E_{1.2}$: Passenger makes new changes to their profile. 
+					\item[] $E_{1.2}$: Passenger makes new changes to their profile. 
 				\end{itemize}
 				\item {$S_{2}$:} System updates the personal information of user and allows carpool services under the account and returns the user back to the settings page.
 			\end{itemize}
 		}
 	}
-	\item Cancel a ride
+	\item Offer a ride
 	\begin{enumerate}[{\bf VP1.}]
-		\item Passenger \\
+		\item Requester \\
+		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
+		\item Offerer \\
 		\noindent\fbox{
 			\parbox{0.85\textwidth}{
 				\begin{itemize}
-					\item {$S_{1}$:} System re-asks user if they want to cancel the ride.
-					\item {$E_{1}$:} User indicates that they are sure they want to cancel the ride.
-					\item {$S_{2}$:} System notifies the driver that the ride has been canceled.
+					\item {$S_{1}$:} System prompts offeror to enter their destination, taxi ID, maximum number of customers.
+					\item {$E_{1}$:} Offerer inputs their preferences.
+					\item {$S_{2}$:} System waits for a drive request from a nearby requester, a cancel response from the offeror. \begin{itemize}
+						\item[] $S_{2.1}$: System receives a go forward response from user. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $S_{2.2}$: System receives a cancel request from the user. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $S_{2.3}$: System receives request from requester. System forwards the request to the offeror of the carpool event. In addition, they are presented with changes to their trip fare, distance, and time as well as a \textunderscore{distance - trip fare} ratio.
+					\end{itemize}
+					\item {$E_{2}$:} Offerer can choose whether they want to accept the ride request. \begin{itemize}
+						\item[] $E_{2.1}$: Offerer rejects the request, and the requester is notified \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $E_{2.2}$: Offeror accepts request and requester is notified. 
+					\end{itemize}
+					\item {$S_{3}$:} System asks offeror if they would like to close the carpool event.
+					\item {$E_{3}$:} Offerer chooses whether or not to end the carpool event. \begin{itemize}
+						\item[] $E_{3.1}$: Offerer chooses to proceed (stop looking for requesters) the carpool event. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $E_{3.2}$: Offerer chooses to completely close the carpool event. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $E_{3.3}$: Offeror does not choose to end the carpool event. \textbf{\color{red}\textlangle Branch to BE4.VP2.S2 \textrangle}
+					\end{itemize}
 				\end{itemize}
 			}
 		}
-		\item Driver \\
-		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
 	\end{enumerate}
 	{\bf Global Scenario:}\\
 	\noindent\fbox{
 		\parbox{0.85\textwidth}{
 			\begin{itemize}
-				\item {$S_{1}$:} System re-asks user if they want to cancel the ride.
-				\item {$E_{1}$:} User indicates that they are sure they want to cancel the ride.
-				\item {$S_{2}$:} System notifies the driver that the ride has been canceled.
+				\item {$S_{1}$:} System prompts offeror to enter their destination, taxi ID, maximum number of customers.
+				\item {$E_{1}$:} Offerer inputs their preferences.
+				\item {$S_{2}$:} System waits for a drive request from a nearby requester, a cancel response from the offeror. \begin{itemize}
+					\item[] $S_{2.1}$: System receives a go forward response from user. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $S_{2.2}$: System receives a cancel request from the user. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $S_{2.3}$: System receives request from requester. System forwards the request to the offeror of the carpool event. In addition, they are presented with changes to their trip fare, distance, and time as well as a \textunderscore{distance - trip fare} ratio.
+				\end{itemize}
+				\item {$E_{2}$:} Offerer can choose whether they want to accept the ride request. \begin{itemize}
+					\item[] $E_{2.1}$: Offerer rejects the request, and the requester is notified \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $E_{2.2}$: Offeror accepts request and requester is notified. 
+				\end{itemize}
+				\item {$S_{3}$:} System asks offeror if they would like to close the carpool event.
+				\item {$E_{3}$:} Offerer chooses whether or not to end the carpool event. \begin{itemize}
+					\item[] $E_{3.1}$: Offerer chooses to proceed (stop looking for requesters) the carpool event. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $E_{3.2}$: Offerer chooses to completely close the carpool event. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $E_{3.3}$: Offeror does not choose to end the carpool event. \textbf{\color{red}\textlangle Branch to GS4.S2 \textrangle}
+				\end{itemize}
 			\end{itemize}
 		}
 	}
@@ -410,53 +437,31 @@ The viewpoints we will consider are:
 			\parbox{0.85\textwidth}{
 				\begin{itemize}
 					\item {$S_{1}$:} System prompts passenger for login information (username and password).
-					\item {$E_{1}$:} Passenger inputs their information.
-					\item {$S_{2}$:} System checks if username and password matches any accounts information. \begin{itemize}
+					\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+						\item[] $E_{1.1}$: Passenger chooses “Create an account”. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $E_{1.2}$: Passenger logins with one of the available login options.
+					\end{itemize}
+					\item {$S_{2}$:} System verifies the username and password of the user and checks that the user exists in the database. \begin{itemize}
 						\item[] $S_{2.1}$: Customers login info matches an account and they are granted access.
-						\item[]$S_{2.2}$: Customers login does not match an account \textbf{\color{red}\textlangle Branch to VP1.S1 \textrangle}
+						\item[] $S_{2.2}$: Customers login does not match an account \textbf{\color{red}\textlangle Branch to BE5.VP1.S1 \textrangle}
 					\end{itemize}
 				\end{itemize}
 			}
 		}
-		\item Driver \\
-		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
 	\end{enumerate}
 	{\bf Global Scenario:}\\
 	\noindent\fbox{
 		\parbox{0.85\textwidth}{
 			\begin{itemize}
-				\item {$S_{1}$:} System re-asks user if they want to cancel the ride.
-				\item {$E_{1}$:} User indicates that they are sure they want to cancel the ride.
-				\item {$S_{2}$:} System notifies the driver that the ride has been canceled.
-			\end{itemize}
-		}
-	}
-	\item Edit payment information
-	\begin{enumerate}[{\bf VP1.}]
-		\item Passenger \\
-		\noindent\fbox{
-			\parbox{0.85\textwidth}{
-				\begin{itemize}
-					\item {$S_{1}$:} System authenticates user login and displays current payment method information (e.g., cards/email/PayPal).
-					\item {$E_{1}$:} User selects payment method desired to modify.
-					\item {$S_{2}$:} System allows for modification of payment method.
-					\item {$E_{1}$:} User inputs new information.
-					\item {$S_{2}$:} System saves edited information to the database.
+				\item {$S_{1}$:} System prompts passenger for login information (username and password).
+				\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+					\item[] $E_{1.1}$: Passenger chooses “Create an account”. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $E_{1.2}$: Passenger logins with one of the available login options.
 				\end{itemize}
-			}
-		}
-		\item Driver \\
-		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
-	\end{enumerate}
-	{\bf Global Scenario:}\\
-	\noindent\fbox{
-		\parbox{0.85\textwidth}{
-			\begin{itemize}
-				\item {$S_{1}$:} System authenticates user login and displays current payment method information (e.g., cards/email/PayPal).
-				\item {$E_{1}$:} User selects payment method desired to modify.
-				\item {$S_{2}$:} System allows for modification of payment method.
-				\item {$E_{1}$:} User inputs new information.
-				\item {$S_{2}$:} System saves edited information to the database.
+				\item {$S_{2}$:} System verifies the username and password of the user and checks that the user exists in the database. \begin{itemize}
+					\item[] $S_{2.1}$: Customers login info matches an account and they are granted access.
+					\item[] $S_{2.2}$: Customers login does not match an account \textbf{\color{red}\textlangle Branch to GS5.S1 \textrangle}
+				\end{itemize}
 			\end{itemize}
 		}
 	}
@@ -469,14 +474,48 @@ The viewpoints we will consider are:
 					\item {$S_{1}$:} System checks if the user has a free ride available. \begin{itemize}
 						\item[] $S_{1.1}$: System confirms that the user has a free ride available. System prompts user for a 
 						response with a display message: “Do you want to redeem a free ride?” 
-						\item[]$S_{1.2}$: System confirms that the user does not currently have a free ride available. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $S_{1.2}$: System confirms that the user does not currently have a free ride available. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
 					\end{itemize}
 					\item {$E_{1}$:} User responds to the system's prompt. \begin{itemize}
 						\item[] $E_{1.1}$: User responds with “No” and decides not to redeem a free ride. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-						\item[]$E_{1.2}$: User responds with “Yes” and would like to redeem a free ride.
+						\item[] $E_{1.2}$: User responds with “Yes” and would like to redeem a free ride.
 					\end{itemize}
 					\item {$S_{2}$:} System consumes the free ride coupon and removes the coupon (remove one if the user has more than one free-ride coupon) from the user's list of coupons/promotions available.
-					\item {$E_{2}$:} User proceeds with confirming their travel route. \textbf{\color{red}\textlangle Branch to BE1 \textrangle}
+					\item {$E_{2}$:} User proceeds with confirming their travel route. \textbf{\color{red}\textlangle Branch to BE1.VP1 or BE4.VP2 \textrangle}
+				\end{itemize}
+			}
+		}
+	\end{enumerate}
+	{\bf Global Scenario:}\\
+	\noindent\fbox{
+		\parbox{0.85\textwidth}{
+			\begin{itemize}
+				\item {$S_{1}$:} System checks if the user has a free ride available. \begin{itemize}
+					\item[] $S_{1.1}$: System confirms that the user has a free ride available. System prompts user for a 
+					response with a display message: “Do you want to redeem a free ride?” 
+					\item[] $S_{1.2}$: System confirms that the user does not currently have a free ride available. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+				\end{itemize}
+				\item {$E_{1}$:} User responds to the system's prompt. \begin{itemize}
+					\item[] $E_{1.1}$: User responds with “No” and decides not to redeem a free ride. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $E_{1.2}$: User responds with “Yes” and would like to redeem a free ride.
+				\end{itemize}
+				\item {$S_{2}$:} System consumes the free ride coupon and removes the coupon (remove one if the user has more than one free-ride coupon) from the user's list of coupons/promotions available.
+				\item {$E_{2}$:} User proceeds with confirming their travel route. \textbf{\color{red}\textlangle Branch to BE1.VP1 or BE4.VP2 \textrangle}
+			\end{itemize}
+		}
+	}
+	\item Delete user profile
+	\begin{enumerate}[{\bf VP1.}]
+		\item Passenger \\
+		\noindent\fbox{
+			\parbox{0.85\textwidth}{
+				\begin{itemize}
+					\item {$S_{1}$:} System prompts the passenger if they want to permanently delete their account.
+					\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+						\item[] $E_{1.1}$: Passenger does not want to delete their account. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[] $E_{1.2}$: Passenger confirms that they want to delete their account.
+					\end{itemize}
+					\item {$S_{2}$:} System permanently deletes the account and all information associated with the account and returns the user back to the login/register page.
 				\end{itemize}
 			}
 		}
@@ -487,7 +526,12 @@ The viewpoints we will consider are:
 	\noindent\fbox{
 		\parbox{0.85\textwidth}{
 			\begin{itemize}
-				\item {$S_{1}$:} .
+				\item {$S_{1}$:} System prompts the passenger if they want to permanently delete their account.
+				\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+					\item[] $E_{1.1}$: Passenger does not want to delete their account. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[] $E_{1.2}$: Passenger confirms that they want to delete their account.
+				\end{itemize}
+				\item {$S_{2}$:} System permanently deletes the account and all information associated with the account and returns the user back to the login/register page.
 			\end{itemize}
 		}
 	}
