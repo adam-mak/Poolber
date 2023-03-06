@@ -58,7 +58,7 @@
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-The purpose of this \textbf{SRS} is to define the functionality and characteristics that the carpool app should have. It should provide a detailed overview of all the processes and systems that needs to be present in the final product. It describes the system and user interaction with the application. Intended audience for the \textbf{SRS}:
+The purpose of this \textbf{SRS} is to define the functionality and characteristics that the carpool app should have. It should provide a detailed overview of all the processes and systems that needs to be present in the final product. The \textbf{SRS} will have a descriptive model, which will be represented visually in the form of a use-case diagram.
 \begin{itemize}
 	\item Developers
 	\item UI/UX Designers
@@ -98,18 +98,24 @@ There are no higher-level specifications that exist, thus, any lower-level speci
 	\hline
 	SRS & Simple Message Service \\
 	\hline
+	Passengers & A terminology for both the carpoolers and the requesters\\
+	\hline
 \end{tabular} \end{center}
 % End SubSection
 
 \subsection{References}
 \label{sub:references}
 % Begin SubSection
-\begin{itemize}
-	\item Provide a complete list of all documents referenced elsewhere in the \textbf{SRS}.
-	\item Identify each document by title, report number (if applicable), date, and publishing organization.
-	\item Specify the sources from which the references can be obtained.
-	\item Order this list in some sensible manner (alphabetical by author, or something else that makes more sense).
-\end{itemize}
+APA references sorted by occurence of when they appear in this document.
+\begin{enumerate}
+	\item Simic, S. (2022, December 13). 7 ways to reduce server response time {Improve your server speed}. Knowledge Base by phoenixNAP. Retrieved March 5, 2023, from https://phoenixnap.com/kb/reduce-server-response-time\#:~:text=Google\%20recommends\%20you\%20aim\%20for,on\%20the\%20users'\%20geographical\%20positions.
+	\item Earls, A. R. (2019, July 19). Best practices for negotiating a SAAS SLA: TechTarget. Cloud Computing. Retrieved March 5, 2023, from https://www.techtarget.com/searchcloudcomputing/tip/Negotiate-a-SaaS-SLA-for-compliance-uptime-considerations
+	\item What is an audit? everything about the 3 types of audits. Ageras. (n.d.). Retrieved March 5, 2023, from https://www.ageras.com/blog/what-is-an-audit
+	\item Office of the Privacy Commissioner of Canada. (2021, December 8). The Personal Information Protection and Electronic Documents Act (PIPEDA). Office of the Privacy Commissioner of Canada. Retrieved March 5, 2023, from https://www.priv.gc.ca/en/privacy-topics/privacy-laws-in-canada/the-personal-information-protection-and-electronic-documents-act-pipeda/
+	\item Home. TTA. (1970, February 7). Retrieved March 5, 2023, from https://www.thetransportationalliance.org/
+	\item Business insurance. NFP. (n.d.). Retrieved March 5, 2023, from https://www.nfp.ca/business-insurance/industry-expertise/taxis-limousines-and-busses
+	\item Taxi fare. Taxi Fare - TLC. (n.d.). Retrieved March 5, 2023, from https://www.nyc.gov/site/tlc/passengers/taxi-fare.page
+\end{enumerate}
 % End SubSection
 
 \subsection{Overview}
@@ -158,13 +164,14 @@ The carpooling app uses \textbf{SMS} functionality to provide communication betw
 	\item Users should be able to create and delete accounts, which the system should store.
 	\item The system should check if a user that wants to request/setup a carpool is a registered user. It should reject unregistered users.
 	\item App should have a reward system that allows users to obtain free rides based on their accumulated cost savings.
+	\item App should have a points system that keeps track of costs saved, and reward free rides once a carpooler exceeds a certain number of points.
 \end{itemize}
 % End SubSection
 
 \subsection{User Characteristics}
 \label{sub:user_characteristics}
 % Begin SubSection
-Users include both passengers and drivers, of which age and education level may vary. The users of the product are expected to have a basic knowledge of technology and are familiar with smartphones, which the app is developed for.	 
+Users include both passengers and drivers, of which education level may vary. The users of the product are expected to have a basic knowledge of technology and are familiar with smartphones, which the app is developed for. Also, users must 16 years of age or older to use the app.
 % End SubSection
 
 \subsection{Constraints}
@@ -173,8 +180,8 @@ Users include both passengers and drivers, of which age and education level may 
 \begin{itemize}
 	\item Legal and regulatory restrictions: The developer needs to ensure that the application complies with the local laws and regulations.
 	\item Technical limitations: The developer may face limitations with regards to the technology used to build the application, such as compatibility with different platforms, scalability, and security.
-	\item Competition: They need to differentiate their product and offer unique features.
 	\item Budget and resources: The availability of financial and human resources can impact the scope and timeline of the project.
+	\item Time limits: The project must be completed within the span of 4 months.
 \end{itemize}
 % End SubSection
 
@@ -227,7 +234,7 @@ The following requirements are usually delayed until later versions to meet the 
 % Begin Section
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=30em]{usecase_v2.png}
+	\includegraphics[width=30em]{usecase_v3.png}
 	\caption{Use case diagram of the carpooling application.}
 	\label{fig:usecase}
 \end{figure}
@@ -238,18 +245,19 @@ The following requirements are usually delayed until later versions to meet the 
 % Begin Section
 The business events we will present are:
 \begin{enumerate}
-    \item[] \textbf{BE1.} Partake in a ride
-    \item[] \textbf{BE2.} Leave a rating on the app
+    \item[] \textbf{BE1.} Request a ride
+    \item[] \textbf{BE2.} Arrive at destination
     \item[] \textbf{BE3.} Setup/Update user profile/account information
-    \item[] \textbf{BE4.} Cancel a ride
+    \item[] \textbf{BE4.} Offer a ride
     \item[] \textbf{BE5.} Login/Logout of an account
-    \item[] \textbf{BE6.} Edit Payment Information
+    \item[] \textbf{BE6.} Redeem a free ride
+    \item[] \textbf{BE7.} Delete user profile
 \end{enumerate}
 
 The viewpoints we will consider are:
 \begin{enumerate}
-    \item[] \textbf{VP1.} Passenger
-    \item[] \textbf{VP2.} Driver
+    \item[] \textbf{VP1.} Requester
+    \item[] \textbf{VP2.} Offerer
 \end{enumerate}
 
 \noindent {\bf Interpretation:} Specify any liberties you took in interpreting business events, if necessary.\\
@@ -257,108 +265,85 @@ The viewpoints we will consider are:
 \begin{enumerate}[{\bf BE1.}]
 	\item Partake in a ride
 		\begin{enumerate}[{\bf VP1.}]
-			\item Passenger \\
+			\item Requesters \\
 			\noindent\fbox{
 				\parbox{0.85\textwidth}{
 					\begin{itemize}
-						\item {$S_{1}$:} System asks user for a pickup location and a destination point.
-						\item {$E_{1}$:} Passenger inputs a pickup location and a destination point.
-						\item {$S_{2}$:} System asks if passenger would like to carpool with nearby users travelling in the same general direction.
-						\item {$E_{2}$:} Passenger decides whether to carpool with nearby users. \begin{itemize}
-							\item[] $E_{2.1}$: User inputs their intent to carpool with nearby users. \textbf{\color{red}\textlangle Branch BE1.VP1.S3.1 \textrangle}
-							\item[]$E_{2.2}$: User inputs their intent to not carpool with nearby users. \textbf{\color{red}\textlangle BE1.VP1.1.S3.2 \textrangle}
+						\item {$S_{1}$:} System asks requester for a pickup location and a destination point and allows them to input a search preference (nearest cab, highest rating first, find specific offerer).
+						\item {$E_{1}$:} Passenger inputs a pickup location and a destination point, as well as any optional information.
+						\item {$S_{2}$:} System checks if there are any available carpoolers. \begin{itemize}
+							\item[] $S_{2.1}$: There are no available carpool events. The system displays that there are no available carpools \textbf{\color{red}\textlangle Branch EXIT \textrangle}.
+							\item[]$S_{2.2}$: There are available carpool events. The system lists out the Carpool events that correspond to the users inputted preferences, as well as a choice to reject all carpool events.
 						\end{itemize}
-						\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
-							\item[] $S_{3.1}$: System calculates a one-way route from pickup to destination location with no stops.
-							\item[] $S_{3.2}$: System calculates a suitable route from pickup to destination with the capability of other users partaking in a carpool ride.
+						\item {$E_{2}$:} User decides whether to choose any of the carpool events. \begin{itemize}
+							\item[] $E_{2.1}$: Requester rejects all carpool events. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+							\item[]$E_{2.2}$: Requester chooses a carpool event.
 						\end{itemize}
-						\item {$E_{3}$:} User decides whether to take the ride or not. \begin{itemize}
-							\item[] $E_{3.1}$: User decides to reject the ride. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-							\item[] $E_{3.2}$: User decides to accept the ride. \textbf{\color{red}\textlangle Branch to BE1.VP1.2.S1 \textrangle}
-						\end{itemize}
+						\item {$S_{3}$:} System notifies offerer of the request.
 					\end{itemize}
 				}
 			}
-			\item Driver \\
-			\noindent\fbox{
-				\parbox{0.85\textwidth}{
-					\begin{itemize}
-						\item {$S_{1}$:} System notifies driver to pick up passenger.
-						\item {$E_{1}$:} Driver picks up the passenger and drops them off at their destination.
-					\end{itemize}
-				}
-			}
+			\item Offerer \\
+				\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
 		\end{enumerate}
 		{\bf Global Scenario:}\\
 		\noindent\fbox{
 			\parbox{0.85\textwidth}{
 				\begin{itemize}
-					\item {$S_{1}$:} System asks user for a pickup location and a destination point.
-					\item {$E_{1}$:} Passenger inputs a pickup location and a destination point.
-					\item {$S_{2}$:} System asks if passenger would like to carpool with nearby users travelling in the same general direction.
-					\item {$E_{2}$:} Passenger decides whether to carpool with nearby users. \begin{itemize}
-						\item[] $E_{2.1}$: User inputs their intent to carpool with nearby users. \textbf{\color{red}\textlangle Branch BE1.VP1.S3.1 \textrangle}
-						\item[] $E_{2.2}$: User inputs their intent to not carpool with nearby users. \textbf{\color{red}\textlangle BE1.VP1.1.S3.2 \textrangle}
+					\item {$S_{1}$:} System asks requester for a pickup location and a destination point and allows them to input a search preference (nearest cab, highest rating first, find specific offerer).
+					\item {$E_{1}$:} Passenger inputs a pickup location and a destination point, as well as any optional information.
+					\item {$S_{2}$:} System checks if there are any available carpoolers. \begin{itemize}
+						\item[] $S_{2.1}$: There are no available carpool events. The system displays that there are no available carpools \textbf{\color{red}\textlangle Branch EXIT \textrangle}.
+						\item[]$S_{2.2}$: There are available carpool events. The system lists out the Carpool events that correspond to the users inputted preferences, as well as a choice to reject all carpool events.
 					\end{itemize}
-					\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
-						\item[] $S_{3.1}$: System calculates a one-way route from pickup to destination location with no stops.
-						\item[] $S_{3.2}$: System calculates a suitable route from pickup to destination with the capability of other users partaking in a carpool ride.
+					\item {$E_{2}$:} User decides whether to choose any of the carpool events. \begin{itemize}
+						\item[] $E_{2.1}$: Requester rejects all carpool events. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[]$E_{2.2}$: Requester chooses a carpool event.
 					\end{itemize}
-					\item {$E_{3}$:} User decides whether to take the ride or not. \begin{itemize}
-						\item[] $E_{3.1}$: User decides to reject the ride. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-						\item[] $E_{3.2}$: User decides to accept the ride. \textbf{\color{red}\textlangle Branch to BE1.VP1.2.S1 \textrangle}
-					\end{itemize}
-					\item {$S_{4}$:} System notifies driver to pick up passenger.
-					\item {$E_{4}$:} Driver picks up the passenger and drops them off at their destination.
+					\item {$S_{3}$:} System notifies offerer of the request.
 				\end{itemize}
 			}
 		}
 	\item Leaving a rating on the app
 	\begin{enumerate}[{\bf VP1.}]
-		\item Passenger \\
+		\item Passenger (Requester and Offerer) \\
 		\noindent\fbox{
 			\parbox{0.85\textwidth}{
 				\begin{itemize}
-					\item {$S_{1}$:} System attempts to authenticate the passenger and confirm that passenger has taken a ride previously. \begin{itemize}
-						\item[] $S_{1.1}$: System successfully authenticates the passenger and displays a list of applicable (previous carpool partners) passengers to leave a review for \textbf{\color{red}\textlangle Branch to BE3.VP2.1. \textrangle}
-						\item[]$S_{1.2}$: System fails to authenticate the passenger. \textbf{\color{red}\textlangle Branch EXIT\textrangle} 
+					\item {$S_{1}$:} System attempts to authenticate that the passenger has arrived at their destination point. \begin{itemize}
+						\item[] $S_{1.1}$: System fails to authenticate that the passenger has arrived at the destination point. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[]$S_{1.2}$: System successfully authenticates the passenger and displays a list of applicable (previous carpool partners) passengers to leave a review/rating (/5) for.
 					\end{itemize}
-					\item {$E_{1}$:} Passenger selects an individual to leave a rating for.
-					\item {$S_{2}$:} System receives response and prompts passenger for a message/rating for the selected individual. System waits for user response.
-					\item {$E_{2}$:} Passenger responds to the system \begin{itemize}
-						\item[] $E_{2.1}$: Passenger cancels the review process
-						\item[]$E_{2.2}$: Passenger inputs a valid response (I.e. gives a rating and a potential message response) to the system
+					\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+						\item[] $E_{1.1}$: Passenger skips the review process. \textbf{\color{red}\textlangle Branch BE2.VP1.S3 \textrangle}
+						\item[]$E_{1.2}$: Passenger inputs a valid response (i.e., gives a rating and a potential message response) to the system
 					\end{itemize}
-					\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
-						\item[] $S_{3.1}$: System receives an invalid response (e.g., passenger cancels review process) \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-						\item[] $S_{3.2}$: System receives a valid response and updates the individual's profile with the new rating
-					\end{itemize}
-					\item {$E_{3}$:} Passenger is returned to ratings screen.
+					\item {$S_{2}$:} System receives a valid response and updates the individual's profile with the new rating.
+					\item {$E_{2}$:} Passenger is notified of the change(s) made or the cancellation process.
+					\item {$S_{3}$:} System updates the user's profile with points accumulated from the ride and notifies the user about their updated amount.
+					\item {$E_{3}$:} Passenger is notified and presses "OK".
+					\item {$S_{4}$:} System redirects user to the home page.
 				\end{itemize}
 			}
 		}
-		\item Driver \\
-		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
 	\end{enumerate}
 	{\bf Global Scenario:}\\
 	\noindent\fbox{
 		\parbox{0.85\textwidth}{
 			\begin{itemize}
-				\item {$S_{1}$:} System attempts to authenticate the passenger and confirm that passenger has taken a ride previously. \begin{itemize}
-					\item[] $S_{1.1}$: System successfully authenticates the passenger and displays a list of applicable (previous carpool partners) passengers to leave a review for \textbf{\color{red}\textlangle Branch to BE3.VP2.1. \textrangle}
-					\item[]$S_{1.2}$: System fails to authenticate the passenger. \textbf{\color{red}\textlangle Branch EXIT\textrangle} 
+				\item {$S_{1}$:} System attempts to authenticate that the passenger has arrived at their destination point. \begin{itemize}
+					\item[] $S_{1.1}$: System fails to authenticate that the passenger has arrived at the destination point. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[]$S_{1.2}$: System successfully authenticates the passenger and displays a list of applicable (previous carpool partners) passengers to leave a review/rating (/5) for.
 				\end{itemize}
-				\item {$E_{1}$:} Passenger selects an individual to leave a rating for.
-				\item {$S_{2}$:} System receives response and prompts passenger for a message/rating for the selected individual. System waits for user response.
-				\item {$E_{2}$:} Passenger responds to the system \begin{itemize}
-					\item[] $E_{2.1}$: Passenger cancels the review process
-					\item[]$E_{2.2}$: Passenger inputs a valid response (I.e. gives a rating and a potential message response) to the system
+				\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+					\item[] $E_{1.1}$: Passenger skips the review process. \textbf{\color{red}\textlangle Branch GS2.S3 \textrangle}
+					\item[]$E_{1.2}$: Passenger inputs a valid response (i.e., gives a rating and a potential message response) to the system
 				\end{itemize}
-				\item {$S_{3}$:} System calculates the most suitable path to take to get from pickup location to destination location and display the total cost of travel. \begin{itemize}
-					\item[] $S_{3.1}$: System receives an invalid response (e.g., passenger cancels review process) \textbf{\color{red}\textlangle Branch EXIT \textrangle}
-					\item[] $S_{3.2}$: System receives a valid response and updates the individual's profile with the new rating
-				\end{itemize}
-				\item {$E_{3}$:} Passenger is returned to ratings screen.
+				\item {$S_{2}$:} System receives a valid response and updates the individual's profile with the new rating.
+				\item {$E_{2}$:} Passenger is notified of the change(s) made or the cancellation process.
+				\item {$S_{3}$:} System updates the user's profile with points accumulated from the ride and notifies the user about their updated amount.
+				\item {$E_{3}$:} Passenger is notified and presses "OK".
+				\item {$S_{4}$:} System redirects user to the home page.
 			\end{itemize}
 		}
 	}
@@ -369,21 +354,27 @@ The viewpoints we will consider are:
 			\parbox{0.85\textwidth}{
 				\begin{itemize}
 					\item {$S_{1}$:} System prompts passenger for personal information (Full name, phone number, email).
-					\item {$E_{1}$:} Passenger inputs their information.
-					\item {$S_{2}$:} System stores personal information of user and allows carpool services under the account.
+					\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+						\item[] $E_{1.1}$: Passenger does not make any new changes to their profile or discards their 
+						current changes. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+						\item[]$E_{1.2}$: Passenger makes new changes to their profile. 
+					\end{itemize}
+					\item {$S_{2}$:} System updates the personal information of user and allows carpool services under the account and returns the user back to the settings page.
 				\end{itemize}
 			}
 		}
-		\item Driver \\
-		\noindent\fbox{\parbox{0.85\textwidth}{N/A}}
 	\end{enumerate}
 	{\bf Global Scenario:}\\
 	\noindent\fbox{
 		\parbox{0.85\textwidth}{
 			\begin{itemize}
 				\item {$S_{1}$:} System prompts passenger for personal information (Full name, phone number, email).
-				\item {$E_{1}$:} Passenger inputs their information.
-				\item {$S_{2}$:} System stores personal information of user and allows carpool services under the account.
+				\item {$E_{1}$:} Passenger responds to the system. \begin{itemize}
+					\item[] $E_{1.1}$: Passenger does not make any new changes to their profile or discards their 
+					current changes. \textbf{\color{red}\textlangle Branch EXIT \textrangle}
+					\item[]$E_{1.2}$: Passenger makes new changes to their profile. 
+				\end{itemize}
+				\item {$S_{2}$:} System updates the personal information of user and allows carpool services under the account and returns the user back to the settings page.
 			\end{itemize}
 		}
 	}
@@ -515,7 +506,7 @@ The viewpoints we will consider are:
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF-A}1. ]
-	\item The app should have a modern aesthetic to it, conforming to a standardized colour scheme which is to be used throughout the app. The choice of colour should be consistent all throughout the app and the must provide enough vibrance amongst each other so that in no shape of form gives off a “dull” image.\\
+	\item The app should conform to a standardized colour scheme which is to be used throughout the app. The choice of colour should be consistent all throughout the app and the must provide enough vibrance amongst each other so that in no shape of form gives off a “dull” image.\\
 	{\bf Rationale:} Having a modern aesthetic and consistent color scheme help create a more engaging and enjoyable user experience while also reinforcing the brand and establishing a sense of professionalism. The vibrance also makes the app more accessible for those with visual impairments.
 	\item The app should be organized by related content with little to no cluttering of text/images to provide for visually appealing and easy to read navigation. The cluttering of text/images should follow a basis of having at minimum 5 vw/vh between unrelated images/text bodies and 2.5 vw/vh for related ones.\\
 	{\bf Rationale:} Organizing content and following a reasonable minimum spacing guideline help create a visually appealing and user-friendly experience that is easy to navigate and accessible to all users.
@@ -633,7 +624,7 @@ The viewpoints we will consider are:
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR-RA}1. ]
-	\item The app should functionally run with an uptime of 100\%.\\
+	\item The app should functionally run with an uptime of 99.5\%.\\
 	{\bf Rationale:} While it is not safety-critical to have the app crash or go on maintenance, any downtime directly affects any users that are looking for carpools, in a carpool. This can also cause confusion and complications between users and the taxi company in terms of payment. Furthermore, it may turn customers away from using the app is it is not reliable. Many of today's leading SaaS vendors offer at least 99.5\% availability.$^2$
 \end{enumerate}
 % End SubSubSection
@@ -846,8 +837,12 @@ The viewpoints we will consider are:
 \begin{enumerate}[{LR-COMP}1. ]
 	\item The application shall not violate any Canadian or American laws. For instance, all data will be encrypted so that personal information privacy is preserved.\\
 	{\bf Rationale:} By complying with laws such as the Personal Information Protection and Electronic Documents Act (PIPEDA) in Canada, the application can avoid any legal liabilities and potential lawsuits.$^4$
-	\item Payment and Income logs shall be stored for tax purposes and accounting.\\
-	{\bf Rationale:} The logs help ensure compliance with tax laws, such as the Internal Revenue Service (IRS) in the United States and the Canada Revenue Agency (CRA) in Canada. By keeping detailed records of all financial transactions, the software application can provide an accurate record of income and expenses, and thus tax returns.$^5$
+	\item Inform users about any personal information collected by the application.\\
+	{\bf Rationale:} This will enable them to make informed decisions about its usage and ensure compliance with PIPEDA regulations.$^4$
+	\item Prior to obtaining user consent to collect personal information, provide a clear explanation of the nature, purposes, and consequences of data collection by the application.\\
+	{\bf Rationale:} This will allow users to make diligent and informed decisions about how they use the application whilst complying to PIPEDA regulations.$^4$
+	\item Allow users to withdraw their consent to have their personal information collected at any time.\\
+	{\bf Rationale:} Preventing further data collection by the application is the user's choice according to PIPEDA regulations.$^4$
 \end{enumerate}
 % End SubSubSection
 
@@ -855,7 +850,12 @@ The viewpoints we will consider are:
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR-STD}1. ]
-	\item N/A
+	\item Taxi companies partnered with the application must ensure licensing requirements for their taxi drivers.\\
+	{\bf Rationale:} Taxi drivers must hold a valid driver's license, taxi operator's license, and background check. This is to ensure that taxi drivers are qualified, trustworthy, and safe to transport passengers.$^5$
+	\item Taxi companies partnered with the application must have adequate insurance coverage to protect all passengers in any taxi.\\
+	{\bf Rationale:} This is to ensure that passengers are protected in case of accidents, and taxi companies are held accountable for any damages.$^6$
+	\item Taxi companies partnered with the application must have their taxi fares exceed the city or province's taxi fare regulations.\\
+	{\bf Rationale:} This is to ensure that passengers are charged reasonable and fair prices for taxi services.$^7$
 \end{enumerate}
 % End SubSubSection
 
@@ -872,33 +872,26 @@ This sheet must be signed by all team members.
 	\hline
 	\textbf{Team Member} & \textbf{Contribution} \\
 	\hline \hline
-	Adam Mak &  \\
+	Adam Mak & Introduction, product perspective (2.1), use case diagram, NFR's + rationales, references, convert to LaTeX. \\
+	& Signed by: Adam Mak \\
 	\hline
-	Eric Chen &  \\
+	Eric Chen & Assumptions and dependencies, BE1, BE2 (Has been changed after receiving feedback), BE3, BE6, Reviewing/editing all BE’s, BE7 Global Scenario, NFRs 5.1, 5.2, 5.3 (first half) and collectively some of the other NFRs with the team. \\
+	& Signed by: Eric Chen \\
 	\hline
-	Justin Ho &  \\
+	Justin Ho & Introduction, product functions (2.2), BE1, BE2, all global scenarios except for BE7, part of 5.3.5 and 5.3.6. \\
+	& Signed by: Justin Ho \\
 	\hline
 	Ahmad Hamadi &  \\
+	& Signed by: Ahmad Hamadi \\
 	\hline
-	Kevin Ishak &  \\
+	Kevin Ishak & Apportioning of Requirements, Legal Requirements and citations. \\
+	& Signed by: Kevin Ishak \\
 	\hline
 	Jonathan Jiang &  \\
+	& Signed by: Jonathan Jiang \\
 	\hline
 \end{tabular} \end{center}
 % End Section
-
-%\newpage
-%\section*{IMPORTANT NOTES}
-%\begin{itemize}
-%	\item Be sure to include all sections of the template in your document regardless whether you have something to write for each or not
-%	\begin{itemize}
-%		\item If you do not have anything to write in a section, indicate this by the \emph{N/A}, \emph{void}, \emph{none}, etc.
-%	\end{itemize}
-%	\item Uniquely number each of your requirements for easy identification and cross-referencing
-%	\item Highlight terms that are defined in Section~1.3 (\textbf{Definitions, Acronyms, and Abbreviations}) with \textbf{bold}, \emph{italic} or \underline{underline}
-%	\item For Deliverable 1, please highlight, in some fashion, all (you may have more than one) creative and innovative features. Your creative and innovative features will generally be described in Section~2.2 (\textbf{Product Functions}), but it will depend on the type of creative or innovative features you are including.
-%\end{itemize}
-
 
 \end{document}
 %------------------------------------------------------------------------------
