@@ -147,7 +147,7 @@ The carpooling app uses \textbf{SMS} functionality to provide communication betw
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=30em]{ProductPerspectiveBlockDiagram.png}
+	\includegraphics[width=30em]{../D1/assets/ProductPerspectiveBlockDiagram.png}
 	\caption{A block diagram showing the major layers of the carpooling application, interconnections, and external interfaces.}
 	\label{fig:blockdiagram}
 \end{figure}
@@ -234,7 +234,7 @@ The following requirements are usually delayed until later versions to meet the 
 % Begin Section
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=30em]{usecase_v3.png}
+	\includegraphics[width=30em]{../D1/assets/usecase_v3.png}
 	\caption{Use case diagram of the carpooling application.}
 	\label{fig:usecase}
 \end{figure}
@@ -441,31 +441,31 @@ Some business events only have 1 viewpoint, the passenger. This represents both 
 	\noindent\fbox{
 		\parbox{0.85\textwidth}{
 			\begin{itemize}
-					\item {$S_{1}$:} System asks offerors for information regarding the offer (destination, taxi ID, max number of customers to share with). 
-					\item {$E_{1}$:} Offeror inputs the carpool information. 
-                    \item {$S_{2}:$} System waits for a carpool request from a requester. The system provides user with the options to cancel the carpool offer (stop the carpool event entirely) or to begin the ride (begin the ride with the current accepted requesters).
-                    \begin{itemize}
-						\item[] $S_{2.1}$: System receives request from the requester. System forwards the request to the offeror of the carpool event. In addition, they are presented with changes to their trip fare, distance, total estimated travel time, a distance – trip fare ratio, and the updated route that they will be taking
-						\item[] $S_{2.2}$: System receives a “cancel the carpool” response from the user.  \textbf{\color{red}\textlangle Branch EXIT\textrangle}
-                            \item[] $S_{2.3}$: System receives a “begin the ride” response from user.
-                            \textbf{\color{red}\textlangle Branch EXIT\textrangle}
-					\end{itemize}
-					\item {$E_{2}$:}  Offeror chooses whether or not they want to accept the carpool request. 
-                    \item {$S_{3}$:}
-                    \begin{itemize} System checks for offerors response.
-						\item[] $S_{3.1}$: System adds the requester to the carpool event if the offeror accepts the request. The requester is notified that their request has been accepted. System asks offeror if they would like to close the carpool event/ begin the ride.
-						\item[] $S_{3.2}$: The requester is notified that their request has been denied. System asks offeror if they would like to close the carpool event/ begin the ride 
-					\end{itemize}
-                    \item{$E_{3}$:} Offeror chooses whether or not to end the carpool event, begin the ride, or keep looking for more requests. 
-                    \begin{itemize} 
-						\item[] $E_{3.1}$: Offeror chooses begin the ride. 
-                        \textbf{\color{red}\textlangle Branch EXIT\textrangleUsers/}
-						\item[] $S_{3.2}$: Offeror chooses cancel carpool event.
-                        \textbf{\color{red}\textlangle Branch EXIT\textrangle}
-                        \item[] {$S_{3.3}$:} Offeror chooses to look for more requests.
-                        \textbf{\color{red}\textlangle Branch GS5.S2\textrangle}
-                        \end{itemize}
+				\item {$S_{1}$:} System asks offerors for information regarding the offer (destination, taxi ID, max number of customers to share with). 
+				\item {$E_{1}$:} Offeror inputs the carpool information. 
+				\item {$S_{2}:$} System waits for a carpool request from a requester. The system provides user with the options to cancel the carpool offer (stop the carpool event entirely) or to begin the ride (begin the ride with the current accepted requesters).
+				\begin{itemize}
+					\item[] $S_{2.1}$: System receives request from the requester. System forwards the request to the offeror of the carpool event. In addition, they are presented with changes to their trip fare, distance, total estimated travel time, a distance – trip fare ratio, and the updated route that they will be taking
+					\item[] $S_{2.2}$: System receives a “cancel the carpool” response from the user.  \textbf{\color{red}\textlangle Branch EXIT\textrangle}
+						\item[] $S_{2.3}$: System receives a “begin the ride” response from user.
+						\textbf{\color{red}\textlangle Branch EXIT\textrangle}
 				\end{itemize}
+				\item {$E_{2}$:}  Offeror chooses whether or not they want to accept the carpool request. 
+				\item {$S_{3}$:}
+				\begin{itemize} System checks for offerors response.
+					\item[] $S_{3.1}$: System adds the requester to the carpool event if the offeror accepts the request. The requester is notified that their request has been accepted. System asks offeror if they would like to close the carpool event/ begin the ride.
+					\item[] $S_{3.2}$: The requester is notified that their request has been denied. System asks offeror if they would like to close the carpool event/ begin the ride 
+				\end{itemize}
+				\item{$E_{3}$:} Offeror chooses whether or not to end the carpool event, begin the ride, or keep looking for more requests. 
+				\begin{itemize} 
+					\item[] $E_{3.1}$: Offeror chooses begin the ride. 
+					\textbf{\color{red}\textlangle Branch EXIT\textrangle}
+					\item[] $S_{3.2}$: Offeror chooses cancel carpool event.
+					\textbf{\color{red}\textlangle Branch EXIT\textrangle}
+					\item[] {$S_{3.3}$:} Offeror chooses to look for more requests.
+					\textbf{\color{red}\textlangle Branch GS5.S2\textrangle}
+					\end{itemize}
+			\end{itemize}
 		}
 	}
 	\item Login to an account (Precondition: Passenger is currently not logged into an account)
