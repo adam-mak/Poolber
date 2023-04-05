@@ -32,6 +32,8 @@ At this point, feel free to look into the codebase. There shouldn't be much at t
 
 Now for the exciting part, running the app!
 
+First, enter the command **npm install** to install all the required dependencies, in particular Expo.
+
 To run the app, go to your terminal in your code editor (preferably using git bash or something similar). Enter the command **npm start**
 
 This runs the app in development mode (you can check the details of what that command does by going into the package.json file).
