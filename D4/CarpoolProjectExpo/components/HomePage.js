@@ -5,7 +5,7 @@ const HomePage = () => {
     <View style={styles.homePageContainer}>
       <View style={styles.logoContainer}>
         <Image
-          source={require("../assets/images/sample_logo.png")}
+          source={require("../assets/images/logo.png")}
           style={styles.logo}
         />
         <View style={styles.editProfileButton}>
@@ -53,8 +53,9 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
   },
   logo: {
-    flex: 3,
-    width: "60%",
+    flex: 1,
+    top: 120,
+    resizeMode: 'contain'
   },
   editProfileButton: {
     marginTop: 16,
