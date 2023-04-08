@@ -63,12 +63,14 @@ const LoginPage = ({ navigation }) => {
           </Pressable>
         </View>
       </View>
-      <View style={styles.bgCurve1Container}>
-        <Image source={require("../assets/images/bg_curve_3.png")} />
-      </View>
-      <View style={styles.bgCurve2Container}>
-        <Image source={require("../assets/images/bg_curve_4.png")} />
-      </View>
+      <Image
+        source={require("../assets/images/bg_curve_3.png")}
+        style={styles.bgCurve1Container}
+      />
+      <Image
+        source={require("../assets/images/bg_curve_4.png")}
+        style={styles.bgCurve2Container}
+      />
     </ScrollView>
   );
 };
