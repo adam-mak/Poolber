@@ -10,10 +10,10 @@ const RegisterPage = () => {
     <View>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
-          <Image source={require("../assets/images/logo.png")}/>
+          <Image source={require("../assets/images/logo_alt.png")}/>
         </View>
         <View style={styles.sloganContainer}>
-          <Text style={styles.text}> Carpool for a better tomorrow. </Text>
+          <Text style={[styles.text, {fontSize: 30}]}> Create Account </Text>
         </View>
         <View style={styles.textInputContainer}>
           <Image source={require("../assets/images/username_icon.png")}/>
@@ -33,24 +33,18 @@ const RegisterPage = () => {
             placeholder="Password"
           />
         </View>
-        <View style={styles.signInContainer}>
-          <Text style={styles.text}> Sign in </Text>
-          <Pressable>
-            <Image source={require("../assets/images/advance_button.png")}/>
-          </Pressable>
-        </View>
-        <View style={styles.registerContainer}>
-          <Text style={styles.text}> Register </Text>
+        <View style={styles.createContainer}>
+          <Text style={styles.text}> Create </Text>
           <Pressable>
             <Image source={require("../assets/images/advance_button.png")}/>
           </Pressable>
         </View>
       </View>
       <View style={styles.bgCurve1Container}>
-        <Image source={require("../assets/images/bg_curve_3.png")}/>
+        <Image source={require("../assets/images/bg_curve_3_alt.png")}/>
       </View>
       <View style={styles.bgCurve2Container}>
-        <Image source={require("../assets/images/bg_curve_4.png")}/>
+        <Image source={require("../assets/images/bg_curve_4_alt.png")}/>
       </View>
     </View>
   );
@@ -78,16 +72,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     elevation: 5,
   },
-  signInContainer: {
+  createContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
     marginTop: 85,
-    gap: 15,
-  },
-  registerContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    marginTop: 31,
     gap: 15,
   },
   usernameField: {
@@ -112,7 +100,7 @@ const styles = StyleSheet.create({
   },
   bgCurve2Container: {
     position: "absolute",
-    bottom: -95,
+    bottom: -180,
   },
 });
 
