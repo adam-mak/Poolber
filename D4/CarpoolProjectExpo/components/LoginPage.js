@@ -23,10 +23,10 @@ const LoginPage = ({ navigation }) => {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.pageContainer}>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
-          <Image source={require("../assets/images/logo.png")} />
+          <Image source={require("../assets/images/logo_alt.png")} />
         </View>
         <View style={styles.sloganContainer}>
           <Text style={styles.text}> Carpool for a better tomorrow. </Text>
@@ -74,6 +74,9 @@ const LoginPage = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  pageContainer: {
+    height: "100%",
+  },
   mainContainer: {
     marginTop: 153,
     marginHorizontal: 45,

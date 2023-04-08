@@ -20,8 +20,12 @@ const RegisterPage = ({ navigation }) => {
     navigation.navigate("HomePage");
   };
 
+  const loginHandler = () => {
+    navigation.navigate("LoginPage");
+  };
+
   return (
-    <ScrollView>
+    <ScrollView style={styles.pageContainer}>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
           <Image source={require("../assets/images/logo_alt.png")} />
@@ -48,26 +52,47 @@ const RegisterPage = ({ navigation }) => {
             secureTextEntry={true}
           />
         </View>
+        <View style={styles.textInputContainer}>
+          <Image source={require("../assets/images/password_icon.png")} />
+          <TextInput
+            style={styles.passwordField}
+            value={passwordText}
+            onChangeText={setPasswordText}
+            placeholder="Confirm Password"
+            secureTextEntry={true}
+          />
+        </View>
         <View style={styles.createContainer}>
           <Text style={styles.text}> Create </Text>
           <Pressable onPress={createUserHandler}>
             <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
+        <View style={styles.createContainer}>
+          <Text style={styles.text}> Return to Login </Text>
+          <Pressable onPress={loginHandler}>
+            <Image
+              source={require("../assets/images/advance_button.png")}
+              style={{ transform: [{ scaleX: -1 }] }}
+            />
+          </Pressable>
+        </View>
       </View>
-      <View style={styles.bgCurve1Container}>
-        <Image source={require("../assets/images/bg_curve_3_alt.png")} />
-      </View>
-      <View style={styles.bgCurve2Container}>
-        <Image source={require("../assets/images/bg_curve_4_alt.png")} />
-      </View>
+      <Image
+        source={require("../assets/images/bg_curve_3_alt.png")}
+        style={styles.bgCurve1Container}
+      />
+      <Image source={require("../assets/images/bg_curve_4_alt.png")} />
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  pageContainer: {
+    height: "100%",
+  },
   mainContainer: {
-    marginTop: 153,
+    marginTop: 120,
     marginHorizontal: 45,
   },
   logoContainer: {
@@ -90,7 +115,7 @@ const styles = StyleSheet.create({
   createContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: 85,
+    marginTop: 40,
     gap: 15,
   },
   usernameField: {
@@ -114,8 +139,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   bgCurve2Container: {
-    position: "absolute",
-    bottom: -180,
+    position: "relative",
+    bottom: 0,
   },
 });
 
