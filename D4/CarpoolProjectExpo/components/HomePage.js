@@ -2,98 +2,63 @@ import { Button, Pressable, StyleSheet, Text, View, Image } from "react-native";
 
 const HomePage = () => {
   return (
-    <View style={styles.homePageContainer}>
-      <View style={styles.logoContainer}>
-        <Image
-          source={require("../assets/images/logo.png")}
-          style={styles.logo}
-        />
-        <View style={styles.editProfileButton}>
-          <Button title="Edit Profile" />
-        </View>
+    <View style={styles.mainContainer}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>Poolber</Text>
       </View>
 
-      <View style={styles.imagesContainer}>
-        <Image
-          source={require("../assets/images/offer_carpool.jpg")}
-          style={styles.images}
-        />
-        <Image
-          source={require("../assets/images/request_carpool.png")}
-          style={styles.images}
-        />
+      <View style={styles.requestRideContainer}>
+        {/* <Button /> component does not allow for custom styles (unless we wrap it in a <View/> component and apply the styles there).
+	      For custom styles, use a <Pressable /> component */}
+        <Pressable>
+          <Image
+            source={require("../assets/images/request_ride_button.png")}
+          />
+        </Pressable>
       </View>
 
-      {/* We cannot adjust the border-radius of the buttons here but we can do it with the <Pressable /> component below */}
-      <View style={styles.rideContainer}>
-        <Button title="Initiate a Ride" />
-        <Button title="Request a Ride" />
+      <View style={styles.offerRideContainer}>
+        <Pressable>
+          <Image
+            source={require("../assets/images/offer_ride_button.png")}
+          />
+        </Pressable>
       </View>
 
-      {/* <Button /> component does not allow for custom styles (unless we wrap it in a <View/> component and apply the styles there).
-	  For custom styles, use a <Pressable /> component */}
-      <Pressable style={styles.logoutButtonContainer}>
-        <Text style={styles.logoutButton}> LOGOUT </Text>
-      </Pressable>
+      <View style={styles.logoutContainer}>
+        <Pressable>
+          <Text> Logout </Text>
+        </Pressable>
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  homePageContainer: {
-    marginVertical: 28,
-    justifyContent: "space-between",
-    height: "90%",
+  mainContainer: {
+    flex: 1,
+    paddingHorizontal: 45,
+  },
+  headerContainer: {
     flex: 1,
   },
-  logoContainer: {
+  requestRideContainer: {
     flex: 2,
-    justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 16,
   },
-  logo: {
-    flex: 1,
-    top: 120,
-    resizeMode: "contain",
-  },
-  editProfileButton: {
-    marginTop: 16,
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  imagesContainer: {
-    flexDirection: "row",
-    justifyContent: "space-evenly",
+  offerRideContainer: {
+    flex: 3,
     alignItems: "center",
-    flex: 1,
   },
-  images: {
-    width: "40%",
-    height: "80%",
+  logoutContainer: {
+    flex: 4,
   },
-  rideContainer: {
-    flexDirection: "row",
-    marginVertical: 16,
-    height: 40,
-    alignItems: "center",
-    justifyContent: "space-evenly",
-  },
-  logoutButtonContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    flex: 1,
-  },
-  logoutButton: {
-    textAlign: "center",
-    textAlignVertical: "center",
-    backgroundColor: "red",
-    height: 40,
-    width: "40%",
-    borderRadius: 16,
-    color: "#FFF",
-  },
+  header: {
+    fontFamily: "UberMoveMedium",
+    fontSize: 50,
+    textAlign: "right",
+  }
+
 });
 
 export default HomePage;
