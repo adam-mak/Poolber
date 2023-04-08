@@ -5,27 +5,33 @@ const displayPicture = {
   mary_jane: require("../assets/images/mary_jane.png"),
 };
 
-const Banner = ({ pageTitle, header, name }) => (
-  <>
-    <View style={styles.topBanner}>
-      <View style={styles.icons}>
+const Banner = ({ pageTitle, header, name, navigation }) => {
+  const returnHandler = () => {
+    navigation.goBack();
+  };
+
+  return (
+    <>
+      <View style={styles.topBanner}>
+        <View style={styles.icons}>
+          <Pressable onPress={returnHandler}>
+            <Image source={require("../assets/images/return_arrow.png")} />
+          </Pressable>
+          <Text style={styles.editProfile}>{pageTitle}</Text>
+          <Pressable>
+            <Image source={require("../assets/images/share_icon.png")} />
+          </Pressable>
+        </View>
+      </View>
+      <View style={styles.profilePicture}>
+        <Image source={displayPicture[name]} />
         <Pressable>
-          <Image source={require("../assets/images/return_arrow.png")} />
-        </Pressable>
-        <Text style={styles.editProfile}>{pageTitle}</Text>
-        <Pressable>
-          <Image source={require("../assets/images/share_icon.png")} />
+          <Text style={styles.changeProfilePicture}>{header}</Text>
         </Pressable>
       </View>
-    </View>
-    <View style={styles.profilePicture}>
-      <Image source={displayPicture[name]} />
-      <Pressable>
-        <Text style={styles.changeProfilePicture}>{header}</Text>
-      </Pressable>
-    </View>
-  </>
-);
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   topBanner: {

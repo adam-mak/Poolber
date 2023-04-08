@@ -1,12 +1,12 @@
 import { StyleSheet, View, ScrollView } from "react-native";
 
-import Banner from "./Banner";
-import ButtonContainer from "./ButtonContainer";
+import Banner from "../components/Banner";
+import ButtonContainer from "../components/ButtonContainer";
+import InputText from "../components/InputText";
 
-import InputText from "./InputText";
 import { useState } from "react";
 
-const UserProfile = () => {
+const UserProfile = ({ navigation }) => {
   // this data should be replaced with a database access
   const originalData = {
     firstName: "John",
@@ -43,6 +43,7 @@ const UserProfile = () => {
         pageTitle="Edit Profile"
         header="Change Profile Picture"
         name="john_doe"
+        navigation={navigation}
       />
 
       <View style={styles.form}>

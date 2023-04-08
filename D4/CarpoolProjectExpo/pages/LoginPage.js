@@ -1,22 +1,38 @@
-import { ScrollView, Pressable, StyleSheet, Text, View, Image, TextInput } from "react-native";
+import {
+  ScrollView,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
 
 import { useState } from "react";
 
-const RegisterPage = () => {
-  const [usernameText, setUsernameText] = useState('');
-  const [passwordText, setPasswordText] = useState('');
+const LoginPage = ({ navigation }) => {
+  const [usernameText, setUsernameText] = useState("");
+  const [passwordText, setPasswordText] = useState("");
+
+  const loginHandler = () => {
+    navigation.push("HomePage");
+  };
+
+  const registerHandler = () => {
+    navigation.push("RegisterPage");
+  };
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.pageContainer}>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
-          <Image source={require("../assets/images/logo_alt.png")}/>
+          <Image source={require("../assets/images/logo.png")} />
         </View>
         <View style={styles.sloganContainer}>
-          <Text style={[styles.text, {fontSize: 30}]}> Create Account </Text>
+          <Text style={styles.text}> Carpool for a better tomorrow. </Text>
         </View>
         <View style={styles.textInputContainer}>
-          <Image source={require("../assets/images/username_icon.png")}/>
+          <Image source={require("../assets/images/username_icon.png")} />
           <TextInput
             style={styles.usernameField}
             value={usernameText}
@@ -25,7 +41,7 @@ const RegisterPage = () => {
           />
         </View>
         <View style={styles.textInputContainer}>
-          <Image source={require("../assets/images/password_icon.png")}/>
+          <Image source={require("../assets/images/password_icon.png")} />
           <TextInput
             style={styles.passwordField}
             value={passwordText}
@@ -34,30 +50,39 @@ const RegisterPage = () => {
             secureTextEntry={true}
           />
         </View>
-        <View style={styles.createContainer}>
-          <Text style={styles.text}> Create </Text>
-          <Pressable>
-            <Image source={require("../assets/images/advance_button.png")}/>
+        <View style={styles.signInContainer}>
+          <Text style={styles.text}> Sign in </Text>
+          <Pressable onPress={loginHandler}>
+            <Image source={require("../assets/images/advance_button.png")} />
+          </Pressable>
+        </View>
+        <View style={styles.registerContainer}>
+          <Text style={styles.text}> Register </Text>
+          <Pressable onPress={registerHandler}>
+            <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
       </View>
       <View style={styles.bgCurve1Container}>
-        <Image source={require("../assets/images/bg_curve_3_alt.png")}/>
+        <Image source={require("../assets/images/bg_curve_3.png")} />
       </View>
       <View style={styles.bgCurve2Container}>
-        <Image source={require("../assets/images/bg_curve_4_alt.png")}/>
+        <Image source={require("../assets/images/bg_curve_4.png")} />
       </View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  pageContainer: {
+    height: "100%",
+  },
   mainContainer: {
     marginTop: 153,
     marginHorizontal: 45,
   },
   logoContainer: {
-    alignItems: "center"
+    alignItems: "center",
   },
   sloganContainer: {
     alignItems: "center",
@@ -73,10 +98,16 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     elevation: 5,
   },
-  createContainer: {
+  signInContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
     marginTop: 85,
+    gap: 15,
+  },
+  registerContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginTop: 31,
     gap: 15,
   },
   usernameField: {
@@ -100,9 +131,9 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   bgCurve2Container: {
-    position: "absolute",
-    bottom: -180,
+    position: "relative",
+    bottom: 160,
   },
 });
 
-export default RegisterPage;
+export default LoginPage;
