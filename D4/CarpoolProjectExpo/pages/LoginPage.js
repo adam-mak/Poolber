@@ -26,7 +26,7 @@ const LoginPage = ({ navigation }) => {
     <ScrollView style={styles.pageContainer}>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
-          <Image source={require("../assets/images/logo_alt.png")} />
+          <Image source={require("../assets/images/logo.png")} />
         </View>
         <View style={styles.sloganContainer}>
           <Text style={styles.text}> Carpool for a better tomorrow. </Text>
@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
     position: "absolute",
   },
   bgCurve2Container: {
-    position: "absolute",
-    bottom: -95,
+    position: "relative",
+    bottom: 160,
   },
 });
 
