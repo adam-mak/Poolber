@@ -61,10 +61,24 @@ const styles = StyleSheet.create({
   usernameContainer: {
     flexDirection: "row",
     marginTop: 47,
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: "#A9A9A9",
+    borderStyle: "solid",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    alignItems: "center",
   },
   passwordContainer: {
     flexDirection: "row",
     marginTop: 45,
+    borderRadius: 40,
+    borderWidth: 1,
+    borderColor: "#A9A9A9",
+    borderStyle: "solid",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    alignItems: "center",
   },
   signInContainer: {
     flexDirection: "row",
@@ -77,13 +91,19 @@ const styles = StyleSheet.create({
     marginTop: 31,
   },
   usernameField: {
-
+    marginLeft: 10,
+    fontFamily: "Lato",
+    fontSize: 15,
   },
   passwordField: {
-
+    marginLeft: 10,
+    fontFamily: "Lato",
+    fontSize: 15,
   },
   text: {
-
+    fontFamily: "UberMoveBold",
+    fontSize: 24,
+    textAlign: "center",
   },
 });
 
