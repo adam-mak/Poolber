@@ -82,7 +82,10 @@ const RegisterPage = ({ navigation }) => {
         source={require("../assets/images/bg_curve_3_alt.png")}
         style={styles.bgCurve1Container}
       />
-      <Image source={require("../assets/images/bg_curve_4_alt.png")} />
+      <Image
+        source={require("../assets/images/bg_curve_4_alt.png")}
+        style={styles.bgCurve2Container}
+      />
     </ScrollView>
   );
 };
@@ -140,7 +143,7 @@ const styles = StyleSheet.create({
   },
   bgCurve2Container: {
     position: "relative",
-    bottom: 0,
+    bottom: 130,
   },
 });
 
