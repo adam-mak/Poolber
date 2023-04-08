@@ -6,7 +6,19 @@ import UserProfile from "./components/UserProfile";
 import Rating from "./components/Rating";
 import LoginPage from "./components/LoginPage";
 
+import { useFonts } from "expo-font";
+
 export default function App() {
+  const [loaded] = useFonts({
+    Lato: require('./assets/fonts/Lato-Regular.ttf'),
+    UberMoveMedium: require('./assets/fonts/UberMoveMedium.otf'),
+    UberMoveBold: require('./assets/fonts/UberMoveBold.otf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <>
       <LoginPage />

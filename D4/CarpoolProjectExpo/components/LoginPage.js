@@ -21,6 +21,7 @@ const LoginPage = () => {
             style={styles.usernameField}
             value={usernameText}
             onChangeText={setUsernameText}
+            placeholder="Username"
           />
         </View>
         <View style={styles.textInputContainer}>
@@ -29,6 +30,7 @@ const LoginPage = () => {
             style={styles.passwordField}
             value={passwordText}
             onChangeText={setPasswordText}
+            placeholder="Password"
           />
         </View>
         <View style={styles.signInContainer}>
