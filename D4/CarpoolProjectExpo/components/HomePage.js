@@ -1,13 +1,28 @@
-import { Button, Pressable, StyleSheet, Text, View, Image } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+} from "react-native";
 
-const HomePage = () => {
+const HomePage = ({ navigation }) => {
+  const editProfileHandler = () => {
+    navigation.push("UserProfile");
+  };
+
+  const logOutHandler = () => {
+    navigation.navigate("LoginPage");
+  };
+
   return (
-    <View>
+    <ScrollView>
       <View style={styles.bgCurve1Container}>
-        <Image source={require("../assets/images/bg_curve_1.png")}/>
+        <Image source={require("../assets/images/bg_curve_1.png")} />
       </View>
       <View style={styles.bgCurve2Container}>
-        <Image source={require("../assets/images/bg_curve_2.png")}/>
+        <Image source={require("../assets/images/bg_curve_2.png")} />
       </View>
       <View style={styles.mainContainer}>
         <View style={styles.headerContainer}>
@@ -17,26 +32,31 @@ const HomePage = () => {
           {/* <Button /> component does not allow for custom styles (unless we wrap it in a <View/> component and apply the styles there).
           For custom styles, use a <Pressable /> component */}
           <Pressable>
-            <Image source={require("../assets/images/request_ride_button.png")}/>
+            <Image
+              source={require("../assets/images/request_ride_button.png")}
+            />
           </Pressable>
         </View>
         <View style={styles.offerRideContainer}>
           <Pressable>
-            <Image source={require("../assets/images/offer_ride_button.png")}/>
+            <Image source={require("../assets/images/offer_ride_button.png")} />
           </Pressable>
         </View>
         <View style={styles.editProfileContainer}>
-          <Pressable style={styles.editProfileButton}>
+          <Pressable
+            style={styles.editProfileButton}
+            onPress={editProfileHandler}
+          >
             <Text style={styles.editProfileText}> Edit Profile </Text>
           </Pressable>
         </View>
         <View style={styles.logoutContainer}>
-          <Pressable style={styles.logoutButton}>
+          <Pressable style={styles.logoutButton} onPress={logOutHandler}>
             <Text style={styles.logoutText}> Logout </Text>
           </Pressable>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -71,7 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     borderRadius: 40,
     shadowColor: "rgba(0, 0, 0, 0.1)",
-    shadowOffset: {width: 8, height: 20},
+    shadowOffset: { width: 8, height: 20 },
     justifyContent: "center",
   },
   editProfileText: {
@@ -103,7 +123,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: -22,
     right: 0,
-  }
+  },
 });
 
 export default HomePage;

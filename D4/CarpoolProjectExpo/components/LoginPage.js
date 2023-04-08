@@ -1,22 +1,38 @@
-import { ScrollView, Pressable, StyleSheet, Text, View, Image, TextInput } from "react-native";
+import {
+  ScrollView,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
 
 import { useState } from "react";
 
-const LoginPage = () => {
-  const [usernameText, setUsernameText] = useState('');
-  const [passwordText, setPasswordText] = useState('');
+const LoginPage = ({ navigation }) => {
+  const [usernameText, setUsernameText] = useState("");
+  const [passwordText, setPasswordText] = useState("");
+
+  const loginHandler = () => {
+    navigation.push("HomePage");
+  };
+
+  const registerHandler = () => {
+    navigation.push("RegisterPage");
+  };
 
   return (
     <ScrollView>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
-          <Image source={require("../assets/images/logo.png")}/>
+          <Image source={require("../assets/images/logo.png")} />
         </View>
         <View style={styles.sloganContainer}>
           <Text style={styles.text}> Carpool for a better tomorrow. </Text>
         </View>
         <View style={styles.textInputContainer}>
-          <Image source={require("../assets/images/username_icon.png")}/>
+          <Image source={require("../assets/images/username_icon.png")} />
           <TextInput
             style={styles.usernameField}
             value={usernameText}
@@ -25,7 +41,7 @@ const LoginPage = () => {
           />
         </View>
         <View style={styles.textInputContainer}>
-          <Image source={require("../assets/images/password_icon.png")}/>
+          <Image source={require("../assets/images/password_icon.png")} />
           <TextInput
             style={styles.passwordField}
             value={passwordText}
@@ -36,22 +52,22 @@ const LoginPage = () => {
         </View>
         <View style={styles.signInContainer}>
           <Text style={styles.text}> Sign in </Text>
-          <Pressable>
-            <Image source={require("../assets/images/advance_button.png")}/>
+          <Pressable onPress={loginHandler}>
+            <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
         <View style={styles.registerContainer}>
           <Text style={styles.text}> Register </Text>
-          <Pressable>
-            <Image source={require("../assets/images/advance_button.png")}/>
+          <Pressable onPress={registerHandler}>
+            <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
       </View>
       <View style={styles.bgCurve1Container}>
-        <Image source={require("../assets/images/bg_curve_3.png")}/>
+        <Image source={require("../assets/images/bg_curve_3.png")} />
       </View>
       <View style={styles.bgCurve2Container}>
-        <Image source={require("../assets/images/bg_curve_4.png")}/>
+        <Image source={require("../assets/images/bg_curve_4.png")} />
       </View>
     </ScrollView>
   );
@@ -63,7 +79,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 45,
   },
   logoContainer: {
-    alignItems: "center"
+    alignItems: "center",
   },
   sloganContainer: {
     alignItems: "center",

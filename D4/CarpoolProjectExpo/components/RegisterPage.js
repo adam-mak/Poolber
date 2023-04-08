@@ -1,22 +1,36 @@
-import { ScrollView, Pressable, StyleSheet, Text, View, Image, TextInput } from "react-native";
+import {
+  ScrollView,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
 
 import { useState } from "react";
 
-const RegisterPage = () => {
-  const [usernameText, setUsernameText] = useState('');
-  const [passwordText, setPasswordText] = useState('');
+const RegisterPage = ({ navigation }) => {
+  const [usernameText, setUsernameText] = useState("");
+  const [passwordText, setPasswordText] = useState("");
+
+  const createUserHandler = () => {
+    // add some field and form level validation lol - we could just formik but that's gonna
+    // add to our usage of dependency
+    navigation.navigate("HomePage");
+  };
 
   return (
     <ScrollView>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
-          <Image source={require("../assets/images/logo_alt.png")}/>
+          <Image source={require("../assets/images/logo_alt.png")} />
         </View>
         <View style={styles.sloganContainer}>
-          <Text style={[styles.text, {fontSize: 30}]}> Create Account </Text>
+          <Text style={[styles.text, { fontSize: 30 }]}>Create Account</Text>
         </View>
         <View style={styles.textInputContainer}>
-          <Image source={require("../assets/images/username_icon.png")}/>
+          <Image source={require("../assets/images/username_icon.png")} />
           <TextInput
             style={styles.usernameField}
             value={usernameText}
@@ -25,7 +39,7 @@ const RegisterPage = () => {
           />
         </View>
         <View style={styles.textInputContainer}>
-          <Image source={require("../assets/images/password_icon.png")}/>
+          <Image source={require("../assets/images/password_icon.png")} />
           <TextInput
             style={styles.passwordField}
             value={passwordText}
@@ -36,16 +50,16 @@ const RegisterPage = () => {
         </View>
         <View style={styles.createContainer}>
           <Text style={styles.text}> Create </Text>
-          <Pressable>
-            <Image source={require("../assets/images/advance_button.png")}/>
+          <Pressable onPress={createUserHandler}>
+            <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
       </View>
       <View style={styles.bgCurve1Container}>
-        <Image source={require("../assets/images/bg_curve_3_alt.png")}/>
+        <Image source={require("../assets/images/bg_curve_3_alt.png")} />
       </View>
       <View style={styles.bgCurve2Container}>
-        <Image source={require("../assets/images/bg_curve_4_alt.png")}/>
+        <Image source={require("../assets/images/bg_curve_4_alt.png")} />
       </View>
     </ScrollView>
   );
@@ -57,7 +71,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 45,
   },
   logoContainer: {
-    alignItems: "center"
+    alignItems: "center",
   },
   sloganContainer: {
     alignItems: "center",
