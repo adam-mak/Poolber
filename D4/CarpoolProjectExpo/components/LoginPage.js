@@ -7,7 +7,7 @@ const LoginPage = () => {
   const [passwordText, setPasswordText] = useState('');
 
   return (
-    <View>
+    <ScrollView>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
           <Image source={require("../assets/images/logo.png")}/>
@@ -31,6 +31,7 @@ const LoginPage = () => {
             value={passwordText}
             onChangeText={setPasswordText}
             placeholder="Password"
+            secureTextEntry={true}
           />
         </View>
         <View style={styles.signInContainer}>
@@ -52,7 +53,7 @@ const LoginPage = () => {
       <View style={styles.bgCurve2Container}>
         <Image source={require("../assets/images/bg_curve_4.png")}/>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
