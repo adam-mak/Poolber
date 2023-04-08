@@ -7,12 +7,13 @@ import UserProfile from "./components/UserProfile";
 import Rating from "./components/Rating";
 import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
+import MakeAccount from "./components/MakeAccount";
 
 export default function App() {
   const [loaded] = useFonts({
-    Lato: require('./assets/fonts/Lato-Regular.ttf'),
-    UberMoveMedium: require('./assets/fonts/UberMoveMedium.otf'),
-    UberMoveBold: require('./assets/fonts/UberMoveBold.otf'),
+    Lato: require("./assets/fonts/Lato-Regular.ttf"),
+    UberMoveMedium: require("./assets/fonts/UberMoveMedium.otf"),
+    UberMoveBold: require("./assets/fonts/UberMoveBold.otf"),
   });
 
   if (!loaded) {
@@ -21,8 +22,9 @@ export default function App() {
 
   return (
     <>
-      <RegisterPage />
-      <LoginPage />
+      {/* <RegisterPage />
+      <LoginPage /> */}
+      <MakeAccount />
       {/* <View style={styles.container}>
 		<Text>Open up App.js to start working on your app!</Text>
 		<StatusBar style="auto" />
