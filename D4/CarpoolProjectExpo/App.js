@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import { useFonts } from "expo-font";
 
 import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
@@ -22,7 +23,6 @@ export default function App() {
   return (
     <>
       <LoginPage />
-      {/* <HomePage /> */}
       {/* <View style={styles.container}>
 		<Text>Open up App.js to start working on your app!</Text>
 		<StatusBar style="auto" />
