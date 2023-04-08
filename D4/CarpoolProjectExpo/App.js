@@ -5,6 +5,7 @@ import { useFonts } from "expo-font";
 import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
 import Rating from "./components/Rating";
+import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
 
   return (
     <>
+      <RegisterPage />
       <LoginPage />
       {/* <View style={styles.container}>
 		<Text>Open up App.js to start working on your app!</Text>
