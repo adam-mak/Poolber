@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   logo: {
     flex: 1,
     top: 120,
-    resizeMode: 'contain'
+    resizeMode: "contain",
   },
   editProfileButton: {
     marginTop: 16,
