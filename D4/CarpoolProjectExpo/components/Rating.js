@@ -50,6 +50,8 @@ const Rating = () => {
             style={styles.comments}
             value={comment}
             onChangeText={(e) => setComment(e)}
+            multiline={true}
+            textAlignVertical="top"
           />
         </View>
 
@@ -102,6 +104,8 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   comments: {
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
     width: "100%",
     height: 180,
     borderRadius: 8,
