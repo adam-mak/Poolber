@@ -7,40 +7,48 @@ const LoginPage = () => {
   const [passwordText, setPasswordText] = useState('');
 
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.logoContainer}>
-        <Image source={require("../assets/images/logo.png")}/>
+    <View>
+      <View style={styles.mainContainer}>
+        <View style={styles.logoContainer}>
+          <Image source={require("../assets/images/logo.png")}/>
+        </View>
+        <View style={styles.sloganContainer}>
+          <Text style={styles.text}> Carpool for a better tomorrow. </Text>
+        </View>
+        <View style={styles.textInputContainer}>
+          <Image source={require("../assets/images/username_icon.png")}/>
+          <TextInput
+            style={styles.usernameField}
+            value={usernameText}
+            onChangeText={setUsernameText}
+          />
+        </View>
+        <View style={styles.textInputContainer}>
+          <Image source={require("../assets/images/password_icon.png")}/>
+          <TextInput
+            style={styles.passwordField}
+            value={passwordText}
+            onChangeText={setPasswordText}
+          />
+        </View>
+        <View style={styles.signInContainer}>
+          <Text style={styles.text}> Sign in </Text>
+          <Pressable>
+            <Image source={require("../assets/images/advance_button.png")}/>
+          </Pressable>
+        </View>
+        <View style={styles.registerContainer}>
+          <Text style={styles.text}> Register </Text>
+          <Pressable>
+            <Image source={require("../assets/images/advance_button.png")}/>
+          </Pressable>
+        </View>
       </View>
-      <View style={styles.sloganContainer}>
-        <Text style={styles.text}> Carpool for a better tomorrow. </Text>
+      <View style={styles.bgCurve1Container}>
+        <Image source={require("../assets/images/bg_curve_3.png")}/>
       </View>
-      <View style={styles.usernameContainer}>
-        <Image source={require("../assets/images/username_icon.png")}/>
-        <TextInput
-          style={styles.usernameField}
-          value={usernameText}
-          onChangeText={setUsernameText}
-        />
-      </View>
-      <View style={styles.passwordContainer}>
-        <Image source={require("../assets/images/password_icon.png")}/>
-        <TextInput
-          style={styles.passwordField}
-          value={passwordText}
-          onChangeText={setPasswordText}
-        />
-      </View>
-      <View style={styles.signInContainer}>
-        <Text style={styles.text}> Sign in </Text>
-        <Pressable>
-          <Image source={require("../assets/images/advance_button.png")}/>
-        </Pressable>
-      </View>
-      <View style={styles.registerContainer}>
-        <Text style={styles.text}> Register </Text>
-        <Pressable>
-          <Image source={require("../assets/images/advance_button.png")}/>
-        </Pressable>
+      <View style={styles.bgCurve2Container}>
+        <Image source={require("../assets/images/bg_curve_4.png")}/>
       </View>
     </View>
   );
@@ -58,44 +66,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 22,
   },
-  usernameContainer: {
-    flexDirection: "row",
-    marginTop: 47,
-    borderRadius: 40,
-    borderWidth: 1,
-    borderColor: "#A9A9A9",
-    borderStyle: "solid",
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    alignItems: "center",
-  },
-  passwordContainer: {
+  textInputContainer: {
     flexDirection: "row",
     marginTop: 45,
     borderRadius: 40,
-    borderWidth: 1,
-    borderColor: "#A9A9A9",
-    borderStyle: "solid",
     paddingHorizontal: 20,
     paddingVertical: 10,
     alignItems: "center",
+    backgroundColor: "white",
+    elevation: 5,
   },
   signInContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
     marginTop: 85,
+    gap: 15,
   },
   registerContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
     marginTop: 31,
+    gap: 15,
   },
   usernameField: {
+    flex: 1,
     marginLeft: 10,
     fontFamily: "Lato",
     fontSize: 15,
   },
   passwordField: {
+    flex: 1,
     marginLeft: 10,
     fontFamily: "Lato",
     fontSize: 15,
@@ -104,6 +104,13 @@ const styles = StyleSheet.create({
     fontFamily: "UberMoveBold",
     fontSize: 24,
     textAlign: "center",
+  },
+  bgCurve1Container: {
+    position: "absolute",
+  },
+  bgCurve2Container: {
+    position: "absolute",
+    bottom: -95,
   },
 });
 
