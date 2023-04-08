@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import { useFonts } from "expo-font";
 
 import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
 import Rating from "./components/Rating";
 import RegisterPage from "./components/RegisterPage";
-
-import { useFonts } from "expo-font";
+import LoginPage from "./components/LoginPage";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -22,7 +22,7 @@ export default function App() {
   return (
     <>
       <RegisterPage />
-      {/* <HomePage /> */}
+      <LoginPage />
       {/* <View style={styles.container}>
 		<Text>Open up App.js to start working on your app!</Text>
 		<StatusBar style="auto" />
