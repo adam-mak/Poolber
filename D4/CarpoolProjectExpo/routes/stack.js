@@ -1,10 +1,10 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 
-import HomePage from "../components/HomePage";
-import LoginPage from "../components/LoginPage";
-import RegisterPage from "../components/RegisterPage";
-import UserProfile from "../components/UserProfile";
+import HomePage from "../pages/HomePage";
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
+import UserProfilePage from "../pages/UserProfilePage";
 
 const pages = {
   LoginPage: {
@@ -16,8 +16,8 @@ const pages = {
   RegisterPage: {
     screen: RegisterPage,
   },
-  UserProfile: {
-    screen: UserProfile,
+  UserProfilePage: {
+    screen: UserProfilePage,
   },
 };
 

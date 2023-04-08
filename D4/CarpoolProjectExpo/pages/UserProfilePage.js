@@ -1,9 +1,9 @@
 import { StyleSheet, View, ScrollView } from "react-native";
 
-import Banner from "./Banner";
-import ButtonContainer from "./ButtonContainer";
+import Banner from "../components/Banner";
+import ButtonContainer from "../components/ButtonContainer";
+import InputText from "../components/InputText";
 
-import InputText from "./InputText";
 import { useState } from "react";
 
 const UserProfile = ({ navigation }) => {

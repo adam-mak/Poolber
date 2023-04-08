@@ -9,7 +9,7 @@ import {
 
 const HomePage = ({ navigation }) => {
   const editProfileHandler = () => {
-    navigation.push("UserProfile");
+    navigation.push("UserProfilePage");
   };
 
   const logOutHandler = () => {
