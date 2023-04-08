@@ -7,7 +7,7 @@ const RegisterPage = () => {
   const [passwordText, setPasswordText] = useState('');
 
   return (
-    <View>
+    <ScrollView>
       <View style={styles.mainContainer}>
         <View style={styles.logoContainer}>
           <Image source={require("../assets/images/logo_alt.png")}/>
@@ -31,6 +31,7 @@ const RegisterPage = () => {
             value={passwordText}
             onChangeText={setPasswordText}
             placeholder="Password"
+            secureTextEntry={true}
           />
         </View>
         <View style={styles.createContainer}>
@@ -46,7 +47,7 @@ const RegisterPage = () => {
       <View style={styles.bgCurve2Container}>
         <Image source={require("../assets/images/bg_curve_4_alt.png")}/>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
