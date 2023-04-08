@@ -12,7 +12,7 @@ const Banner = ({ pageTitle, header, name }) => (
         <Pressable>
           <Image source={require("../assets/images/return_arrow.png")} />
         </Pressable>
-        <Text style={styles.editProfile}>{pageTitle}</Text>
+        <Text style={styles.pageTitleStyle}>{pageTitle}</Text>
         <Pressable>
           <Image source={require("../assets/images/share_icon.png")} />
         </Pressable>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  editProfile: {
+  pageTitleStyle: {
     color: "white",
     fontSize: 15,
   },

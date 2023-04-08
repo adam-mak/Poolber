@@ -8,6 +8,7 @@ import Rating from "./components/Rating";
 import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
 import MakeAccount from "./components/MakeAccount";
+import LegalTerms from "./components/legalTerms/legalTerms";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -22,9 +23,9 @@ export default function App() {
 
   return (
     <>
+      <LegalTerms />
       {/* <RegisterPage />
       <LoginPage /> */}
-      <MakeAccount />
       {/* <View style={styles.container}>
 		<Text>Open up App.js to start working on your app!</Text>
 		<StatusBar style="auto" />
