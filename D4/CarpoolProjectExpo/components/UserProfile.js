@@ -1,10 +1,48 @@
-import { Pressable, StyleSheet, Text, View, Image } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+} from "react-native";
 
 import InputText from "./InputText";
+import { useState } from "react";
 
 const UserProfile = () => {
+  // this data should be replaced with a database access
+  const originalData = {
+    firstName: "John",
+    lastName: "Doe",
+    username: "JohnDoe123",
+    email: "johndoe@poolber.com",
+    phoneNumber: "123-456-7890",
+  };
+
+  const [currentProfileData, setCurrentProfileData] = useState(originalData);
+
+  const onChangeHandler = (e, attr) => {
+    setCurrentProfileData({ ...currentProfileData, [attr]: e });
+  };
+
+  const saveChangesHandler = () => {
+    console.log("Saved Changes");
+    console.log(currentProfileData);
+    // Will require a database update
+  };
+
+  const discardChangesHandler = () => {
+    console.log("Discarded Changes");
+    setCurrentProfileData(originalData);
+  };
+
+  const deleteAccountHandler = () => {
+    console.log("Permanently Deleted Account");
+  };
+
   return (
-    <View style={styles.outerBox}>
+    <ScrollView style={styles.outerBox}>
       <View style={styles.topBanner}>
         <View style={styles.icons}>
           <Pressable>
@@ -25,22 +63,58 @@ const UserProfile = () => {
         </Pressable>
       </View>
       <View style={styles.form}>
-        <InputText placeholder="John" header="First Name" />
-        <InputText placeholder="Doe" header="Last Name" />
-        <InputText placeholder="JohnDoe123" header="Username" />
-        <InputText placeholder="johndoe@poolber.com" header="Email" />
-        <InputText placeholder="123-456-7890" header="Phone Number" />
+        <InputText
+          placeholder="John"
+          value={currentProfileData.firstName}
+          header="First Name"
+          updateStateHandler={onChangeHandler}
+          attr="firstName"
+        />
+        <InputText
+          placeholder="Doe"
+          value={currentProfileData.lastName}
+          header="Last Name"
+          updateStateHandler={onChangeHandler}
+          attr="lastName"
+        />
+        <InputText
+          placeholder="JohnDoe123"
+          value={currentProfileData.username}
+          header="Username"
+          updateStateHandler={onChangeHandler}
+          attr="username"
+        />
+        <InputText
+          placeholder="johndoe@poolber.com"
+          value={currentProfileData.email}
+          header="Email"
+          updateStateHandler={onChangeHandler}
+          attr="email"
+        />
+        <InputText
+          placeholder="123-456-7890"
+          value={currentProfileData.phoneNumber}
+          header="Phone Number"
+          updateStateHandler={onChangeHandler}
+          attr="phoneNumber"
+        />
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.saveOrDiscardChanges}>
-          <Pressable style={styles.button}>
+          <Pressable style={styles.button} onPress={saveChangesHandler}>
             <Text style={styles.buttonText}>Save Changes</Text>
           </Pressable>
-          <Pressable style={{ ...styles.button, backgroundColor: "#E16363" }}>
+          <Pressable
+            style={{ ...styles.button, backgroundColor: "#E16363" }}
+            onPress={discardChangesHandler}
+          >
             <Text style={styles.buttonText}>Discard Changes</Text>
           </Pressable>
         </View>
-        <Pressable style={styles.deleteAccountButton}>
+        <Pressable
+          style={styles.deleteAccountButton}
+          onPress={deleteAccountHandler}
+        >
           <Text style={styles.buttonText}>Permanently Delete Account</Text>
         </Pressable>
       </View>
@@ -48,7 +122,7 @@ const UserProfile = () => {
         style={styles.wave}
         source={require("../assets/images/wave.png")}
       />
-    </View>
+    </ScrollView>
   );
 };
 
@@ -124,7 +198,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   wave: {
-    position: "absolute",
+    position: "relative",
     bottom: -20,
   },
 });

@@ -1,12 +1,32 @@
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
+import { useState } from "react";
+
 // manage using local state later lol'
 
-const InputText = ({ header, placeholder }) => {
+const InputText = ({
+  header,
+  placeholder,
+  value,
+  updateStateHandler,
+  attr,
+}) => {
+  const [data, setData] = useState(placeholder);
+
+  const onChangeHandler = (e) => {
+    setData(e);
+    updateStateHandler(e, attr);
+  };
+
   return (
     <View>
       <Text style={styles.header}>{header}</Text>
-      <TextInput style={styles.placeholder} placeholder={placeholder} />
+      <TextInput
+        style={styles.placeholder}
+        placeholder={placeholder}
+        value={value}
+        onChangeText={(e) => onChangeHandler(e)}
+      />
     </View>
   );
 };
