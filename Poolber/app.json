@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CarpoolProjectExpo",
-    "slug": "CarpoolProjectExpo",
+    "name": "Poolber",
+    "slug": "Poolber",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
