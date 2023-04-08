@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
+import { FIREBASE_API_KEY } from "@env";
 
 import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
