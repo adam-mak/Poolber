@@ -3,6 +3,7 @@ import { StyleSheet, View, ScrollView } from "react-native";
 import Banner from "../components/Banner";
 import ButtonContainer from "../components/ButtonContainer";
 import InputText from "../components/InputText";
+import ConfirmChangesModal from "../components/ConfirmChangesModal";
 
 import { useState } from "react";
 
@@ -17,6 +18,7 @@ const UserProfile = ({ navigation }) => {
   };
 
   const [currentProfileData, setCurrentProfileData] = useState(originalData);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const onChangeHandler = (e, attr) => {
     setCurrentProfileData({ ...currentProfileData, [attr]: e });
@@ -25,6 +27,7 @@ const UserProfile = ({ navigation }) => {
   const saveChangesHandler = () => {
     console.log("Saved Changes");
     console.log(currentProfileData);
+    setModalVisible(true);
     // Will require a database update
   };
 
@@ -39,6 +42,12 @@ const UserProfile = ({ navigation }) => {
 
   return (
     <ScrollView>
+      <ConfirmChangesModal
+        modalVisible={modalVisible}
+        modalHandler={setModalVisible}
+        navigation={navigation}
+      />
+
       <Banner
         pageTitle="Edit Profile"
         header="Change Profile Picture"
