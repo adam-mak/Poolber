@@ -5,8 +5,17 @@ import { useState } from "react";
 
 const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation }) => {
   const [changesSaved, setChangesSaved] = useState(false);
+  const [inputPassword, setInputPassword] = useState("");
 
-  const confirmationHandler = () => setChangesSaved(true);
+  const confirmationHandler = () => {
+    setChangesSaved(true);
+    setInputPassword("");
+  };
+
+  const cancelHandler = () => {
+    modalHandler(!modalVisible);
+    setInputPassword("");
+  };
 
   const returnHandler = () => {
     modalHandler(false);
@@ -14,10 +23,12 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation }) => {
   };
 
   const returnHomepageHandler = () => {
+    modalHandler(false);
     returnHandler();
     navigation.navigate("HomePage");
   };
 
+  console.log(inputPassword);
   const confirmationPage = () => {
     return (
       <>
@@ -47,6 +58,8 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation }) => {
           </View>
           <TextInput
             placeholder="Password"
+            value={inputPassword}
+            onChangeText={(e) => setInputPassword(e)}
             secureTextEntry={true}
             multiline={false}
             style={styles.password}
@@ -56,7 +69,7 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation }) => {
         <View style={styles.buttonsContainer}>
           <Pressable
             style={{ ...styles.button, backgroundColor: "#E16363" }}
-            onPress={() => modalHandler(!modalVisible)}
+            onPress={cancelHandler}
           >
             <Text style={styles.buttonText}>No, Cancel</Text>
           </Pressable>
