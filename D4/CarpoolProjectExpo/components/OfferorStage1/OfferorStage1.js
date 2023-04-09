@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity} from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity} from "react-native";
 
 import Banner from "./Banner";
 import InputText from "../InputText";

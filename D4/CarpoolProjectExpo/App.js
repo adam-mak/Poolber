@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 
+
 import HomePage from "./components/HomePage";
 import UserProfile from "./components/UserProfile";
 import Rating from "./components/Rating";
@@ -10,6 +11,7 @@ import LoginPage from "./components/LoginPage";
 import MakeAccount from "./components/MakeAccount";
 import LegalTerms from "./components/legalTerms/legalTerms";
 import OfferorStage1 from "./components/OfferorStage1/OfferorStage1";
+import Barcode from "./components/Barcode/Barcode";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -24,7 +26,7 @@ export default function App() {
 
   return (
     <>
-      <OfferorStage1 />
+      <Barcode />
       {/* <RegisterPage />
       <LoginPage /> */}
       {/* <View style={styles.container}>
