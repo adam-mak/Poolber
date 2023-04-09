@@ -19,6 +19,11 @@ export default function TaxiScanner() {
     setTaxiId(data);
   };
 
+  const generateRandomNumber = () => {
+    const randomNum = Math.floor(100000 + Math.random() * 900000);
+    return randomNum.toString();
+  };
+
   if (hasPermission === null) {
     return <Text>Requesting for camera permission</Text>;
   }
@@ -30,7 +35,7 @@ export default function TaxiScanner() {
     <View style={styles.container}>
       {scanned ? (
         <View style={styles.resultContainer}>
-          <Text style={styles.resultText}>Your taxi ID: {taxiId}</Text>
+          <Text style={styles.resultText}>Your taxi ID: {generateRandomNumber()}</Text>
           <TouchableOpacity style={styles.button} onPress={() => setScanned(false)}>
             <Text style={styles.buttonText}>Scan again</Text>
           </TouchableOpacity>
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   resultText: {
-    fontSize: 24, // Change the font size here
+    fontSize: 24,
     margin: 20,
   },
   button: {
