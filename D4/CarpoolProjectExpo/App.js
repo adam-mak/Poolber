@@ -9,6 +9,7 @@ import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
 import MakeAccount from "./components/MakeAccount";
 import LegalTerms from "./components/legalTerms/legalTerms";
+import OfferorStage1 from "./components/OfferorStage1/OfferorStage1";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -23,7 +24,7 @@ export default function App() {
 
   return (
     <>
-      <LegalTerms />
+      <OfferorStage1 />
       {/* <RegisterPage />
       <LoginPage /> */}
       {/* <View style={styles.container}>
