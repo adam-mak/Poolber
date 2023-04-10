@@ -7,12 +7,15 @@ import {
   Image,
   TextInput,
 } from "react-native";
+import { useEffect, useState } from "react";
 
-import { useState } from "react";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "@firebase/auth";
 
 const LoginPage = ({ navigation }) => {
   const [usernameText, setUsernameText] = useState("");
   const [passwordText, setPasswordText] = useState("");
+  const [errorText, setErrorText] = useState("");
 
   const loginHandler = () => {
     navigation.push("HomePage");
@@ -21,6 +24,35 @@ const LoginPage = ({ navigation }) => {
   const registerHandler = () => {
     navigation.push("RegisterPage");
   };
+
+  const logoutHandler = () => {
+    navigation.navigate("LoginPage");
+  }
+
+  const loginUser = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, usernameText, passwordText);
+      setErrorText("");
+    } catch (e) {
+      if (e.code === "auth/user-not-found" || e.code === "auth/invalid-email" || e.code === "auth/wrong-password") {
+        setErrorText("Username/password incorrect. Try again.");
+      } else {
+        setErrorText("There was a problem with your request.");
+      }
+    }
+  };
+
+  /* This covers navigation logic for all pages relating to authentication */
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        loginHandler();
+      } else {
+        logoutHandler();
+      }
+    });
+    return unsubscribe;
+  }, []);
 
   return (
     <ScrollView style={styles.pageContainer}>
@@ -37,7 +69,7 @@ const LoginPage = ({ navigation }) => {
             style={styles.usernameField}
             value={usernameText}
             onChangeText={setUsernameText}
-            placeholder="Username"
+            placeholder="Username/Email"
           />
         </View>
         <View style={styles.textInputContainer}>
@@ -50,9 +82,10 @@ const LoginPage = ({ navigation }) => {
             secureTextEntry={true}
           />
         </View>
+        <Text style={styles.errorText}> {errorText} </Text>
         <View style={styles.signInContainer}>
           <Text style={styles.text}> Sign in </Text>
-          <Pressable onPress={loginHandler}>
+          <Pressable onPress={loginUser}>
             <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
@@ -109,7 +142,7 @@ const styles = StyleSheet.create({
   signInContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: 85,
+    marginTop: 54,
     gap: 15,
   },
   registerContainer: {
@@ -134,6 +167,12 @@ const styles = StyleSheet.create({
     fontFamily: "UberMoveBold",
     fontSize: 24,
     textAlign: "center",
+  },
+  errorText: {
+    fontFamily: "Lato",
+    fontSize: 15,
+    color: "#CB0000",
+    marginTop: 12,
   },
   bgCurve1Container: {
     position: "absolute",

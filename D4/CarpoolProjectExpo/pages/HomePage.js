@@ -1,3 +1,4 @@
+import { signOut } from "@firebase/auth";
 import {
   Pressable,
   StyleSheet,
@@ -6,15 +7,31 @@ import {
   ScrollView,
   Image,
 } from "react-native";
+import { useEffect } from "react";
+
+import { auth } from "../firebase";
 
 const HomePage = ({ navigation }) => {
   const editProfileHandler = () => {
     navigation.push("UserProfilePage");
   };
 
-  const logOutHandler = () => {
-    navigation.navigate("LoginPage");
-  };
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       logOutHandler();
+  //     }
+  //   });
+  //   return unsubscribe;
+  // }, []);
 
   return (
     <ScrollView>
@@ -51,7 +68,7 @@ const HomePage = ({ navigation }) => {
           </Pressable>
         </View>
         <View style={styles.logoutContainer}>
-          <Pressable style={styles.logoutButton} onPress={logOutHandler}>
+          <Pressable style={styles.logoutButton} onPress={logout}>
             <Text style={styles.logoutText}> Logout </Text>
           </Pressable>
         </View>
