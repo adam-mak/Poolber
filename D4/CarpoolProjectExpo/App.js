@@ -1,17 +1,9 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
+import { FIREBASE_API_KEY } from "@env";
 
-
-import HomePage from "./components/HomePage";
-import UserProfile from "./components/UserProfile";
-import Rating from "./components/Rating";
-import RegisterPage from "./components/RegisterPage";
-import LoginPage from "./components/LoginPage";
-import MakeAccount from "./components/MakeAccount";
-import LegalTerms from "./components/legalTerms/legalTerms";
-import OfferorStage1 from "./components/OfferorStage1/OfferorStage1";
-import Barcode from "./components/Barcode/Barcode";
+import Navigator from "./routes/stack";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -24,17 +16,7 @@ export default function App() {
     return null;
   }
 
-  return (
-    <>
-      <Barcode />
-      {/* <RegisterPage />
-      <LoginPage /> */}
-      {/* <View style={styles.container}>
-		<Text>Open up App.js to start working on your app!</Text>
-		<StatusBar style="auto" />
-		</View> */}
-    </>
-  );
+  return <Navigator />;
 }
 
 const styles = StyleSheet.create({

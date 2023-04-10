@@ -1,12 +1,13 @@
 import { StyleSheet, View, ScrollView } from "react-native";
 
-import Banner from "./Banner";
-import ButtonContainer from "./ButtonContainer";
+import Banner from "../components/Banner";
+import ButtonContainer from "../components/ButtonContainer";
+import InputText from "../components/InputText";
+import ConfirmChangesModal from "../components/ConfirmChangesModal";
 
-import InputText from "./InputText";
 import { useState } from "react";
 
-const UserProfile = () => {
+const UserProfile = ({ navigation }) => {
   // this data should be replaced with a database access
   const originalData = {
     firstName: "John",
@@ -17,6 +18,7 @@ const UserProfile = () => {
   };
 
   const [currentProfileData, setCurrentProfileData] = useState(originalData);
+  const [modalVisible, setModalVisible] = useState(false);
 
   const onChangeHandler = (e, attr) => {
     setCurrentProfileData({ ...currentProfileData, [attr]: e });
@@ -25,6 +27,7 @@ const UserProfile = () => {
   const saveChangesHandler = () => {
     console.log("Saved Changes");
     console.log(currentProfileData);
+    setModalVisible(true);
     // Will require a database update
   };
 
@@ -39,10 +42,17 @@ const UserProfile = () => {
 
   return (
     <ScrollView>
+      <ConfirmChangesModal
+        modalVisible={modalVisible}
+        modalHandler={setModalVisible}
+        navigation={navigation}
+      />
+
       <Banner
         pageTitle="Edit Profile"
         header="Change Profile Picture"
         name="john_doe"
+        navigation={navigation}
       />
 
       <View style={styles.form}>
