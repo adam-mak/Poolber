@@ -1,65 +1,88 @@
-import { StyleSheet, View, Pressable, Text, Image } from "react-native";
+import { StyleSheet, View, Pressable, Text, Image, Modal } from "react-native";
+import Rating from "./Rating";
 
 /* Take in as props: {name, stars, comment} */
-const RatingConfirmation = () => {
+const RatingConfirmation = ({
+  confirmation,
+  confirmationHandler,
+  navigation,
+}) => {
   return (
-    <View style={styles.ratingConfirmation}>
-      <View style={{}}>
-        <View style={styles.headerContainer}>
-          <Text style={styles.header}>Please Confirm Your Rating</Text>
-          {/* get this from pop or smth lol */}
-          <Image
-            source={require("../assets/images/mary_jane.png")}
-            style={{ marginVertical: 20 }}
-          />
-          <Text style={{ ...styles.header, fontSize: 20, marginBottom: 16 }}>
-            Mary Jane
-          </Text>
-        </View>
+    // pass the data down here as props or smth lol or
+    // use the navigation stack to transmit data
 
-        <View style={styles.ratingsContainer}>
-          <Text style={styles.starText}>
-            {/* get this from pop or smth lol {name}, instead of hardcoding Mary Jane */}
-            You have provided the following rating to: Mary Jane
-          </Text>
-          <View style={styles.ratingStars}>
-            {/* Pull this from props and refactor this to be a .map() or smth*/}
-            <Image
-              source={require("../assets/rating_stars_bright/1star.png")}
-            />
-            <Image
-              source={require("../assets/rating_stars_bright/2star.png")}
-            />
-            <Image
-              source={require("../assets/rating_stars_bright/3star.png")}
-            />
-            <Image
-              source={require("../assets/rating_stars_bright/4star.png")}
-            />
-            <Image
-              source={require("../assets/rating_stars_bright/5star.png")}
-            />
+    <Modal visible={confirmation} animationType="fade" transparent={true}>
+      <View style={styles.modal}>
+        <View style={styles.ratingConfirmation}>
+          <View>
+            <View style={styles.headerContainer}>
+              <Text style={styles.header}>Please Confirm Your Rating</Text>
+              {/* get this from pop or smth lol */}
+              <Image
+                source={require("../assets/images/mary_jane.png")}
+                style={{ marginVertical: 20 }}
+              />
+              <Text
+                style={{ ...styles.header, fontSize: 20, marginBottom: 16 }}
+              >
+                Mary Jane
+              </Text>
+            </View>
+
+            <View style={styles.ratingsContainer}>
+              <Text style={styles.starText}>
+                {/* get this from pop or smth lol {name}, instead of hardcoding Mary Jane */}
+                You have provided the following rating to: Mary Jane
+              </Text>
+              <View style={styles.ratingStars}>
+                {/* Pull this from props and refactor this to be a .map() or smth*/}
+                <Image
+                  source={require("../assets/rating_stars_bright/1star.png")}
+                />
+                <Image
+                  source={require("../assets/rating_stars_bright/2star.png")}
+                />
+                <Image
+                  source={require("../assets/rating_stars_bright/3star.png")}
+                />
+                <Image
+                  source={require("../assets/rating_stars_bright/4star.png")}
+                />
+                <Image
+                  source={require("../assets/rating_stars_bright/5star.png")}
+                />
+              </View>
+            </View>
+
+            <View style={styles.commentContainer}>
+              <Text style={styles.commentText}>Comments</Text>
+              <Text style={styles.comments} textAlignVertical="top">
+                Some dummy text shall eventually go here lol but for now it
+                could be whatever
+              </Text>
+            </View>
+
+            <View style={styles.buttonContainer}>
+              <Pressable
+                style={{ ...styles.button, backgroundColor: "#E16363" }}
+              >
+                <Text
+                  style={styles.buttonText}
+                  onPress={() => confirmationHandler(false)}
+                >
+                  No, Cancel
+                </Text>
+              </Pressable>
+              <Pressable
+                style={{ ...styles.button, backgroundColor: "#B69DFE" }}
+              >
+                <Text style={styles.buttonText}>Yes, Confirm</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
-
-        <View style={styles.commentContainer}>
-          <Text style={styles.commentText}>Comments</Text>
-          <Text style={styles.comments} textAlignVertical="top">
-            Some dummy text shall eventually go here lol but for now it could be
-            whatever
-          </Text>
-        </View>
-
-        <View style={styles.buttonContainer}>
-          <Pressable style={{ ...styles.button, backgroundColor: "#E16363" }}>
-            <Text style={styles.buttonText}>No, Cancel</Text>
-          </Pressable>
-          <Pressable style={{ ...styles.button, backgroundColor: "#B69DFE" }}>
-            <Text style={styles.buttonText}>Yes, Confirm</Text>
-          </Pressable>
-        </View>
       </View>
-    </View>
+    </Modal>
   );
 };
 
@@ -68,6 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#10606B",
     height: "100%",
     justifyContent: "center",
+    opacity: 0.95,
   },
   headerContainer: {
     alignItems: "center",

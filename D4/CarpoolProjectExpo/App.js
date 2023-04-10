@@ -6,6 +6,7 @@ import { FIREBASE_API_KEY } from "@env";
 import Navigator from "./routes/stack";
 
 import RatingConfirmation from "./components/RatingConfirmation";
+import Rating from "./components/Rating";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -18,7 +19,7 @@ export default function App() {
     return null;
   }
 
-  return <RatingConfirmation />;
+  return <Rating />;
 }
 
 const styles = StyleSheet.create({

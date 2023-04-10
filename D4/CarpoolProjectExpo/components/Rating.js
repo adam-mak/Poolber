@@ -10,6 +10,7 @@ import {
 
 import Banner from "./Banner";
 import ButtonContainer from "./ButtonContainer";
+import RatingConfirmation from "./RatingConfirmation";
 
 import { useState } from "react";
 
@@ -33,6 +34,7 @@ const stars = {
 const Rating = () => {
   const [selectedRating, setSelectedRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [displayConfirmation, setDisplayConfirmation] = useState(false);
 
   const handleStarPress = (num) => setSelectedRating(num);
 
@@ -41,6 +43,11 @@ const Rating = () => {
 
   return (
     <ScrollView>
+      <RatingConfirmation
+        confirmation={displayConfirmation}
+        confirmationHandler={setDisplayConfirmation}
+      />
+
       <Banner pageTitle="Leave a Rating" header="Mary Jane" name="mary_jane" />
 
       <View style={styles.form}>
@@ -80,7 +87,7 @@ const Rating = () => {
 
       <ButtonContainer
         successMessage="Submit Rating"
-        successHandler={() => console.log("Submitted Rating")}
+        successHandler={() => setDisplayConfirmation(true)}
         unsuccessfulMessage="Skip Rating"
         unsuccessfulHandler={() => console.log("Skipped Rating")}
         endState="Skip All Ratings"
