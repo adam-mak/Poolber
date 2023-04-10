@@ -5,10 +5,6 @@ import { FIREBASE_API_KEY } from "@env";
 
 import Navigator from "./routes/stack";
 
-import RatingConfirmation from "./components/RatingConfirmation";
-import Rating from "./pages/RatingPage";
-import RatingSuccessful from "./components/RatingSuccessful";
-
 export default function App() {
   const [loaded] = useFonts({
     Lato: require("./assets/fonts/Lato-Regular.ttf"),
