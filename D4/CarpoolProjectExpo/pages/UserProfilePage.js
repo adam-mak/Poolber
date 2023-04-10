@@ -105,8 +105,6 @@ const UserProfile = ({ navigation }) => {
   );
 };
 
-export default UserProfile;
-
 const styles = StyleSheet.create({
   form: {
     marginTop: 94,
@@ -115,3 +113,5 @@ const styles = StyleSheet.create({
     height: 350,
   },
 });
+
+export default UserProfile;

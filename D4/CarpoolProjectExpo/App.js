@@ -1,9 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
-import { FIREBASE_API_KEY } from "@env";
 
 import Navigator from "./routes/stack";
+import LegalTermsPage from "./pages/LegalTermsPage";
+import TaxiScanner from "./components/Barcode";
+import OfferorStage1Page from "./pages/OfferorStage1Page";
 
 export default function App() {
   const [loaded] = useFonts({

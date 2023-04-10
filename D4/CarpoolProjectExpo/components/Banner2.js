@@ -1,15 +1,15 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 
-const Banner = ({ pageTitle }) => (
+const Banner2 = ({ pageTitle }) => (
   <>
     <View style={styles.topBanner}>
       <View style={styles.icons}>
         <Pressable>
-          <Image source={require("../../assets/images/return_arrow.png")} />
+          <Image source={require("../assets/images/return_arrow.png")} />
         </Pressable>
         <Text style={styles.pageTitleStyle}>{pageTitle}</Text>
         <Pressable>
-          <Image source={require("../../assets/images/share_icon.png")} />
+          <Image source={require("../assets/images/share_icon.png")} />
         </Pressable>
       </View>
     </View>
@@ -38,4 +38,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Banner;
+export default Banner2;

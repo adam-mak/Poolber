@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
-import Banner from "./Banner";
+import Banner2 from "../components/Banner2";
 
 export default function LegalTermsPage() {
   const [requirements] = useState([
@@ -49,7 +49,7 @@ export default function LegalTermsPage() {
 
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
-      <Banner pageTitle="Legal Terms" />
+      <Banner2 pageTitle="Legal Terms" />
 
       <View style={styles.legalPageContainer}>
         {requirements.map((item) => {

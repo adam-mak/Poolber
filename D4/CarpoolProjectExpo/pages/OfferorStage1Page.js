@@ -1,35 +1,26 @@
-import React, { useState } from "react";
-import { View, StyleSheet, Text, TouchableOpacity} from "react-native";
+import { useState } from "react";
+import { View, StyleSheet, Text, TouchableOpacity, TextInput } from "react-native";
 
-import Banner from "./Banner";
-import InputText from "../InputText";
+import Banner2 from "../components/Banner2";
 
 
-const LoginPage = () => {
-    const [usernameText, setUsernameText] = useState('');
-    const [passwordText, setPasswordText] = useState('');
-}
-
-export default function OfferorStage1() {
+export default function OfferorStage1Page() {
 
     const [location, setLocation] = useState('');
     const [destination, setDestination] = useState('');
 
-
   return (
-
-
     <View style={styles.container}>
-      <Banner pageTitle="Where to?" />
+      <Banner2 pageTitle="Where to?" />
 
       <View style={styles.inputContainer}>
-        <InputText
+        <TextInput
           style={styles.input}
           value={location}
           onChangeText={setLocation}
           placeholder="Location"
         />
-        <InputText
+        <TextInput
           style={styles.input}
           value={destination}
           onChangeText={setDestination}
@@ -53,12 +44,12 @@ const styles = StyleSheet.create({
       marginHorizontal: 40,
     },
     input: {
-      height: 50,
+      height: 40,
       borderWidth: 1,
-      borderColor: 'gray',
-      borderRadius: 10,
-      paddingHorizontal: 10,
-      marginBottom: 10,
+      borderColor: "#A9A9A9",
+      borderRadius: 8,
+      paddingHorizontal: 12,
+      marginBottom: 12,
     },
     buttonContainer: {
       position: 'absolute',
