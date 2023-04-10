@@ -8,9 +8,9 @@ import {
   ScrollView,
 } from "react-native";
 
-import Banner from "./Banner";
-import ButtonContainer from "./ButtonContainer";
-import RatingConfirmation from "./RatingConfirmation";
+import Banner from "../components/Banner";
+import ButtonContainer from "../components/ButtonContainer";
+import RatingConfirmation from "../components/RatingConfirmation";
 
 import { useState } from "react";
 
@@ -31,10 +31,11 @@ const stars = {
   },
 };
 
-const Rating = () => {
+const Rating = ({ navigation }) => {
   const [selectedRating, setSelectedRating] = useState(0);
   const [comment, setComment] = useState("");
   const [displayConfirmation, setDisplayConfirmation] = useState(false);
+  const [displayNext, setDisplayNext] = useState(false);
 
   const handleStarPress = (num) => setSelectedRating(num);
 
@@ -46,6 +47,9 @@ const Rating = () => {
       <RatingConfirmation
         confirmation={displayConfirmation}
         confirmationHandler={setDisplayConfirmation}
+        displayNext={displayNext}
+        displayNextHandler={setDisplayNext}
+        navigation={navigation}
       />
 
       <Banner pageTitle="Leave a Rating" header="Mary Jane" name="mary_jane" />

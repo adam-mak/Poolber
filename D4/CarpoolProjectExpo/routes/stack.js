@@ -5,8 +5,12 @@ import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import UserProfilePage from "../pages/UserProfilePage";
+import RatingPage from "../pages/RatingPage";
 
 const pages = {
+  RatingPage: {
+    screen: RatingPage,
+  },
   LoginPage: {
     screen: LoginPage,
   },

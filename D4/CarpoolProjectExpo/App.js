@@ -6,7 +6,7 @@ import { FIREBASE_API_KEY } from "@env";
 import Navigator from "./routes/stack";
 
 import RatingConfirmation from "./components/RatingConfirmation";
-import Rating from "./components/Rating";
+import Rating from "./pages/RatingPage";
 import RatingSuccessful from "./components/RatingSuccessful";
 
 export default function App() {
@@ -20,7 +20,7 @@ export default function App() {
     return null;
   }
 
-  return <RatingSuccessful />;
+  return <Navigator />;
 }
 
 const styles = StyleSheet.create({

@@ -1,6 +1,15 @@
 import { StyleSheet, View, Pressable, Text, Image, Modal } from "react-native";
 
-const RatingSuccessful = () => {
+const RatingSuccessful = ({
+  confirmationHandler,
+  displayNextHandler,
+  navigation,
+}) => {
+  const returnHomeHandler = () => {
+    displayNextHandler(false);
+    confirmationHandler(false);
+    navigation.navigate("HomePage");
+  };
   return (
     <View style={styles.outerContainer}>
       <View style={styles.nextRiderContainer}>
@@ -21,7 +30,10 @@ const RatingSuccessful = () => {
         <Pressable style={{ ...styles.button, backgroundColor: "#B69DFE" }}>
           <Text style={styles.buttonText}>Next Rating</Text>
         </Pressable>
-        <Pressable style={{ ...styles.button, backgroundColor: "#E16363" }}>
+        <Pressable
+          style={{ ...styles.button, backgroundColor: "#E16363" }}
+          onPress={returnHomeHandler}
+        >
           <Text style={styles.buttonText}>Skip All Ratings</Text>
         </Pressable>
       </View>
