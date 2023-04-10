@@ -62,6 +62,12 @@ const LoginPage = ({ navigation }) => {
             <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
+        <View style={styles.registerContainer}>
+          <Text style={styles.text}> Ratings Page Testing </Text>
+          <Pressable onPress={() => navigation.navigate("RatingPage")}>
+            <Image source={require("../assets/images/advance_button.png")} />
+          </Pressable>
+        </View>
       </View>
       <Image
         source={require("../assets/images/bg_curve_3.png")}
