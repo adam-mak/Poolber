@@ -18,12 +18,6 @@ const RegisterPage = ({ navigation }) => {
   const [confirmPasswordText, setConfirmPasswordText] = useState("");
   const [errorText, setErrorText] = useState("");
 
-  const createUserHandler = () => {
-    // add some field and form level validation lol - we could just formik but that's gonna
-    // add to our usage of dependency
-    navigation.navigate("HomePage");
-  };
-
   const loginHandler = () => {
     navigation.navigate("LoginPage");
   };

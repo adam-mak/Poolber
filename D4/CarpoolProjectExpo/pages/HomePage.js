@@ -24,15 +24,6 @@ const HomePage = ({ navigation }) => {
     }
   }
 
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       logOutHandler();
-  //     }
-  //   });
-  //   return unsubscribe;
-  // }, []);
-
   return (
     <ScrollView>
       <View style={styles.bgCurve1Container}>
@@ -46,8 +37,6 @@ const HomePage = ({ navigation }) => {
           <Text style={styles.headerText}>Poolber</Text>
         </View>
         <View style={styles.requestRideContainer}>
-          {/* <Button /> component does not allow for custom styles (unless we wrap it in a <View/> component and apply the styles there).
-          For custom styles, use a <Pressable /> component */}
           <Pressable>
             <Image
               source={require("../assets/images/request_ride_button.png")}
