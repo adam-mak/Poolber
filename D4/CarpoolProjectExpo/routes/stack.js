@@ -8,9 +8,6 @@ import UserProfilePage from "../pages/UserProfilePage";
 import RatingPage from "../pages/RatingPage";
 
 const pages = {
-  RatingPage: {
-    screen: RatingPage,
-  },
   LoginPage: {
     screen: LoginPage,
   },
@@ -22,6 +19,9 @@ const pages = {
   },
   UserProfilePage: {
     screen: UserProfilePage,
+  },
+  RatingPage: {
+    screen: RatingPage,
   },
 };
 
