@@ -5,6 +5,8 @@ import { FIREBASE_API_KEY } from "@env";
 
 import Navigator from "./routes/stack";
 
+import RatingConfirmation from "./components/RatingConfirmation";
+
 export default function App() {
   const [loaded] = useFonts({
     Lato: require("./assets/fonts/Lato-Regular.ttf"),
@@ -16,7 +18,7 @@ export default function App() {
     return null;
   }
 
-  return <Navigator />;
+  return <RatingConfirmation />;
 }
 
 const styles = StyleSheet.create({
