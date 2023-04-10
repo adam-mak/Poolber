@@ -34,8 +34,10 @@ const LoginPage = ({ navigation }) => {
       await signInWithEmailAndPassword(auth, usernameText, passwordText);
       setErrorText("");
     } catch (e) {
-      if (e.code === "auth/user-not-found" || e.code === "auth/invalid-email" || e.code === "auth/wrong-password") {
+      if (e.code === "auth/invalid-email" || e.code === "auth/wrong-password") {
         setErrorText("Username/password incorrect. Try again.");
+      } else if (e.code === "auth/user-not-found") {
+        setErrorText("There is no account under this username.")
       } else {
         setErrorText("There was a problem with your request.");
       }
