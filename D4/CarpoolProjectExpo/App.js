@@ -7,6 +7,7 @@ import Navigator from "./routes/stack";
 
 import RatingConfirmation from "./components/RatingConfirmation";
 import Rating from "./components/Rating";
+import RatingSuccessful from "./components/RatingSuccessful";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -19,7 +20,7 @@ export default function App() {
     return null;
   }
 
-  return <Rating />;
+  return <RatingSuccessful />;
 }
 
 const styles = StyleSheet.create({
