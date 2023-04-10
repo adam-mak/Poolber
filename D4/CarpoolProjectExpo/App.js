@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
-import { useEffect } from "react";
 
 import Navigator from "./routes/stack";
+import LegalTermsPage from "./pages/LegalTermsPage";
+import TaxiScanner from "./components/Barcode";
+import OfferorStage1Page from "./pages/OfferorStage1Page";
 
 export default function App() {
   /* Load Fonts */
