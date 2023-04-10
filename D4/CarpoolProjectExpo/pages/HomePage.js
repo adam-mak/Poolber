@@ -1,3 +1,4 @@
+import { signOut } from "@firebase/auth";
 import {
   Pressable,
   StyleSheet,
@@ -6,15 +7,22 @@ import {
   ScrollView,
   Image,
 } from "react-native";
+import { useEffect } from "react";
+
+import { auth } from "../firebase";
 
 const HomePage = ({ navigation }) => {
   const editProfileHandler = () => {
     navigation.push("UserProfilePage");
   };
 
-  const logOutHandler = () => {
-    navigation.navigate("LoginPage");
-  };
+  const logout = async () => {
+    try {
+      await signOut(auth);
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   return (
     <ScrollView>
@@ -29,8 +37,6 @@ const HomePage = ({ navigation }) => {
           <Text style={styles.headerText}>Poolber</Text>
         </View>
         <View style={styles.requestRideContainer}>
-          {/* <Button /> component does not allow for custom styles (unless we wrap it in a <View/> component and apply the styles there).
-          For custom styles, use a <Pressable /> component */}
           <Pressable>
             <Image
               source={require("../assets/images/request_ride_button.png")}
@@ -51,7 +57,7 @@ const HomePage = ({ navigation }) => {
           </Pressable>
         </View>
         <View style={styles.logoutContainer}>
-          <Pressable style={styles.logoutButton} onPress={logOutHandler}>
+          <Pressable style={styles.logoutButton} onPress={logout}>
             <Text style={styles.logoutText}> Logout </Text>
           </Pressable>
         </View>
