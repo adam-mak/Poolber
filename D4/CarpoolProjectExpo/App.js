@@ -17,7 +17,7 @@ export default function App() {
     return null;
   }
 
-  return <Navigator />;
+  return <OfferorStage1Page />;
 }
 
 const styles = StyleSheet.create({
