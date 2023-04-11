@@ -18,8 +18,8 @@ const OfferRide = ({ navigation }) => {
     navigation.goBack();
   };
 
-  const handleGoPress = () => {
-    console.log("Pressed");
+  const selectRequesterHandler = () => {
+    navigation.navigate("OfferRideConfirmationPage");
   };
 
   return (
@@ -98,7 +98,7 @@ const OfferRide = ({ navigation }) => {
             <Text style={styles.ellipseTitle}> 10 min detour </Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $6</Text>
           </View>
-          <Pressable onPress={handleGoPress}>
+          <Pressable onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
@@ -116,7 +116,7 @@ const OfferRide = ({ navigation }) => {
             <Text style={styles.ellipseTitle}> 8 min detour </Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $3</Text>
           </View>
-          <Pressable onPress={handleGoPress}>
+          <Pressable onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
@@ -134,7 +134,7 @@ const OfferRide = ({ navigation }) => {
             <Text style={styles.ellipseTitle}> 5 min detour </Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $7</Text>
           </View>
-          <Pressable onPress={handleGoPress}>
+          <Pressable onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
