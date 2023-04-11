@@ -8,9 +8,10 @@ import {
   TextInput,
 } from "react-native";
 
-import { useEffect, useState } from "react";
-import { auth } from "../firebase";
+import { useState } from "react";
+import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { doc, setDoc } from "@firebase/firestore";
 
 const RegisterPage = ({ navigation }) => {
   const [usernameText, setUsernameText] = useState("");
@@ -25,7 +26,10 @@ const RegisterPage = ({ navigation }) => {
   const createAccount = async () => {
     try {
       if (passwordText === confirmPasswordText) {
-        await createUserWithEmailAndPassword(auth, usernameText, passwordText);
+        const credentials = await createUserWithEmailAndPassword(auth, usernameText, passwordText);
+        await setDoc(doc(db, "users", credentials.user.uid), {
+          email: usernameText
+        });
         setErrorText("");
       } else {
         setErrorText("Passwords don't match.")
