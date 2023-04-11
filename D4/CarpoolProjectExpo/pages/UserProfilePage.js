@@ -5,35 +5,56 @@ import ButtonContainer from "../components/ButtonContainer";
 import InputText from "../components/InputText";
 import ConfirmChangesModal from "../components/ConfirmChangesModal";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { auth, db } from "../firebase";
+import { doc, getDoc } from "@firebase/firestore";
 
 const UserProfile = ({ navigation }) => {
   // this data should be replaced with a database access
   const originalData = {
     firstName: "John",
     lastName: "Doe",
-    username: "JohnDoe123",
     email: "johndoe@poolber.com",
     phoneNumber: "123-456-7890",
   };
 
-  const [currentProfileData, setCurrentProfileData] = useState(originalData);
+  const getUserDetails = async() => {
+    try {
+      const querySnapshot = await getDoc(doc(db, "users", auth.currentUser.uid));
+      if (querySnapshot.exists()) {
+        const currentProfileData = Object.assign(originalData, querySnapshot.data());
+        setCurrentProfileData(currentProfileData);
+        setProfileData(currentProfileData);
+      } else {
+        console.log("No such document!");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => { 
+    getUserDetails();
+  }, []);
+
+  const [currentProfileData, setCurrentProfileData] = useState();
+  const [profileData, setProfileData] = useState(originalData);
   const [modalVisible, setModalVisible] = useState(false);
 
   const onChangeHandler = (e, attr) => {
-    setCurrentProfileData({ ...currentProfileData, [attr]: e });
+    setProfileData({ ...profileData, [attr]: e });
   };
 
   const saveChangesHandler = () => {
     console.log("Saved Changes");
-    console.log(currentProfileData);
+    console.log(profileData);
     setModalVisible(true);
     // Will require a database update
   };
 
   const discardChangesHandler = () => {
     console.log("Discarded Changes");
-    setCurrentProfileData(originalData);
+    setProfileData(currentProfileData);
   };
 
   const deleteAccountHandler = () => {
@@ -46,6 +67,7 @@ const UserProfile = ({ navigation }) => {
         modalVisible={modalVisible}
         modalHandler={setModalVisible}
         navigation={navigation}
+        data={profileData}
       />
 
       <Banner
@@ -58,35 +80,28 @@ const UserProfile = ({ navigation }) => {
       <View style={styles.form}>
         <InputText
           placeholder="John"
-          value={currentProfileData.firstName}
+          value={profileData.firstName}
           header="First Name"
           updateStateHandler={onChangeHandler}
           attr="firstName"
         />
         <InputText
           placeholder="Doe"
-          value={currentProfileData.lastName}
+          value={profileData.lastName}
           header="Last Name"
           updateStateHandler={onChangeHandler}
           attr="lastName"
         />
         <InputText
-          placeholder="JohnDoe123"
-          value={currentProfileData.username}
-          header="Username"
-          updateStateHandler={onChangeHandler}
-          attr="username"
-        />
-        <InputText
           placeholder="johndoe@poolber.com"
-          value={currentProfileData.email}
-          header="Email"
+          value={profileData.email}
+          header="Username/Email"
           updateStateHandler={onChangeHandler}
           attr="email"
         />
         <InputText
           placeholder="123-456-7890"
-          value={currentProfileData.phoneNumber}
+          value={profileData.phoneNumber}
           header="Phone Number"
           updateStateHandler={onChangeHandler}
           attr="phoneNumber"

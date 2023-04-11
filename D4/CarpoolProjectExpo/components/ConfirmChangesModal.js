@@ -2,14 +2,34 @@ import { TextInput } from "react-native";
 import { StyleSheet, View, Modal, Pressable, Text, Image } from "react-native";
 
 import { useState } from "react";
+import { auth, db } from "../firebase";
+import { doc, setDoc } from "@firebase/firestore";
+import { EmailAuthProvider, reauthenticateWithCredential } from "@firebase/auth";
 
-const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation }) => {
+const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation, data }) => {
   const [changesSaved, setChangesSaved] = useState(false);
   const [inputPassword, setInputPassword] = useState("");
+  const [errorText, setErrorText] = useState("");
 
-  const confirmationHandler = () => {
-    setChangesSaved(true);
-    setInputPassword("");
+  const confirmationHandler = async () => {
+    try {
+      const credential = await EmailAuthProvider.credential(data.email, inputPassword);
+      await reauthenticateWithCredential(auth.currentUser, credential);
+      setChangesSaved(true);
+      setInputPassword("");
+      await setDoc(doc(db, "users", auth.currentUser.uid), {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+      });
+    } catch (e) {
+      if (e.code === "auth/wrong-password") {
+        setErrorText("Incorrect Password.")
+      } else {
+        setErrorText("There was a problem with your request.");
+      }
+    }
   };
 
   const cancelHandler = () => {
@@ -79,6 +99,7 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation }) => {
             </Text>
           </Pressable>
         </View>
+        <Text style={[styles.newChangesText, {color: "red", marginTop: 40}]}>{errorText}</Text>
       </>
     );
   };
