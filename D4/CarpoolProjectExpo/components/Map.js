@@ -29,7 +29,10 @@ const INITIAL_POSITION = {
 
 const Map = ({ navigation }) => {
   const setupCarpoolHandler = () => {
-    navigation.push("AwaitRideStartPage");
+    navigation.navigate("AwaitRideStartPage", {
+      start: startName,
+      end: endName,
+    });
   };
 
   const [origin, setOrigin] = useState({
@@ -39,6 +42,9 @@ const Map = ({ navigation }) => {
 
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
+
+  const [startName, setStartName] = useState("");
+  const [endName, setEndName] = useState("");
 
   const [showDirections, setShowDirections] = useState(false);
   const [distance, setDistance] = useState(0);
@@ -75,6 +81,7 @@ const Map = ({ navigation }) => {
           <AutoComplete
             placeholder="Pickup Location"
             updateLocation={setStart}
+            updateLocationName={setStartName}
             moveCamera={moveCameraHandler}
           />
         </View>
@@ -82,6 +89,7 @@ const Map = ({ navigation }) => {
           <AutoComplete
             placeholder="Destination"
             updateLocation={setEnd}
+            updateLocationName={setEndName}
             moveCamera={moveCameraHandler}
           />
         </View>

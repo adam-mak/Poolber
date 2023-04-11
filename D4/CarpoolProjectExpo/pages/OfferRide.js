@@ -14,6 +14,9 @@ const OfferRide = ({ navigation }) => {
   const [destination, setDestination] = useState("");
   const [dateTime, setDateTime] = useState("");
 
+  const startLocation = navigation.getParam("start");
+  const endLocation = navigation.getParam("end");
+
   const returnToOfferScreenHandler = () => {
     navigation.goBack();
   };
@@ -57,27 +60,17 @@ const OfferRide = ({ navigation }) => {
       <View style={styles.topContainer}>
         <View style={styles.locationContainer}>
           <Text style={styles.locationTitle}>Current Location</Text>
-          <TextInput
-            style={styles.locationInput}
-            placeholder="128 Main Street"
-            value={pickupLocation}
-            onChangeText={setPickupLocation}
-          />
+          <Text style={styles.locationInput}>{startLocation}</Text>
         </View>
 
         <View style={styles.locationContainer}>
           <Text style={styles.locationTitle}>Destination</Text>
-          <TextInput
-            style={styles.locationInput}
-            placeholder="2000 Seven St"
-            value={destination}
-            onChangeText={setDestination}
-          />
+          <Text style={styles.locationInput}>{endLocation}</Text>
         </View>
       </View>
 
       <View style={styles.peopleOnTheWayContainer}>
-        <View style={styles.border}>
+        <View>
           <Text style={styles.peopleOnTheWayText}>People on the way</Text>
         </View>
         <TouchableOpacity style={styles.proceedRide}>
@@ -142,13 +135,6 @@ const OfferRide = ({ navigation }) => {
           </Pressable>
         </View>
       </View>
-
-      <View style={styles.vectorContainer}>
-        <Image
-          source={require("../assets/images/Vector_1.png")}
-          style={styles.vectorImage}
-        />
-      </View>
     </View>
   );
 };
@@ -176,7 +162,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 24,
     fontWeight: "bold",
-    marginTop: 20,
+    marginTop: 5,
     alignSelf: "center",
   },
   backButton: {
@@ -209,7 +195,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   locationContainer: {
-    marginBottom: 20,
+    marginBottom: 15,
     width: "48%",
   },
   locationTitle: {
@@ -218,11 +204,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   locationInput: {
-    height: 40,
+    height: 80,
+    fontSize: 13,
     borderColor: "#999",
     borderWidth: 1,
     borderRadius: 5,
-    paddingHorizontal: 10,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
   peopleOnTheWayContainer: {
     marginTop: -15,
@@ -267,7 +256,7 @@ const styles = StyleSheet.create({
     height: 30,
   },
   ellipseContainer: {
-    marginTop: -5,
+    marginTop: -30,
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
