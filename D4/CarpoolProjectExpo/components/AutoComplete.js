@@ -1,14 +1,18 @@
 import { GOOGLE_MAPS_API_KEY } from "@env";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
-const AutoComplete = ({ placeholder }) => {
+const AutoComplete = ({ placeholder, updateLocation, moveCamera }) => {
   return (
     <GooglePlacesAutocomplete
       placeholder={placeholder}
       fetchDetails
-      onPress={(data, details = null) => {
-        // 'details' is provided when fetchDetails = true
-        console.log(data, details);
+      onPress={(data, details) => {
+        const position = {
+          latitude: details.geometry.location.lat,
+          longitude: details.geometry.location.lng,
+        };
+        updateLocation(position);
+        moveCamera(position);
       }}
       query={{
         key: GOOGLE_MAPS_API_KEY,

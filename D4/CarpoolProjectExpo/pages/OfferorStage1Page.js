@@ -1,36 +1,14 @@
-import { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import Banner2 from "../components/Banner2";
 import Map from "../components/Map";
-import AutoComplete from "../components/AutoComplete";
 
 export default function OfferorStage1Page() {
-  const [location, setLocation] = useState("");
-  const [destination, setDestination] = useState("");
-
   return (
     <View style={styles.container}>
       <Banner2 pageTitle="Where to?" />
 
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <View style={styles.autoCompleteViewBox}>
-          <AutoComplete placeholder="Pickup Location" />
-        </View>
-        <View style={styles.autoCompleteViewBox}>
-          <AutoComplete placeholder="Destination" />
-        </View>
-      </View>
-
-      <View style={styles.map}>
-        <Map />
-      </View>
+      <Map />
 
       <TouchableOpacity
         style={styles.buttonContainer}
@@ -74,20 +52,5 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
-  },
-  autoCompleteViewBox: {
-    width: "90%",
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 10,
-  },
-  map: {
-    justifyContent: "center",
-    alignItems: "center",
-    borderWidth: 1,
-    marginHorizontal: 20,
-    height: "55%",
-    marginTop: 10,
-    borderRadius: 6,
   },
 });
