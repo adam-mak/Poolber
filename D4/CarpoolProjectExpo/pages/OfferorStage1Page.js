@@ -4,13 +4,12 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  TextInput,
+  ScrollView,
 } from "react-native";
 
 import Banner2 from "../components/Banner2";
 import Map from "../components/Map";
-
-import { Autocomplete } from "@react-google-maps/api";
+import AutoComplete from "../components/AutoComplete";
 
 export default function OfferorStage1Page() {
   const [location, setLocation] = useState("");
@@ -20,23 +19,18 @@ export default function OfferorStage1Page() {
     <View style={styles.container}>
       <Banner2 pageTitle="Where to?" />
 
-      <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            value={location}
-            onChangeText={setLocation}
-            placeholder="Location"
-          />
-
-          <TextInput
-            style={styles.input}
-            value={destination}
-            onChangeText={setDestination}
-            placeholder="Destination"
-          />
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <View style={styles.autoCompleteViewBox}>
+          <AutoComplete placeholder="Pickup Location" />
+        </View>
+        <View style={styles.autoCompleteViewBox}>
+          <AutoComplete placeholder="Destination" />
+        </View>
       </View>
 
-      <Map />
+      <View style={styles.map}>
+        <Map />
+      </View>
 
       <TouchableOpacity
         style={styles.buttonContainer}
@@ -80,5 +74,20 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+  },
+  autoCompleteViewBox: {
+    width: "90%",
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  map: {
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 1,
+    marginHorizontal: 20,
+    height: "55%",
+    marginTop: 10,
+    borderRadius: 6,
   },
 });
