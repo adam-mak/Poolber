@@ -5,6 +5,10 @@ import Navigator from "./routes/stack";
 import LegalTermsPage from "./pages/LegalTermsPage";
 import TaxiScanner from "./components/Barcode";
 import OfferorStage1Page from "./pages/OfferorStage1Page";
+import RequestRide from "./pages/RequestRide";
+import OfferRide from "./pages/OfferRide";
+import RequestRideConf from "./pages/RequestRideConf";
+import OfferRideConf from "./pages/OfferRide";
 
 export default function App() {
   /* Load Fonts */
@@ -16,8 +20,8 @@ export default function App() {
   if (!loaded) {
     return null;
   }
-
-  return <OfferorStage1Page />;
+  
+  return <RequestRideConf />;
 }
 
 const styles = StyleSheet.create({
