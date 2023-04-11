@@ -12,7 +12,7 @@ import { auth } from "../firebase";
 
 const HomePage = ({ navigation }) => {
   const editProfileHandler = () => {
-    navigation.push("UserProfilePage");
+    navigation.navigate("UserProfilePage");
   };
 
   const requestRideHandler = () => {
@@ -55,6 +55,7 @@ const HomePage = ({ navigation }) => {
             <Image source={require("../assets/images/offer_ride_button.png")} />
           </Pressable>
         </View>
+
         <View style={styles.editProfileContainer}>
           <Pressable
             style={styles.editProfileButton}

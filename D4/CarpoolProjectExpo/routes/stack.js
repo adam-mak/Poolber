@@ -15,11 +15,11 @@ import RequestRide from "../pages/RequestRide";
 import RequestRideConf from "../pages/RequestRideConf";
 
 const pages = {
-  HomePage: {
-    screen: HomePage,
-  },
   LoginPage: {
     screen: LoginPage,
+  },
+  HomePage: {
+    screen: HomePage,
   },
   RegisterPage: {
     screen: RegisterPage,

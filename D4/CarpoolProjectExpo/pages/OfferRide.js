@@ -80,6 +80,11 @@ const OfferRide = ({ navigation }) => {
         <View style={styles.border}>
           <Text style={styles.peopleOnTheWayText}>People on the way</Text>
         </View>
+        <TouchableOpacity style={styles.proceedRide}>
+          <Text style={{ fontWeight: 700, fontSize: 16 }}>
+            Proceed with Ride
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.ellipseContainer}>
@@ -223,7 +228,7 @@ const styles = StyleSheet.create({
     marginTop: -15,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-evenly",
     marginHorizontal: 20,
     marginVertical: 5,
     borderWidth: 1,
@@ -322,6 +327,16 @@ const styles = StyleSheet.create({
   vectorImage: {
     width: 100,
     height: 70,
+  },
+  proceedRide: {
+    borderWidth: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    height: 44,
+    width: "50%",
+    borderColor: "#D8BFD8",
+    backgroundColor: "#B69DFE",
   },
 });
 

@@ -15,7 +15,7 @@ const RequestRide = ({ navigation }) => {
   const [dateTime, setDateTime] = useState("");
 
   const submitRequestHandler = () => {
-    navigation.push("RequestRideConfirmationPage");
+    navigation.navigate("RequestRideConfirmationPage");
   };
 
   const returnHandler = () => {

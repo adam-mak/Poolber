@@ -18,16 +18,20 @@ const LoginPage = ({ navigation }) => {
   const [errorText, setErrorText] = useState("");
 
   const loginHandler = () => {
-    navigation.push("HomePage");
+    navigation.navigate("HomePage");
   };
 
   const registerHandler = () => {
-    navigation.push("RegisterPage");
+    navigation.navigate("RegisterPage");
   };
 
   const logoutHandler = () => {
     navigation.navigate("LoginPage");
-  }
+  };
+
+  const viewLegalTermsHandler = () => {
+    navigation.navigate("LegalTermsPage");
+  };
 
   const loginUser = async () => {
     try {
@@ -37,7 +41,7 @@ const LoginPage = ({ navigation }) => {
       if (e.code === "auth/invalid-email" || e.code === "auth/wrong-password") {
         setErrorText("Username/password incorrect. Try again.");
       } else if (e.code === "auth/user-not-found") {
-        setErrorText("There is no account under this username.")
+        setErrorText("There is no account under this username.");
       } else {
         setErrorText("There was a problem with your request.");
       }
@@ -98,6 +102,12 @@ const LoginPage = ({ navigation }) => {
           </Pressable>
         </View>
         <View style={styles.registerContainer}>
+          <Text style={styles.text}> View Legal Terms </Text>
+          <Pressable onPress={viewLegalTermsHandler}>
+            <Image source={require("../assets/images/advance_button.png")} />
+          </Pressable>
+        </View>
+        <View style={styles.registerContainer}>
           <Text style={styles.text}> Ratings Page Testing </Text>
           <Pressable onPress={() => navigation.navigate("RatingPage")}>
             <Image source={require("../assets/images/advance_button.png")} />
@@ -144,13 +154,13 @@ const styles = StyleSheet.create({
   signInContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: 54,
+    marginTop: 10,
     gap: 15,
   },
   registerContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: 31,
+    marginTop: 20,
     gap: 15,
   },
   usernameField: {

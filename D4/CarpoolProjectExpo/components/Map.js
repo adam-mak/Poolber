@@ -1,4 +1,10 @@
-import { StyleSheet, View, Dimensions, Text } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Dimensions,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 import { GOOGLE_MAPS_API_KEY } from "@env";
 
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
@@ -7,7 +13,6 @@ import MapViewDirections from "react-native-maps-directions";
 import AutoComplete from "./AutoComplete";
 
 import { useRef, useState } from "react";
-import { Pressable } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
@@ -22,7 +27,11 @@ const INITIAL_POSITION = {
   longitudeDelta: LONGITUDE_DELTA,
 };
 
-const Map = () => {
+const Map = ({ navigation }) => {
+  const setupCarpoolHandler = () => {
+    navigation.push("AwaitRideStartPage");
+  };
+
   const [origin, setOrigin] = useState({
     latitude: 43.2617,
     longitude: -79.9228,
@@ -101,9 +110,15 @@ const Map = () => {
         </MapView>
       </View>
 
-      <Pressable onPress={displayRoute}>
-        <Text>Ready</Text>
-      </Pressable>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={displayRoute} style={styles.button}>
+          <Text style={styles.buttonText}>Calculate Route</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={setupCarpoolHandler} style={styles.button}>
+          <Text style={styles.buttonText}>Start Carpool</Text>
+        </TouchableOpacity>
+      </View>
     </>
   );
 };
@@ -115,7 +130,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 10,
   },
-
   map: {
     justifyContent: "center",
     alignItems: "center",
@@ -124,6 +138,28 @@ const styles = StyleSheet.create({
     height: "55%",
     marginTop: 10,
     borderRadius: 6,
+  },
+  buttonContainer: {
+    width: "100%",
+    height: 50,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    marginVertical: 20,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  button: {
+    width: "48%",
+    backgroundColor: "black",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    height: "100%",
   },
 });
 
