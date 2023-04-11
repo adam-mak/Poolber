@@ -3,16 +3,20 @@ import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import Banner2 from "../components/Banner2";
 import Map from "../components/Map";
 
-export default function OfferorStage1Page() {
+export default function OfferorStage1Page({ navigation }) {
+  const setupCarpoolHandler = () => {
+    navigation.push("AwaitRideStartPage");
+  };
+
   return (
     <View style={styles.container}>
-      <Banner2 pageTitle="Where to?" />
+      <Banner2 pageTitle="Where to?" navigation={navigation} />
 
       <Map />
 
       <TouchableOpacity
         style={styles.buttonContainer}
-        onPress={() => console.log("Carpool button pressed")}
+        onPress={setupCarpoolHandler}
       >
         <Text style={styles.buttonText}>Setup Carpool Event</Text>
       </TouchableOpacity>

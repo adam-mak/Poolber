@@ -9,38 +9,45 @@ import {
   StyleSheet,
 } from "react-native";
 
-import { useNavigation } from '@react-navigation/native';
-
-
-const RequestRide = () => {
+const RequestRide = ({ navigation }) => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [destination, setDestination] = useState("");
   const [dateTime, setDateTime] = useState("");
 
-
-  const handleGoPress = () => {
-    navigation.navigate('YourTargetScreen'); // Replace 'YourTargetScreen' with the actual target screen name
+  const submitRequestHandler = () => {
+    navigation.push("RequestRideConfirmationPage");
   };
 
+  const returnHandler = () => {
+    navigation.goBack();
+  };
 
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/images/Background.png")} style={styles.backgroundImage} />
-
+      <Image
+        source={require("../assets/images/Background.png")}
+        style={styles.backgroundImage}
+      />
 
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
-          <Image source={require("../assets/images/return_arrow.png")} style={styles.backIcon} />
+        <TouchableOpacity style={styles.backButton} onPress={returnHandler}>
+          <Image
+            source={require("../assets/images/return_arrow.png")}
+            style={styles.backIcon}
+          />
         </TouchableOpacity>
-        <Image source={require("../assets/images/logo.png")} style={styles.logo} />
+        <Image
+          source={require("../assets/images/logo.png")}
+          style={styles.logo}
+        />
         <Text style={styles.headerTitle}>Request Ride</Text>
         <TouchableOpacity>
-          <Image source={require("../assets/images/share_icon.png")} style={styles.shareIcon} />
+          <Image
+            source={require("../assets/images/share_icon.png")}
+            style={styles.shareIcon}
+          />
         </TouchableOpacity>
       </View>
-
-
-
 
       <View style={styles.topContainer}>
         <View style={styles.locationContainer}>
@@ -53,9 +60,6 @@ const RequestRide = () => {
           />
         </View>
 
-
-
-
         <View style={styles.locationContainer}>
           <Text style={styles.locationTitle}>Destination</Text>
           <TextInput
@@ -67,76 +71,85 @@ const RequestRide = () => {
         </View>
       </View>
 
-
-
-
       <View style={styles.ellipseContainer}>
         <View style={styles.ellipseBox}>
-        <Image source={require("../assets/images/Ellipse_50.png")} style={styles.ellipseImage} />
+          <Image
+            source={require("../assets/images/Ellipse_50.png")}
+            style={styles.ellipseImage}
+          />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>760 Gage St</Text>
             <Text style={styles.ellipseRideApprox}>Ride Approx: $20</Text>
           </View>
-          <Pressable onPress={handleGoPress}>
-            <Image source={require("../assets/images/GO.png")} style={styles.goImage} />
+          <Pressable onPress={submitRequestHandler}>
+            <Image
+              source={require("../assets/images/GO.png")}
+              style={styles.goImage}
+            />
           </Pressable>
         </View>
 
-
-
-
         <View style={styles.ellipseBox}>
-          <Image source={require("../assets/images/Ellipse_52.png")} style={styles.ellipseImage} />
+          <Image
+            source={require("../assets/images/Ellipse_52.png")}
+            style={styles.ellipseImage}
+          />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>2567 Seven St</Text>
             <Text style={styles.ellipseRideApprox}>Ride Approx: $12</Text>
           </View>
-          <Pressable onPress={handleGoPress}>
-            <Image source={require("../assets/images/GO.png")} style={styles.goImage} />
+          <Pressable onPress={submitRequestHandler}>
+            <Image
+              source={require("../assets/images/GO.png")}
+              style={styles.goImage}
+            />
           </Pressable>
         </View>
 
-
-
-
         <View style={styles.ellipseBox}>
-          <Image source={require("../assets/images/Ellipse_58.png")} style={styles.ellipseImage} />
+          <Image
+            source={require("../assets/images/Ellipse_58.png")}
+            style={styles.ellipseImage}
+          />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>Trip to Beach</Text>
             <Text style={styles.ellipseRideApprox}> Ride Approx: $15</Text>
           </View>
-          <Pressable onPress={handleGoPress}>
-            <Image source={require("../assets/images/GO.png")} style={styles.goImage} />
+          <Pressable onPress={submitRequestHandler}>
+            <Image
+              source={require("../assets/images/GO.png")}
+              style={styles.goImage}
+            />
           </Pressable>
         </View>
       </View>
 
-
-
-
       <View style={styles.vectorContainer}>
-        <Image source={require("../assets/images/Vector_1.png" )} style={styles.vectorImage} />
+        <Image
+          source={require("../assets/images/Vector_1.png")}
+          style={styles.vectorImage}
+        />
       </View>
-      </View>
+    </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
   },
   backgroundImage: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginHorizontal: 20,
     marginTop: 50,
   },
@@ -154,7 +167,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 100,
     height: 50,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   shareIcon: {
     width: 35,
@@ -170,32 +183,32 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   locationTitle: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
     fontSize: 16,
   },
   locationInput: {
     height: 40,
-    borderColor: '#999',
+    borderColor: "#999",
     borderWidth: 1,
     borderRadius: 5,
     paddingHorizontal: 10,
   },
   ellipseContainer: {
     flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
     marginHorizontal: 20,
   },
   ellipseBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
     marginVertical: 10,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -214,13 +227,13 @@ const styles = StyleSheet.create({
   },
   ellipseTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   ellipseRideApprox: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 10,
-    color: '#666',
+    color: "#666",
   },
   goImage: {
     width: 35,
@@ -229,15 +242,15 @@ const styles = StyleSheet.create({
     width: 44,
   },
   footer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
     marginVertical: 50,
   },
   circleIcon: {
     width: 20,
     height: 20,
-    resizeMode: 'contain',
+    resizeMode: "contain",
   },
   barIcon: {
     width: 50,
@@ -255,22 +268,18 @@ const styles = StyleSheet.create({
     height: 118,
   },
   ellipseContainer: {
-    flexDirection: 'column',
+    flexDirection: "column",
     marginTop: 0,
   },
- headerTitle: {
-  fontSize: 20,
-  fontWeight: 'bold',
-  marginTop: 10,
-},
-logoContainer: {
-  flexDirection: 'column',
-  alignItems: 'center',
-},
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+  logoContainer: {
+    flexDirection: "column",
+    alignItems: "center",
+  },
 });
-
-
-
-
 
 export default RequestRide;

@@ -7,12 +7,19 @@ import RegisterPage from "../pages/RegisterPage";
 import UserProfilePage from "../pages/UserProfilePage";
 import RatingPage from "../pages/RatingPage";
 
+import LegalTermsPage from "../pages/LegalTermsPage";
+import OfferRide from "../pages/OfferRide";
+import OfferorStage1Page from "../pages/OfferorStage1Page";
+import OfferRideConf from "../pages/OfferRideConf";
+import RequestRide from "../pages/RequestRide";
+import RequestRideConf from "../pages/RequestRideConf";
+
 const pages = {
-  LoginPage: {
-    screen: LoginPage,
-  },
   HomePage: {
     screen: HomePage,
+  },
+  LoginPage: {
+    screen: LoginPage,
   },
   RegisterPage: {
     screen: RegisterPage,
@@ -22,6 +29,24 @@ const pages = {
   },
   RatingPage: {
     screen: RatingPage,
+  },
+  OfferRidePage: {
+    screen: OfferorStage1Page,
+  },
+  AwaitRideStartPage: {
+    screen: OfferRide,
+  },
+  OfferRideConfirmationPage: {
+    screen: OfferRideConf,
+  },
+  RequestRidePage: {
+    screen: RequestRide,
+  },
+  RequestRideConfirmationPage: {
+    screen: RequestRideConf,
+  },
+  LegalTermsPage: {
+    screen: LegalTermsPage,
   },
 };
 

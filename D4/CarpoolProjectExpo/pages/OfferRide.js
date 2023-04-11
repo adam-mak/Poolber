@@ -9,18 +9,18 @@ import {
   StyleSheet,
 } from "react-native";
 
-
-const OfferRide= () => {
+const OfferRide = ({ navigation }) => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [destination, setDestination] = useState("");
   const [dateTime, setDateTime] = useState("");
 
-
-
-  const handleGoPress = () => {
-    navigation.navigate('YourTargetScreen'); // Replace 'YourTargetScreen' with the actual target screen name
+  const returnToOfferScreenHandler = () => {
+    navigation.goBack();
   };
 
+  const handleGoPress = () => {
+    console.log("Pressed");
+  };
 
   return (
     <View style={styles.container}>
@@ -29,23 +29,30 @@ const OfferRide= () => {
         style={styles.backgroundImage}
       />
 
-
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={returnToOfferScreenHandler}
+        >
           <Image
             source={require("../assets/images/return_arrow.png")}
             style={styles.backIcon}
           />
         </TouchableOpacity>
         <View style={styles.logoContainer}>
-          <Image source={require("../assets/images/logo.png")} style={styles.logo} />
+          <Image
+            source={require("../assets/images/logo.png")}
+            style={styles.logo}
+          />
           <Text style={styles.headerTitle}>Offer Ride</Text>
         </View>
         <TouchableOpacity>
-          <Image source={require("../assets/images/share_icon.png")} style={styles.shareIcon} />
+          <Image
+            source={require("../assets/images/share_icon.png")}
+            style={styles.shareIcon}
+          />
         </TouchableOpacity>
       </View>
-
 
       <View style={styles.topContainer}>
         <View style={styles.locationContainer}>
@@ -58,7 +65,6 @@ const OfferRide= () => {
           />
         </View>
 
-
         <View style={styles.locationContainer}>
           <Text style={styles.locationTitle}>Destination</Text>
           <TextInput
@@ -70,62 +76,77 @@ const OfferRide= () => {
         </View>
       </View>
 
-
       <View style={styles.peopleOnTheWayContainer}>
         <View style={styles.border}>
           <Text style={styles.peopleOnTheWayText}>People on the way</Text>
         </View>
       </View>
 
-
       <View style={styles.ellipseContainer}>
         <View style={styles.ellipseBox}>
-          <Image source={require("../assets/images/Ellipse_50.png")} style={styles.ellipseImage} />
+          <Image
+            source={require("../assets/images/Ellipse_50.png")}
+            style={styles.ellipseImage}
+          />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>760 Gage St</Text>
             <Text style={styles.ellipseTitle}> 10 min detour </Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $6</Text>
           </View>
           <Pressable onPress={handleGoPress}>
-            <Image source={require("../assets/images/GO.png")} style={styles.goImage} />
+            <Image
+              source={require("../assets/images/GO.png")}
+              style={styles.goImage}
+            />
           </Pressable>
         </View>
 
-
         <View style={styles.ellipseBox}>
-          <Image source={require("../assets/images/Ellipse_52.png")} style={styles.ellipseImage} />
+          <Image
+            source={require("../assets/images/Ellipse_52.png")}
+            style={styles.ellipseImage}
+          />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>2567 Seven St</Text>
             <Text style={styles.ellipseTitle}> 8 min detour </Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $3</Text>
           </View>
           <Pressable onPress={handleGoPress}>
-            <Image source={require("../assets/images/GO.png")} style={styles.goImage} />
+            <Image
+              source={require("../assets/images/GO.png")}
+              style={styles.goImage}
+            />
           </Pressable>
         </View>
 
-
         <View style={styles.ellipseBox}>
-          <Image source={require("../assets/images/Ellipse_58.png")} style={styles.ellipseImage} />
+          <Image
+            source={require("../assets/images/Ellipse_58.png")}
+            style={styles.ellipseImage}
+          />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>Trip to Beach</Text>
             <Text style={styles.ellipseTitle}> 5 min detour </Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $7</Text>
           </View>
           <Pressable onPress={handleGoPress}>
-            <Image source={require("../assets/images/GO.png")} style={styles.goImage} />
+            <Image
+              source={require("../assets/images/GO.png")}
+              style={styles.goImage}
+            />
           </Pressable>
         </View>
       </View>
 
-
       <View style={styles.vectorContainer}>
-        <Image source={require("../assets/images/Vector_1.png" )} style ={styles.vectorImage} />
+        <Image
+          source={require("../assets/images/Vector_1.png")}
+          style={styles.vectorImage}
+        />
       </View>
-      </View>
+    </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -210,23 +231,22 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     backgroundColor: "rgba(255, 255, 255, 0.7)",
-   
   },
   peopleOnTheWayText: {
     fontWeight: "bold",
     fontSize: 16,
     marginRight: 10,
     flexDirection: "row",
-  alignItems: "center",
-  backgroundColor: "#fff",
-  borderRadius: 10,
-  paddingVertical: 10,
-  paddingHorizontal: 20,
-  borderWidth: 2,
-  borderColor: "#D8BFD8",
-  marginVertical: 20,
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderWidth: 2,
+    borderColor: "#D8BFD8",
+    marginVertical: 20,
   },
-  peopleOnTheWayButton:{
+  peopleOnTheWayButton: {
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "#fff",
@@ -299,11 +319,10 @@ const styles = StyleSheet.create({
     width: 20,
     height: 700,
   },
-  vectorImage:{
+  vectorImage: {
     width: 100,
     height: 70,
-  }
+  },
 });
 
-
-  export default OfferRide;
+export default OfferRide;

@@ -15,13 +15,21 @@ const HomePage = ({ navigation }) => {
     navigation.push("UserProfilePage");
   };
 
+  const requestRideHandler = () => {
+    navigation.navigate("RequestRidePage");
+  };
+
+  const offerRideHandler = () => {
+    navigation.navigate("OfferRidePage");
+  };
+
   const logout = async () => {
     try {
       await signOut(auth);
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   return (
     <ScrollView>
@@ -36,14 +44,14 @@ const HomePage = ({ navigation }) => {
           <Text style={styles.headerText}>Poolber</Text>
         </View>
         <View style={styles.requestRideContainer}>
-          <Pressable>
+          <Pressable onPress={requestRideHandler}>
             <Image
               source={require("../assets/images/request_ride_button.png")}
             />
           </Pressable>
         </View>
         <View style={styles.offerRideContainer}>
-          <Pressable>
+          <Pressable onPress={offerRideHandler}>
             <Image source={require("../assets/images/offer_ride_button.png")} />
           </Pressable>
         </View>

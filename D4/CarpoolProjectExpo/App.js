@@ -5,11 +5,14 @@ import { FIREBASE_API_KEY } from "@env";
 import ArriveAtDestinationPage from "./pages/ArriveDestinationPage";
 
 import Navigator from "./routes/stack";
+
 import LegalTermsPage from "./pages/LegalTermsPage";
 import TaxiScanner from "./components/Barcode";
+
 import OfferorStage1Page from "./pages/OfferorStage1Page";
 import RequestRide from "./pages/RequestRide";
 import OfferRide from "./pages/OfferRide";
+
 import RequestRideConf from "./pages/RequestRideConf";
 import OfferRideConf from "./pages/OfferRide";
 
@@ -23,8 +26,8 @@ export default function App() {
   if (!loaded) {
     return null;
   }
-  
-  return <RequestRideConf />;
+
+  return <Navigator />;
 }
 
 const styles = StyleSheet.create({

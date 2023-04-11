@@ -1,10 +1,14 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
 
-const Banner2 = ({ pageTitle }) => (
-  <>
+const Banner2 = ({ pageTitle, navigation }) => {
+  const returnHandler = () => {
+    navigation.goBack();
+  };
+
+  return (
     <View style={styles.topBanner}>
       <View style={styles.icons}>
-        <Pressable>
+        <Pressable onPress={returnHandler}>
           <Image source={require("../assets/images/return_arrow.png")} />
         </Pressable>
         <Text style={styles.pageTitleStyle}>{pageTitle}</Text>
@@ -13,8 +17,8 @@ const Banner2 = ({ pageTitle }) => (
         </Pressable>
       </View>
     </View>
-  </>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   topBanner: {
