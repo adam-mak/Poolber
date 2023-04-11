@@ -13,6 +13,10 @@ const ArriveAtDestinationPage = ({ navigation }) => {
 	const [useFreeRide, setUseFreeRide] = useState(false);
 	const price = useFreeRide ? 0 : 10;
 
+	useEffect(() => {
+		setPoints(points + 1);
+	  }, []);
+
 	const redeemPointsHandler = () => {
 		if (points >= 10) {
 			setUseFreeRide(true);
