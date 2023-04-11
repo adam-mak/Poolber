@@ -5,8 +5,8 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  Pressable,
   StyleSheet,
+  ScrollView,
 } from "react-native";
 
 const RequestRide = ({ navigation }) => {
@@ -23,7 +23,7 @@ const RequestRide = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Image
         source={require("../assets/images/Background.png")}
         style={styles.backgroundImage}
@@ -36,11 +36,13 @@ const RequestRide = ({ navigation }) => {
             style={styles.backIcon}
           />
         </TouchableOpacity>
-        <Image
-          source={require("../assets/images/logo.png")}
-          style={styles.logo}
-        />
-        <Text style={styles.headerTitle}>Request Ride</Text>
+        <View style={styles.logoContainer}>
+          <Image
+            source={require("../assets/images/logo.png")}
+            style={styles.logo}
+          />
+          <Text style={styles.headerTitle}>Request Ride</Text>
+        </View>
         <TouchableOpacity>
           <Image
             source={require("../assets/images/share_icon.png")}
@@ -81,12 +83,12 @@ const RequestRide = ({ navigation }) => {
             <Text style={styles.ellipseTitle}>760 Gage St</Text>
             <Text style={styles.ellipseRideApprox}>Ride Approx: $20</Text>
           </View>
-          <Pressable onPress={submitRequestHandler}>
+          <TouchableOpacity onPress={submitRequestHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.ellipseBox}>
@@ -98,12 +100,12 @@ const RequestRide = ({ navigation }) => {
             <Text style={styles.ellipseTitle}>2567 Seven St</Text>
             <Text style={styles.ellipseRideApprox}>Ride Approx: $12</Text>
           </View>
-          <Pressable onPress={submitRequestHandler}>
+          <TouchableOpacity onPress={submitRequestHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.ellipseBox}>
@@ -113,24 +115,17 @@ const RequestRide = ({ navigation }) => {
           />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>Trip to Beach</Text>
-            <Text style={styles.ellipseRideApprox}> Ride Approx: $15</Text>
+            <Text style={styles.ellipseRideApprox}>Ride Approx: $15</Text>
           </View>
-          <Pressable onPress={submitRequestHandler}>
+          <TouchableOpacity onPress={submitRequestHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
-
-      <View style={styles.vectorContainer}>
-        <Image
-          source={require("../assets/images/Vector_1.png")}
-          style={styles.vectorImage}
-        />
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -195,8 +190,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   ellipseContainer: {
-    flex: 1,
-    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 20,
@@ -216,6 +209,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
+    marginHorizontal: 20,
   },
   ellipseImage: {
     width: 50,
@@ -256,20 +250,6 @@ const styles = StyleSheet.create({
     width: 50,
     height: 5,
     marginHorizontal: 10,
-  },
-  vectorContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-end",
-    marginBottom: 20,
-  },
-  vectorImage: {
-    width: 350,
-    height: 118,
-  },
-  ellipseContainer: {
-    flexDirection: "column",
-    marginTop: 0,
   },
   headerTitle: {
     fontSize: 20,

@@ -1,4 +1,11 @@
-import { StyleSheet, View, Pressable, Text, Image, Modal } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Text,
+  Image,
+  Modal,
+} from "react-native";
 
 import RatingSuccessful from "./RatingSuccessful";
 
@@ -81,7 +88,7 @@ const RatingConfirmation = ({
             </View>
 
             <View style={styles.buttonContainer}>
-              <Pressable
+              <TouchableOpacity
                 style={{ ...styles.button, backgroundColor: "#E16363" }}
               >
                 <Text
@@ -90,13 +97,13 @@ const RatingConfirmation = ({
                 >
                   No, Cancel
                 </Text>
-              </Pressable>
-              <Pressable
+              </TouchableOpacity>
+              <TouchableOpacity
                 style={{ ...styles.button, backgroundColor: "#B69DFE" }}
                 onPress={confirmedRatingHandler}
               >
                 <Text style={styles.buttonText}>Yes, Confirm</Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           </View>
         </View>

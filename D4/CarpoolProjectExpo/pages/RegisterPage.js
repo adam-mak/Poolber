@@ -1,6 +1,6 @@
 import {
   ScrollView,
-  Pressable,
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
@@ -26,13 +26,17 @@ const RegisterPage = ({ navigation }) => {
   const createAccount = async () => {
     try {
       if (passwordText === confirmPasswordText) {
-        const credentials = await createUserWithEmailAndPassword(auth, usernameText, passwordText);
+        const credentials = await createUserWithEmailAndPassword(
+          auth,
+          usernameText,
+          passwordText
+        );
         await setDoc(doc(db, "users", credentials.user.uid), {
-          email: usernameText
+          email: usernameText,
         });
         setErrorText("");
       } else {
-        setErrorText("Passwords don't match.")
+        setErrorText("Passwords don't match.");
       }
     } catch (e) {
       if (e.code === "auth/invalid-email") {
@@ -43,7 +47,7 @@ const RegisterPage = ({ navigation }) => {
         setErrorText("There was a problem with your request.");
       }
     }
-  }
+  };
 
   return (
     <ScrollView style={styles.pageContainer}>
@@ -86,18 +90,18 @@ const RegisterPage = ({ navigation }) => {
         <Text style={styles.errorText}> {errorText} </Text>
         <View style={styles.createContainer}>
           <Text style={styles.text}> Create </Text>
-          <Pressable onPress={createAccount}>
+          <TouchableOpacity onPress={createAccount}>
             <Image source={require("../assets/images/advance_button.png")} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
         <View style={styles.createContainer}>
           <Text style={styles.text}> Return to Login </Text>
-          <Pressable onPress={loginHandler}>
+          <TouchableOpacity onPress={loginHandler}>
             <Image
               source={require("../assets/images/advance_button.png")}
               style={{ transform: [{ scaleX: -1 }] }}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
       <Image

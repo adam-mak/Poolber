@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TextInput,
-  TouchableOpacity,
-  Pressable,
-  StyleSheet,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
 const OfferRide = ({ navigation }) => {
   const [pickupLocation, setPickupLocation] = useState("");
@@ -70,9 +62,7 @@ const OfferRide = ({ navigation }) => {
       </View>
 
       <View style={styles.peopleOnTheWayContainer}>
-        <View>
-          <Text style={styles.peopleOnTheWayText}>People on the way</Text>
-        </View>
+        <Text style={styles.peopleOnTheWayText}>Current Requesters</Text>
         <TouchableOpacity style={styles.proceedRide}>
           <Text style={{ fontWeight: 700, fontSize: 16 }}>
             Proceed with Ride
@@ -88,15 +78,15 @@ const OfferRide = ({ navigation }) => {
           />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>760 Gage St</Text>
-            <Text style={styles.ellipseTitle}> 10 min detour </Text>
+            <Text style={styles.ellipseTitle}>10 min detour</Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $6</Text>
           </View>
-          <Pressable onPress={selectRequesterHandler}>
+          <TouchableOpacity onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.ellipseBox}>
@@ -106,15 +96,15 @@ const OfferRide = ({ navigation }) => {
           />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>2567 Seven St</Text>
-            <Text style={styles.ellipseTitle}> 8 min detour </Text>
+            <Text style={styles.ellipseTitle}>8 min detour</Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $3</Text>
           </View>
-          <Pressable onPress={selectRequesterHandler}>
+          <TouchableOpacity onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.ellipseBox}>
@@ -124,15 +114,15 @@ const OfferRide = ({ navigation }) => {
           />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>Trip to Beach</Text>
-            <Text style={styles.ellipseTitle}> 5 min detour </Text>
+            <Text style={styles.ellipseTitle}>5 min detour</Text>
             <Text style={styles.ellipseRideApprox}>Potential Savings: $7</Text>
           </View>
-          <Pressable onPress={selectRequesterHandler}>
+          <TouchableOpacity onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -172,7 +162,6 @@ const styles = StyleSheet.create({
     width: 44,
   },
   backIcon: {
-    width: 35,
     height: 35,
     borderRadius: 10,
     width: 44,
@@ -217,39 +206,25 @@ const styles = StyleSheet.create({
     marginTop: -15,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
     marginHorizontal: 20,
     marginVertical: 5,
     borderWidth: 1,
     borderColor: "#fff",
     borderRadius: 5,
-    padding: 10,
     backgroundColor: "rgba(255, 255, 255, 0.7)",
   },
   peopleOnTheWayText: {
     fontWeight: "bold",
+    width: "47.50%",
     fontSize: 16,
-    marginRight: 10,
-    flexDirection: "row",
-    alignItems: "center",
     backgroundColor: "#fff",
     borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    padding: 10,
     borderWidth: 2,
     borderColor: "#D8BFD8",
     marginVertical: 20,
-  },
-  peopleOnTheWayButton: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderWidth: 2,
-    borderColor: "#D8BFD8",
-    marginVertical: 20,
+    textAlign: "center",
   },
   peopleOnTheWayImage: {
     width: 30,
@@ -323,7 +298,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
     height: 44,
-    width: "50%",
+    width: "47.50%",
     borderColor: "#D8BFD8",
     backgroundColor: "#B69DFE",
   },

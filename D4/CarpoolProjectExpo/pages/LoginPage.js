@@ -1,6 +1,6 @@
 import {
   ScrollView,
-  Pressable,
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
@@ -91,27 +91,27 @@ const LoginPage = ({ navigation }) => {
         <Text style={styles.errorText}> {errorText} </Text>
         <View style={styles.signInContainer}>
           <Text style={styles.text}> Sign in </Text>
-          <Pressable onPress={loginUser}>
+          <TouchableOpacity onPress={loginUser}>
             <Image source={require("../assets/images/advance_button.png")} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
         <View style={styles.registerContainer}>
           <Text style={styles.text}> Register </Text>
-          <Pressable onPress={registerHandler}>
+          <TouchableOpacity onPress={registerHandler}>
             <Image source={require("../assets/images/advance_button.png")} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
         <View style={styles.registerContainer}>
           <Text style={styles.text}> View Legal Terms </Text>
-          <Pressable onPress={viewLegalTermsHandler}>
+          <TouchableOpacity onPress={viewLegalTermsHandler}>
             <Image source={require("../assets/images/advance_button.png")} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
         <View style={styles.registerContainer}>
           <Text style={styles.text}> Ratings Page Testing </Text>
-          <Pressable onPress={() => navigation.navigate("RatingPage")}>
+          <TouchableOpacity onPress={() => navigation.navigate("RatingPage")}>
             <Image source={require("../assets/images/advance_button.png")} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
       <Image

@@ -1,4 +1,4 @@
-import { StyleSheet, View, Pressable, Text, Image, Modal } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Text, Image } from "react-native";
 
 const RatingSuccessful = ({
   confirmationHandler,
@@ -27,15 +27,17 @@ const RatingSuccessful = ({
       </View>
 
       <View style={styles.buttonContainer}>
-        <Pressable style={{ ...styles.button, backgroundColor: "#B69DFE" }}>
+        <TouchableOpacity
+          style={{ ...styles.button, backgroundColor: "#B69DFE" }}
+        >
           <Text style={styles.buttonText}>Next Rating</Text>
-        </Pressable>
-        <Pressable
+        </TouchableOpacity>
+        <TouchableOpacity
           style={{ ...styles.button, backgroundColor: "#E16363" }}
           onPress={returnHomeHandler}
         >
           <Text style={styles.buttonText}>Skip All Ratings</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );

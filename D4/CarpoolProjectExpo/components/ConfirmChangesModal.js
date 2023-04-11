@@ -1,19 +1,37 @@
 import { TextInput } from "react-native";
-import { StyleSheet, View, Modal, Pressable, Text, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Modal,
+  TouchableOpacity,
+  Text,
+  Image,
+} from "react-native";
 
 import { useState } from "react";
 import { auth, db } from "../firebase";
 import { doc, setDoc } from "@firebase/firestore";
-import { EmailAuthProvider, reauthenticateWithCredential } from "@firebase/auth";
+import {
+  EmailAuthProvider,
+  reauthenticateWithCredential,
+} from "@firebase/auth";
 
-const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation, data }) => {
+const ConfirmChangesModal = ({
+  modalVisible,
+  modalHandler,
+  navigation,
+  data,
+}) => {
   const [changesSaved, setChangesSaved] = useState(false);
   const [inputPassword, setInputPassword] = useState("");
   const [errorText, setErrorText] = useState("");
 
   const confirmationHandler = async () => {
     try {
-      const credential = await EmailAuthProvider.credential(data.email, inputPassword);
+      const credential = await EmailAuthProvider.credential(
+        data.email,
+        inputPassword
+      );
       await reauthenticateWithCredential(auth.currentUser, credential);
       setChangesSaved(true);
       setInputPassword("");
@@ -25,7 +43,7 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation, data }) =
       });
     } catch (e) {
       if (e.code === "auth/wrong-password") {
-        setErrorText("Incorrect Password.")
+        setErrorText("Incorrect Password.");
       } else {
         setErrorText("There was a problem with your request.");
       }
@@ -87,19 +105,23 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation, data }) =
         </View>
 
         <View style={styles.buttonsContainer}>
-          <Pressable
+          <TouchableOpacity
             style={{ ...styles.button, backgroundColor: "#E16363" }}
             onPress={cancelHandler}
           >
             <Text style={styles.buttonText}>No, Cancel</Text>
-          </Pressable>
-          <Pressable style={{ ...styles.button, backgroundColor: "#B69DFE" }}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ ...styles.button, backgroundColor: "#B69DFE" }}
+          >
             <Text style={styles.buttonText} onPress={confirmationHandler}>
               Yes, Confirm
             </Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
-        <Text style={[styles.newChangesText, {color: "red", marginTop: 40}]}>{errorText}</Text>
+        <Text style={[styles.newChangesText, { color: "red", marginTop: 40 }]}>
+          {errorText}
+        </Text>
       </>
     );
   };
@@ -107,16 +129,16 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation, data }) =
   const savedChangesPage = () => {
     return (
       <>
-        <Pressable
+        <TouchableOpacity
           onPress={returnHandler}
           style={{ position: "absolute", top: 25, right: 25 }}
         >
           <Image source={require("../assets/images/exit_button.png")} />
-        </Pressable>
+        </TouchableOpacity>
 
         <View style={styles.savedChangesContainer}>
           <Text style={styles.header}>Your Changes Have Been Saved!</Text>
-          <Pressable
+          <TouchableOpacity
             style={{
               ...styles.button,
               backgroundColor: "#B69DFE",
@@ -126,7 +148,7 @@ const ConfirmChangesModal = ({ modalVisible, modalHandler, navigation, data }) =
             onPress={returnHomepageHandler}
           >
             <Text style={styles.buttonText}>Return to HomePage</Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </>
     );

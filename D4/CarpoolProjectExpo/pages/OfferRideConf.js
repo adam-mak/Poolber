@@ -19,7 +19,7 @@ const OfferRideConf = ({ navigation, riderName, rideApprox }) => {
         <TouchableOpacity style={styles.backButton} onPress={returnHandler}>
           <Image
             source={require("../assets/images/return_arrow.png")}
-            style={styles.backIcon}
+            style={styles.icon}
           />
         </TouchableOpacity>
         <View style={styles.logoContainer}>
@@ -32,7 +32,7 @@ const OfferRideConf = ({ navigation, riderName, rideApprox }) => {
         <TouchableOpacity onPress={() => console.log("Share pressed")}>
           <Image
             source={require("../assets/images/share_icon.png")}
-            style={styles.shareIcon}
+            style={styles.icon}
           />
         </TouchableOpacity>
       </View>
@@ -85,9 +85,10 @@ const styles = StyleSheet.create({
   backButton: {
     padding: 10,
   },
-  backIcon: {
-    width: 35,
+  icon: {
     height: 35,
+    borderRadius: 10,
+    width: 44,
   },
   logo: {
     width: 100,
@@ -102,10 +103,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     marginTop: 10,
-  },
-  shareIcon: {
-    width: 35,
-    height: 35,
   },
   confirmationContainer: {
     flex: 1,
