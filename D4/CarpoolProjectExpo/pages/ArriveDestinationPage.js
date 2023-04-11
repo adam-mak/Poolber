@@ -27,7 +27,7 @@ const ArriveAtDestinationPage = ({ navigation }) => {
 	};
 
 	const reviewPassengersHandler = () => {
-		navigation.push("PassengerReviewPage");
+		navigation.push("RatingPage");
 	};
 
 	const returnHomeHandler = () => {
