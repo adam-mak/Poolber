@@ -7,7 +7,6 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-import { useEffect } from "react";
 
 import { auth } from "../firebase";
 
