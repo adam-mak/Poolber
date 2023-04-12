@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
-  editProfile: {
+  pageTitleStyle: {
     color: "white",
     fontSize: 15,
   },

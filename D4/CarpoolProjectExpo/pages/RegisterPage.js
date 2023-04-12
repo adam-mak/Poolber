@@ -9,20 +9,41 @@ import {
 } from "react-native";
 
 import { useState } from "react";
+import { auth, db } from "../firebase";
+import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { doc, setDoc } from "@firebase/firestore";
 
 const RegisterPage = ({ navigation }) => {
   const [usernameText, setUsernameText] = useState("");
   const [passwordText, setPasswordText] = useState("");
-
-  const createUserHandler = () => {
-    // add some field and form level validation lol - we could just formik but that's gonna
-    // add to our usage of dependency
-    navigation.navigate("HomePage");
-  };
+  const [confirmPasswordText, setConfirmPasswordText] = useState("");
+  const [errorText, setErrorText] = useState("");
 
   const loginHandler = () => {
     navigation.navigate("LoginPage");
   };
+
+  const createAccount = async () => {
+    try {
+      if (passwordText === confirmPasswordText) {
+        const credentials = await createUserWithEmailAndPassword(auth, usernameText, passwordText);
+        await setDoc(doc(db, "users", credentials.user.uid), {
+          email: usernameText
+        });
+        setErrorText("");
+      } else {
+        setErrorText("Passwords don't match.")
+      }
+    } catch (e) {
+      if (e.code === "auth/invalid-email") {
+        setErrorText("Must be a valid email.");
+      } else if (e.code === "auth/email-already-in-use") {
+        setErrorText("An account with this email already exists.");
+      } else {
+        setErrorText("There was a problem with your request.");
+      }
+    }
+  }
 
   return (
     <ScrollView style={styles.pageContainer}>
@@ -39,7 +60,7 @@ const RegisterPage = ({ navigation }) => {
             style={styles.usernameField}
             value={usernameText}
             onChangeText={setUsernameText}
-            placeholder="Username"
+            placeholder="Email"
           />
         </View>
         <View style={styles.textInputContainer}>
@@ -56,15 +77,16 @@ const RegisterPage = ({ navigation }) => {
           <Image source={require("../assets/images/password_icon.png")} />
           <TextInput
             style={styles.passwordField}
-            value={passwordText}
-            onChangeText={setPasswordText}
+            value={confirmPasswordText}
+            onChangeText={setConfirmPasswordText}
             placeholder="Confirm Password"
             secureTextEntry={true}
           />
         </View>
+        <Text style={styles.errorText}> {errorText} </Text>
         <View style={styles.createContainer}>
           <Text style={styles.text}> Create </Text>
-          <Pressable onPress={createUserHandler}>
+          <Pressable onPress={createAccount}>
             <Image source={require("../assets/images/advance_button.png")} />
           </Pressable>
         </View>
@@ -137,6 +159,12 @@ const styles = StyleSheet.create({
     fontFamily: "UberMoveBold",
     fontSize: 24,
     textAlign: "center",
+  },
+  errorText: {
+    fontFamily: "Lato",
+    fontSize: 15,
+    color: "#CB0000",
+    marginTop: 12,
   },
   bgCurve1Container: {
     position: "absolute",
