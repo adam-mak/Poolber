@@ -22,12 +22,14 @@ const ArriveAtDestinationPage = ({ navigation }) => {
     }
   };
 
-  const reviewPassengersHandler = () => {
-    navigation.push("RatingPage");
-  };
+  // probs a way better way to handle this lool
+  // will redirct them to homepage after 3 seconds
+  if (useFreeRide == true) {
+    setTimeout(() => navigation.navigate("HomePage"), 3000);
+  }
 
-  const returnHomeHandler = () => {
-    navigation.navigate("HomePage");
+  const makePaymentHandler = () => {
+    navigation.navigate("ThanksForRidingPage");
   };
 
   return (
@@ -43,41 +45,29 @@ const ArriveAtDestinationPage = ({ navigation }) => {
       </View>
       <View style={styles.pointsContainer}>
         <Text style={styles.pointsText}>{points} points accumulated</Text>
-        <TouchableOpacity
-          style={styles.redeemButton}
-          onPress={redeemPointsHandler}
-        >
-          <Text style={styles.redeemButtonText}>
-            Redeem a free ride (10 points)
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            ...styles.redeemButton,
-            marginTop: 20,
-            backgroundColor: "#22b14c",
-            width: 250,
-          }}
-          onPress={() => console.log("Paid upfront")}
-        >
-          <Text style={{ ...styles.redeemButtonText, color: "white" }}>
-            Pay Upfront
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.reviewAndHome}>
-        <TouchableOpacity
-          style={styles.reviewPassengersButton}
-          onPress={reviewPassengersHandler}
-        >
-          <Text style={styles.reviewPassengersText}>Review passengers</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.returnHomeButton}
-          onPress={returnHomeHandler}
-        >
-          <Text style={styles.returnHomeText}>Return Home</Text>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.redeemButton}
+            onPress={redeemPointsHandler}
+          >
+            <Text style={styles.redeemButtonText}>
+              Redeem a free ride (10 points)
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              ...styles.redeemButton,
+              marginTop: 20,
+              backgroundColor: "#22b14c",
+              width: 250,
+            }}
+            onPress={makePaymentHandler}
+          >
+            <Text style={{ ...styles.redeemButtonText, color: "white" }}>
+              Pay Upfront
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -118,41 +108,6 @@ const styles = StyleSheet.create({
     color: "black",
     textAlign: "center",
   },
-  reviewPassengersButton: {
-    height: 50,
-    backgroundColor: "black",
-    borderRadius: 40,
-    padding: 10,
-    justifyContent: "center",
-    width: 150,
-    backgroundColor: "red",
-  },
-  reviewPassengersText: {
-    fontFamily: "UberMoveMedium",
-    fontSize: 15,
-    color: "white",
-    textAlign: "center",
-  },
-  reviewAndHome: {
-    marginTop: 100,
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  returnHomeText: {
-    fontFamily: "UberMoveMedium",
-    fontSize: 15,
-    color: "white",
-    textAlign: "center",
-  },
-  returnHomeButton: {
-    height: 50,
-    backgroundColor: "black",
-    borderRadius: 40,
-    paddingHorizontal: 20,
-    justifyContent: "center",
-    width: 150,
-  },
   arrivalText: {
     fontFamily: "UberMoveMedium",
     fontSize: 30,
@@ -164,6 +119,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
     marginTop: 20,
+  },
+  buttonContainer: {
+    marginTop: 50,
   },
 });
 

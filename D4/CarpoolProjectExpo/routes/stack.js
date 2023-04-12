@@ -14,6 +14,7 @@ import OfferorConfirmation from "../pages/OfferorConfirmation";
 import RequestRide from "../pages/RequestRide";
 import RequesterConfirmation from "../pages/RequesterConfirmation";
 import ArriveAtDestinationPage from "../pages/ArriveAtDestinationPage";
+import ThanksForRidingPage from "../pages/ThanksForRidingPage";
 
 const pages = {
   LoginPage: {
@@ -51,6 +52,9 @@ const pages = {
   },
   ArrivalPage: {
     screen: ArriveAtDestinationPage,
+  },
+  ThanksForRidingPage: {
+    screen: ThanksForRidingPage,
   },
 };
 

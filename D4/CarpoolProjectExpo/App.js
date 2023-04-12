@@ -8,6 +8,8 @@ import Navigator from "./routes/stack";
 
 import TaxiScanner from "./components/Barcode";
 
+import ThanksForRidingPage from "./pages/ThanksForRidingPage";
+
 export default function App() {
   /* Load Fonts */
   const [loaded] = useFonts({

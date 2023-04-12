@@ -98,9 +98,9 @@ const Rating = ({ navigation }) => {
         successMessage="Submit Rating"
         successHandler={() => setDisplayConfirmation(true)}
         unsuccessfulMessage="Skip Rating"
-        unsuccessfulHandler={() => console.log("Skipped Rating")}
+        unsuccessfulHandler={() => setDisplayNext(true)}
         endState="Skip All Ratings"
-        endStateHandler={() => console.log("Skipped All Ratings")}
+        endStateHandler={() => navigation.navigate("HomePage")}
       />
     </ScrollView>
   );
