@@ -3,15 +3,21 @@ import {
   View,
   Text,
   Image,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   ScrollView,
 } from "react-native";
 
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { GOOGLE_MAPS_API_KEY } from "@env";
+
 const RequestRide = ({ navigation }) => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [destination, setDestination] = useState("");
+
+  const [startName, setStartName] = useState("");
+  const [endName, setEndName] = useState("");
+
   const [dateTime, setDateTime] = useState("");
 
   const submitRequestHandler = () => {
@@ -52,25 +58,41 @@ const RequestRide = ({ navigation }) => {
       </View>
 
       <View style={styles.topContainer}>
-        <View style={styles.locationContainer}>
-          <Text style={styles.locationTitle}>Current Location</Text>
-          <TextInput
-            style={styles.locationInput}
-            placeholder={"128 Main street"}
-            value={pickupLocation}
-            onChangeText={setPickupLocation}
-          />
-        </View>
+        <GooglePlacesAutocomplete
+          placeholder={"Pickup Location"}
+          fetchDetails
+          onPress={(data, details) => {
+            const position = {
+              latitude: details.geometry.location.lat,
+              longitude: details.geometry.location.lng,
+            };
+            setPickupLocation(position);
+            setStartName(data.description);
+          }}
+          query={{
+            key: GOOGLE_MAPS_API_KEY,
+            language: "en",
+          }}
+          styles={styles.autocomplete}
+        />
 
-        <View style={styles.locationContainer}>
-          <Text style={styles.locationTitle}>Destination</Text>
-          <TextInput
-            style={styles.locationInput}
-            placeholder="2000 Seven St"
-            value={destination}
-            onChangeText={setDestination}
-          />
-        </View>
+        <GooglePlacesAutocomplete
+          placeholder={"Destination"}
+          fetchDetails
+          onPress={(data, details) => {
+            const position = {
+              latitude: details.geometry.location.lat,
+              longitude: details.geometry.location.lng,
+            };
+            setDestination(position);
+            setEndName(data.description);
+          }}
+          query={{
+            key: GOOGLE_MAPS_API_KEY,
+            language: "en",
+          }}
+          styles={styles.autocomplete}
+        />
       </View>
 
       <View style={styles.ellipseContainer}>
@@ -172,22 +194,7 @@ const styles = StyleSheet.create({
   },
   topContainer: {
     marginTop: 50,
-    marginHorizontal: 20,
-  },
-  locationContainer: {
-    marginBottom: 20,
-  },
-  locationTitle: {
-    fontWeight: "bold",
-    marginBottom: 10,
-    fontSize: 16,
-  },
-  locationInput: {
-    height: 40,
-    borderColor: "#999",
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
+    marginHorizontal: 25,
   },
   ellipseContainer: {
     alignItems: "center",
@@ -235,22 +242,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 44,
   },
-  footer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    marginVertical: 50,
-  },
-  circleIcon: {
-    width: 20,
-    height: 20,
-    resizeMode: "contain",
-  },
-  barIcon: {
-    width: 50,
-    height: 5,
-    marginHorizontal: 10,
-  },
   headerTitle: {
     fontSize: 20,
     fontWeight: "bold",
@@ -259,6 +250,18 @@ const styles = StyleSheet.create({
   logoContainer: {
     flexDirection: "column",
     alignItems: "center",
+  },
+  autocomplete: {
+    textInput: {
+      backgroundColor: "#FFFFFF",
+      height: 40,
+      borderRadius: 12,
+      paddingVertical: 5,
+      paddingHorizontal: 10,
+      borderWidth: 1,
+      fontSize: 15,
+      flex: 1,
+    },
   },
 });
 
