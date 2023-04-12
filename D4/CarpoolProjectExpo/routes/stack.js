@@ -9,10 +9,10 @@ import RatingPage from "../pages/RatingPage";
 
 import LegalTermsPage from "../pages/LegalTermsPage";
 import OfferRide from "../pages/OfferRide";
-import OfferorStage1Page from "../pages/OfferorStage1Page";
-import OfferRideConf from "../pages/OfferRideConf";
+import AwaitOfferRide from "../pages/AwaitOfferRide";
+import OfferorConfirmation from "../pages/OfferorConfirmation";
 import RequestRide from "../pages/RequestRide";
-import RequestRideConf from "../pages/RequestRideConf";
+import RequesterConfirmation from "../pages/RequesterConfirmation";
 
 const pages = {
   LoginPage: {
@@ -31,19 +31,19 @@ const pages = {
     screen: RatingPage,
   },
   OfferRidePage: {
-    screen: OfferorStage1Page,
-  },
-  AwaitRideStartPage: {
     screen: OfferRide,
   },
+  AwaitRideStartPage: {
+    screen: AwaitOfferRide,
+  },
   OfferRideConfirmationPage: {
-    screen: OfferRideConf,
+    screen: OfferorConfirmation,
   },
   RequestRidePage: {
     screen: RequestRide,
   },
   RequestRideConfirmationPage: {
-    screen: RequestRideConf,
+    screen: RequesterConfirmation,
   },
   LegalTermsPage: {
     screen: LegalTermsPage,
