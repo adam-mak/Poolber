@@ -16,7 +16,11 @@ import RequestRide from "./pages/RequestRide";
 import OfferRide from "./pages/OfferRide";
 import RequestRideConf from "./pages/RequestRideConf";
 import OfferRideConf from "./pages/OfferRide";
+<<<<<<< Updated upstream
 import OnRoutePage from "./pages/OnRoutePage";
+>>>>>>> Stashed changes
+=======
+import Loading from "./pages/Loading";
 >>>>>>> Stashed changes
 
 export default function App() {
@@ -31,9 +35,13 @@ export default function App() {
   }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   return <Navigator />;
 =======
   return <OnRoutePage />;
+>>>>>>> Stashed changes
+=======
+  return <Loading />;
 >>>>>>> Stashed changes
 }
 
