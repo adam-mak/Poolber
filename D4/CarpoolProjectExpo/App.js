@@ -19,7 +19,7 @@ export default function App() {
     return null;
   }
 
-  return <Navigator />;
+  return <ArriveAtDestinationPage />;
 }
 
 const styles = StyleSheet.create({
