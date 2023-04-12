@@ -23,11 +23,16 @@ const OfferRideConf = ({ navigation, riderName, rideApprox }) => {
           />
         </TouchableOpacity>
         <View style={styles.logoContainer}>
+<<<<<<< Updated upstream:D4/CarpoolProjectExpo/pages/OfferorConfirmation.js
           <Image
             source={require("../assets/images/logo.png")}
             style={styles.logo}
           />
           <Text style={styles.headerTitle}> Request Confirmation</Text>
+=======
+          <Image source={require("../assets/images/logo.png")} style={styles.logo} />
+          <Text style={styles.headerTitle}> Offerer Confirmation</Text>
+>>>>>>> Stashed changes:D4/CarpoolProjectExpo/pages/OfferRideConf.js
         </View>
         <TouchableOpacity onPress={() => console.log("Share pressed")}>
           <Image
