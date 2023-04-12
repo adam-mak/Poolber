@@ -107,12 +107,6 @@ const LoginPage = ({ navigation }) => {
             <Image source={require("../assets/images/advance_button.png")} />
           </TouchableOpacity>
         </View>
-        <View style={styles.registerContainer}>
-          <Text style={styles.text}> Ratings Page Testing </Text>
-          <TouchableOpacity onPress={() => navigation.navigate("RatingPage")}>
-            <Image source={require("../assets/images/advance_button.png")} />
-          </TouchableOpacity>
-        </View>
       </View>
       <Image
         source={require("../assets/images/bg_curve_3.png")}
@@ -154,7 +148,7 @@ const styles = StyleSheet.create({
   signInContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
-    marginTop: 10,
+    marginTop: 30,
     gap: 15,
   },
   registerContainer: {
