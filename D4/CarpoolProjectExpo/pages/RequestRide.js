@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_API_KEY } from "@env";
@@ -29,7 +22,7 @@ const RequestRide = ({ navigation }) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Image
         source={require("../assets/images/Background.png")}
         style={styles.backgroundImage}
@@ -58,41 +51,44 @@ const RequestRide = ({ navigation }) => {
       </View>
 
       <View style={styles.topContainer}>
-        <GooglePlacesAutocomplete
-          placeholder={"Pickup Location"}
-          fetchDetails
-          onPress={(data, details) => {
-            const position = {
-              latitude: details.geometry.location.lat,
-              longitude: details.geometry.location.lng,
-            };
-            setPickupLocation(position);
-            setStartName(data.description);
-          }}
-          query={{
-            key: GOOGLE_MAPS_API_KEY,
-            language: "en",
-          }}
-          styles={styles.autocomplete}
-        />
-
-        <GooglePlacesAutocomplete
-          placeholder={"Destination"}
-          fetchDetails
-          onPress={(data, details) => {
-            const position = {
-              latitude: details.geometry.location.lat,
-              longitude: details.geometry.location.lng,
-            };
-            setDestination(position);
-            setEndName(data.description);
-          }}
-          query={{
-            key: GOOGLE_MAPS_API_KEY,
-            language: "en",
-          }}
-          styles={styles.autocomplete}
-        />
+        <View style={styles.autoBox}>
+          <GooglePlacesAutocomplete
+            placeholder={"Pickup Location"}
+            fetchDetails
+            onPress={(data, details) => {
+              const position = {
+                latitude: details.geometry.location.lat,
+                longitude: details.geometry.location.lng,
+              };
+              setPickupLocation(position);
+              setStartName(data.description);
+            }}
+            query={{
+              key: GOOGLE_MAPS_API_KEY,
+              language: "en",
+            }}
+            styles={styles.autocomplete}
+          />
+        </View>
+        <View style={styles.autoBox}>
+          <GooglePlacesAutocomplete
+            placeholder={"Destination"}
+            fetchDetails
+            onPress={(data, details) => {
+              const position = {
+                latitude: details.geometry.location.lat,
+                longitude: details.geometry.location.lng,
+              };
+              setDestination(position);
+              setEndName(data.description);
+            }}
+            query={{
+              key: GOOGLE_MAPS_API_KEY,
+              language: "en",
+            }}
+            styles={styles.autocomplete}
+          />
+        </View>
       </View>
 
       <View style={styles.ellipseContainer}>
@@ -147,12 +143,11 @@ const RequestRide = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#FFF",
   },
   backgroundImage: {
@@ -193,8 +188,13 @@ const styles = StyleSheet.create({
     width: 44,
   },
   topContainer: {
-    marginTop: 50,
-    marginHorizontal: 25,
+    margin: 25,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  autoBox: {
+    marginTop: 10,
+    flexDirection: "row",
   },
   ellipseContainer: {
     alignItems: "center",
