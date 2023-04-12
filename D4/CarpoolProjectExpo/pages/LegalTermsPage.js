@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 import Banner2 from "../components/Banner2";
 
-export default function LegalTermsPage() {
+export default function LegalTermsPage({ navigation }) {
   const [requirements] = useState([
     {
       rule: "User’s private information will always be kept private and only accessible by the user and certain components of the application.",
@@ -49,7 +49,7 @@ export default function LegalTermsPage() {
 
   return (
     <ScrollView contentContainerStyle={styles.contentContainer}>
-      <Banner2 pageTitle="Legal Terms" />
+      <Banner2 pageTitle="Legal Terms" navigation={navigation} />
 
       <View style={styles.legalPageContainer}>
         {requirements.map((item) => {

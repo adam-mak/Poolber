@@ -1,17 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
 
 import { FIREBASE_API_KEY } from "@env";
-import ArriveAtDestinationPage from "./pages/ArriveDestinationPage";
+import ArriveAtDestinationPage from "./pages/ArriveAtDestinationPage";
 
 import Navigator from "./routes/stack";
-import LegalTermsPage from "./pages/LegalTermsPage";
+
 import TaxiScanner from "./components/Barcode";
-import OfferorStage1Page from "./pages/OfferorStage1Page";
-import RequestRide from "./pages/RequestRide";
-import OfferRide from "./pages/OfferRide";
-import RequestRideConf from "./pages/RequestRideConf";
-import OfferRideConf from "./pages/OfferRide";
+
+import ThanksForRidingPage from "./pages/ThanksForRidingPage";
 
 export default function App() {
   /* Load Fonts */
@@ -23,8 +20,8 @@ export default function App() {
   if (!loaded) {
     return null;
   }
-  
-  return <RequestRideConf />;
+
+  return <Navigator />;
 }
 
 const styles = StyleSheet.create({

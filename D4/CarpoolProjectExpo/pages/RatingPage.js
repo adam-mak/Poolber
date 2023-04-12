@@ -1,7 +1,7 @@
 import {
   View,
   StyleSheet,
-  Pressable,
+  TouchableOpacity,
   Image,
   Text,
   TextInput,
@@ -52,7 +52,12 @@ const Rating = ({ navigation }) => {
         navigation={navigation}
       />
 
-      <Banner pageTitle="Leave a Rating" header="Mary Jane" name="mary_jane" />
+      <Banner
+        pageTitle="Leave a Rating"
+        header="Mary Jane"
+        name="mary_jane"
+        navigation={navigation}
+      />
 
       <View style={styles.form}>
         <View>
@@ -70,21 +75,21 @@ const Rating = ({ navigation }) => {
           <Text style={styles.header}>Rating</Text>
           <View style={styles.ratingStars}>
             {/* Could probably be replaced and refactored using a <FlatList /> */}
-            <Pressable onPress={() => handleStarPress(1)}>
+            <TouchableOpacity onPress={() => handleStarPress(1)}>
               <Image source={chooseStarSource(1)} />
-            </Pressable>
-            <Pressable onPress={() => handleStarPress(2)}>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleStarPress(2)}>
               <Image source={chooseStarSource(2)} />
-            </Pressable>
-            <Pressable onPress={() => handleStarPress(3)}>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleStarPress(3)}>
               <Image source={chooseStarSource(3)} />
-            </Pressable>
-            <Pressable onPress={() => handleStarPress(4)}>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleStarPress(4)}>
               <Image source={chooseStarSource(4)} />
-            </Pressable>
-            <Pressable onPress={() => handleStarPress(5)}>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => handleStarPress(5)}>
               <Image source={chooseStarSource(5)} />
-            </Pressable>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -93,9 +98,9 @@ const Rating = ({ navigation }) => {
         successMessage="Submit Rating"
         successHandler={() => setDisplayConfirmation(true)}
         unsuccessfulMessage="Skip Rating"
-        unsuccessfulHandler={() => console.log("Skipped Rating")}
+        unsuccessfulHandler={() => setDisplayNext(true)}
         endState="Skip All Ratings"
-        endStateHandler={() => console.log("Skipped All Ratings")}
+        endStateHandler={() => navigation.navigate("HomePage")}
       />
     </ScrollView>
   );

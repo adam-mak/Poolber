@@ -1,7 +1,12 @@
 import { GOOGLE_MAPS_API_KEY } from "@env";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
-const AutoComplete = ({ placeholder, updateLocation, moveCamera }) => {
+const AutoComplete = ({
+  placeholder,
+  updateLocation,
+  updateLocationName,
+  moveCamera,
+}) => {
   return (
     <GooglePlacesAutocomplete
       placeholder={placeholder}
@@ -12,6 +17,7 @@ const AutoComplete = ({ placeholder, updateLocation, moveCamera }) => {
           longitude: details.geometry.location.lng,
         };
         updateLocation(position);
+        updateLocationName(data.description);
         moveCamera(position);
       }}
       query={{

@@ -18,11 +18,16 @@ const UserProfile = ({ navigation }) => {
     phoneNumber: "123-456-7890",
   };
 
-  const getUserDetails = async() => {
+  const getUserDetails = async () => {
     try {
-      const querySnapshot = await getDoc(doc(db, "users", auth.currentUser.uid));
+      const querySnapshot = await getDoc(
+        doc(db, "users", auth.currentUser.uid)
+      );
       if (querySnapshot.exists()) {
-        const currentProfileData = Object.assign(originalData, querySnapshot.data());
+        const currentProfileData = Object.assign(
+          originalData,
+          querySnapshot.data()
+        );
         setCurrentProfileData(currentProfileData);
         setProfileData(currentProfileData);
       } else {
@@ -33,7 +38,7 @@ const UserProfile = ({ navigation }) => {
     }
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     getUserDetails();
   }, []);
 

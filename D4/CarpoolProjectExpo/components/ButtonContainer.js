@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View, Image } from "react-native";
+import { TouchableOpacity, StyleSheet, Text, View, Image } from "react-native";
 
 const ButtonContainer = ({
   successMessage,
@@ -11,19 +11,19 @@ const ButtonContainer = ({
   <>
     <View style={styles.buttonContainer}>
       <View style={styles.successUnsuccessButtons}>
-        <Pressable
+        <TouchableOpacity
           style={{ ...styles.button, backgroundColor: "#E16363" }}
           onPress={unsuccessfulHandler}
         >
           <Text style={styles.buttonText}>{unsuccessfulMessage}</Text>
-        </Pressable>
-        <Pressable style={styles.button} onPress={successHandler}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={successHandler}>
           <Text style={styles.buttonText}>{successMessage}</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
-      <Pressable style={styles.endStateButton} onPress={endStateHandler}>
+      <TouchableOpacity style={styles.endStateButton} onPress={endStateHandler}>
         <Text style={styles.buttonText}>{endState}</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
     <Image style={styles.wave} source={require("../assets/images/wave.png")} />
   </>

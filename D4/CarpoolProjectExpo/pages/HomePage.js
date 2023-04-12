@@ -1,6 +1,6 @@
 import { signOut } from "@firebase/auth";
 import {
-  Pressable,
+  TouchableOpacity,
   StyleSheet,
   Text,
   View,
@@ -12,16 +12,27 @@ import { auth } from "../firebase";
 
 const HomePage = ({ navigation }) => {
   const editProfileHandler = () => {
-    navigation.push("UserProfilePage");
+    navigation.navigate("UserProfilePage");
+  };
+
+  const requestRideHandler = () => {
+    navigation.navigate("RequestRidePage");
+  };
+
+  const offerRideHandler = () => {
+    navigation.navigate("OfferRidePage");
   };
 
   const logout = async () => {
     try {
       await signOut(auth);
+
+      // this is for testing in the ratings-page
+      navigation.navigate("LoginPage");
     } catch (e) {
       console.log(e);
     }
-  }
+  };
 
   return (
     <ScrollView>
@@ -36,29 +47,30 @@ const HomePage = ({ navigation }) => {
           <Text style={styles.headerText}>Poolber</Text>
         </View>
         <View style={styles.requestRideContainer}>
-          <Pressable>
+          <TouchableOpacity onPress={requestRideHandler}>
             <Image
               source={require("../assets/images/request_ride_button.png")}
             />
-          </Pressable>
+          </TouchableOpacity>
         </View>
         <View style={styles.offerRideContainer}>
-          <Pressable>
+          <TouchableOpacity onPress={offerRideHandler}>
             <Image source={require("../assets/images/offer_ride_button.png")} />
-          </Pressable>
+          </TouchableOpacity>
         </View>
+
         <View style={styles.editProfileContainer}>
-          <Pressable
+          <TouchableOpacity
             style={styles.editProfileButton}
             onPress={editProfileHandler}
           >
             <Text style={styles.editProfileText}> Edit Profile </Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
         <View style={styles.logoutContainer}>
-          <Pressable style={styles.logoutButton} onPress={logout}>
+          <TouchableOpacity style={styles.logoutButton} onPress={logout}>
             <Text style={styles.logoutText}> Logout </Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
-import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import { GOOGLE_MAPS_API_KEY } from "@env";
-
-const RequestRide = ({ navigation }) => {
+const OfferRide = ({ navigation }) => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [destination, setDestination] = useState("");
-
-  const [startName, setStartName] = useState("");
-  const [endName, setEndName] = useState("");
-
   const [dateTime, setDateTime] = useState("");
 
-  const submitRequestHandler = () => {
-    navigation.navigate("RequestRideConfirmationPage");
+  const startLocation = navigation.getParam("start");
+  const endLocation = navigation.getParam("end");
+
+  const returnToOfferScreenHandler = () => {
+    navigation.goBack();
   };
 
-  const returnHandler = () => {
-    navigation.goBack();
+  const selectRequesterHandler = () => {
+    navigation.navigate("OfferRideConfirmationPage");
+  };
+
+  const proceedRideHandler = () => {
+    navigation.navigate("ArrivalPage");
   };
 
   return (
@@ -29,7 +29,10 @@ const RequestRide = ({ navigation }) => {
       />
 
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={returnHandler}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={returnToOfferScreenHandler}
+        >
           <Image
             source={require("../assets/images/return_arrow.png")}
             style={styles.backIcon}
@@ -40,7 +43,7 @@ const RequestRide = ({ navigation }) => {
             source={require("../assets/images/logo.png")}
             style={styles.logo}
           />
-          <Text style={styles.headerTitle}>Request Ride</Text>
+          <Text style={styles.headerTitle}>Offer Ride</Text>
         </View>
         <TouchableOpacity>
           <Image
@@ -51,44 +54,27 @@ const RequestRide = ({ navigation }) => {
       </View>
 
       <View style={styles.topContainer}>
-        <View style={styles.autoBox}>
-          <GooglePlacesAutocomplete
-            placeholder={"Pickup Location"}
-            fetchDetails
-            onPress={(data, details) => {
-              const position = {
-                latitude: details.geometry.location.lat,
-                longitude: details.geometry.location.lng,
-              };
-              setPickupLocation(position);
-              setStartName(data.description);
-            }}
-            query={{
-              key: GOOGLE_MAPS_API_KEY,
-              language: "en",
-            }}
-            styles={styles.autocomplete}
-          />
+        <View style={styles.locationContainer}>
+          <Text style={styles.locationTitle}>Current Location</Text>
+          <Text style={styles.locationInput}>{startLocation}</Text>
         </View>
-        <View style={styles.autoBox}>
-          <GooglePlacesAutocomplete
-            placeholder={"Destination"}
-            fetchDetails
-            onPress={(data, details) => {
-              const position = {
-                latitude: details.geometry.location.lat,
-                longitude: details.geometry.location.lng,
-              };
-              setDestination(position);
-              setEndName(data.description);
-            }}
-            query={{
-              key: GOOGLE_MAPS_API_KEY,
-              language: "en",
-            }}
-            styles={styles.autocomplete}
-          />
+
+        <View style={styles.locationContainer}>
+          <Text style={styles.locationTitle}>Destination</Text>
+          <Text style={styles.locationInput}>{endLocation}</Text>
         </View>
+      </View>
+
+      <View style={styles.peopleOnTheWayContainer}>
+        <Text style={styles.peopleOnTheWayText}>Current Requesters</Text>
+        <TouchableOpacity
+          style={styles.proceedRide}
+          onPress={proceedRideHandler}
+        >
+          <Text style={{ fontWeight: 700, fontSize: 16 }}>
+            Proceed with Ride
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.ellipseContainer}>
@@ -99,9 +85,10 @@ const RequestRide = ({ navigation }) => {
           />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>760 Gage St</Text>
-            <Text style={styles.ellipseRideApprox}>Ride Approx: $20</Text>
+            <Text style={styles.ellipseTitle}>10 min detour</Text>
+            <Text style={styles.ellipseRideApprox}>Potential Savings: $6</Text>
           </View>
-          <TouchableOpacity onPress={submitRequestHandler}>
+          <TouchableOpacity onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
@@ -116,9 +103,10 @@ const RequestRide = ({ navigation }) => {
           />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>2567 Seven St</Text>
-            <Text style={styles.ellipseRideApprox}>Ride Approx: $12</Text>
+            <Text style={styles.ellipseTitle}>8 min detour</Text>
+            <Text style={styles.ellipseRideApprox}>Potential Savings: $3</Text>
           </View>
-          <TouchableOpacity onPress={submitRequestHandler}>
+          <TouchableOpacity onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
@@ -133,9 +121,10 @@ const RequestRide = ({ navigation }) => {
           />
           <View style={styles.ellipseTextContainer}>
             <Text style={styles.ellipseTitle}>Trip to Beach</Text>
-            <Text style={styles.ellipseRideApprox}>Ride Approx: $15</Text>
+            <Text style={styles.ellipseTitle}>5 min detour</Text>
+            <Text style={styles.ellipseRideApprox}>Potential Savings: $7</Text>
           </View>
-          <TouchableOpacity onPress={submitRequestHandler}>
+          <TouchableOpacity onPress={selectRequesterHandler}>
             <Image
               source={require("../assets/images/GO.png")}
               style={styles.goImage}
@@ -146,9 +135,11 @@ const RequestRide = ({ navigation }) => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFF",
+    flex: 1,
+    backgroundColor: "#fff",
   },
   backgroundImage: {
     position: "absolute",
@@ -165,13 +156,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginTop: 50,
   },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 5,
+    alignSelf: "center",
+  },
   backButton: {
     padding: 10,
     borderRadius: 10,
+    width: 60,
     width: 44,
   },
   backIcon: {
-    width: 35,
     height: 35,
     borderRadius: 10,
     width: 44,
@@ -188,15 +185,62 @@ const styles = StyleSheet.create({
     width: 44,
   },
   topContainer: {
-    margin: 25,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  autoBox: {
-    marginTop: 10,
+    marginTop: 30,
+    marginHorizontal: 20,
     flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  locationContainer: {
+    marginBottom: 15,
+    width: "48%",
+  },
+  locationTitle: {
+    fontWeight: "bold",
+    marginBottom: 10,
+    fontSize: 16,
+  },
+  locationInput: {
+    height: 80,
+    fontSize: 13,
+    borderColor: "#999",
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  peopleOnTheWayContainer: {
+    marginTop: -15,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginHorizontal: 20,
+    marginVertical: 5,
+    borderWidth: 1,
+    borderColor: "#fff",
+    borderRadius: 5,
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
+  },
+  peopleOnTheWayText: {
+    fontWeight: "bold",
+    width: "47.50%",
+    fontSize: 16,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    padding: 10,
+    borderWidth: 2,
+    borderColor: "#D8BFD8",
+    marginVertical: 20,
+    textAlign: "center",
+  },
+  peopleOnTheWayImage: {
+    width: 30,
+    height: 30,
   },
   ellipseContainer: {
+    marginTop: -30,
+    flex: 1,
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 20,
@@ -216,7 +260,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-    marginHorizontal: 20,
   },
   ellipseImage: {
     width: 50,
@@ -242,27 +285,30 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     width: 44,
   },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginTop: 10,
-  },
-  logoContainer: {
-    flexDirection: "column",
+  footer: {
+    flexDirection: "row",
+    justifyContent: "center",
     alignItems: "center",
+    marginVertical: 50,
   },
-  autocomplete: {
-    textInput: {
-      backgroundColor: "#FFFFFF",
-      height: 40,
-      borderRadius: 12,
-      paddingVertical: 5,
-      paddingHorizontal: 10,
-      borderWidth: 1,
-      fontSize: 15,
-      flex: 1,
-    },
+  circleIcon: {
+    width: 20,
+    height: 700,
+  },
+  vectorImage: {
+    width: 100,
+    height: 70,
+  },
+  proceedRide: {
+    borderWidth: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    height: 44,
+    width: "47.50%",
+    borderColor: "#D8BFD8",
+    backgroundColor: "#B69DFE",
   },
 });
 
-export default RequestRide;
+export default OfferRide;
