@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 
+import { FIREBASE_API_KEY } from "@env";
+import ArriveAtDestinationPage from "./pages/ArriveDestinationPage";
+
 import Navigator from "./routes/stack";
 import LegalTermsPage from "./pages/LegalTermsPage";
 import TaxiScanner from "./components/Barcode";
