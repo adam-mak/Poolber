@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 const ArriveAtDestinationPage = ({ navigation }) => {
   const [points, setPoints] = useState(1);
@@ -29,13 +23,11 @@ const ArriveAtDestinationPage = ({ navigation }) => {
   };
 
   const reviewPassengersHandler = () => {
-    console.log("Review Passenger");
-    // navigation.push("RatingPage");
+    navigation.push("RatingPage");
   };
 
   const returnHomeHandler = () => {
-    console.log("Return Home");
-    // navigation.navigate("HomePage");
+    navigation.navigate("HomePage");
   };
 
   return (
@@ -59,23 +51,32 @@ const ArriveAtDestinationPage = ({ navigation }) => {
             Redeem a free ride (10 points)
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            ...styles.redeemButton,
+            marginTop: 20,
+            backgroundColor: "#22b14c",
+            width: 250,
+          }}
+          onPress={() => console.log("Paid upfront")}
+        >
+          <Text style={{ ...styles.redeemButtonText, color: "white" }}>
+            Pay Upfront
+          </Text>
+        </TouchableOpacity>
       </View>
-      <View style={styles.reviewPassengersContainer}>
+      <View style={styles.reviewAndHome}>
         <TouchableOpacity
           style={styles.reviewPassengersButton}
           onPress={reviewPassengersHandler}
         >
-          <Text style={styles.reviewPassengersText}>
-            Review other passengers
-          </Text>
+          <Text style={styles.reviewPassengersText}>Review passengers</Text>
         </TouchableOpacity>
-      </View>
-      <View style={styles.returnHomeContainer}>
         <TouchableOpacity
           style={styles.returnHomeButton}
           onPress={returnHomeHandler}
         >
-          <Text style={styles.returnHomeText}>Return to Home Page</Text>
+          <Text style={styles.returnHomeText}>Return Home</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -84,11 +85,11 @@ const ArriveAtDestinationPage = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    paddingHorizontal: 45,
+    paddingHorizontal: 40,
     paddingTop: 60,
   },
   priceContainer: {
-    marginTop: 50,
+    marginTop: 20,
   },
   priceText: {
     fontFamily: "UberMoveMedium",
@@ -115,10 +116,7 @@ const styles = StyleSheet.create({
     fontFamily: "UberMoveMedium",
     fontSize: 15,
     color: "black",
-  },
-  reviewPassengersContainer: {
-    marginTop: 30,
-    alignItems: "center",
+    textAlign: "center",
   },
   reviewPassengersButton: {
     height: 50,
@@ -126,20 +124,26 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     padding: 10,
     justifyContent: "center",
+    width: 150,
+    backgroundColor: "red",
   },
   reviewPassengersText: {
     fontFamily: "UberMoveMedium",
     fontSize: 15,
     color: "white",
+    textAlign: "center",
   },
-  returnHomeContainer: {
-    marginTop: 170,
+  reviewAndHome: {
+    marginTop: 100,
     alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   returnHomeText: {
     fontFamily: "UberMoveMedium",
     fontSize: 15,
     color: "white",
+    textAlign: "center",
   },
   returnHomeButton: {
     height: 50,
@@ -147,6 +151,7 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     paddingHorizontal: 20,
     justifyContent: "center",
+    width: 150,
   },
   arrivalText: {
     fontFamily: "UberMoveMedium",

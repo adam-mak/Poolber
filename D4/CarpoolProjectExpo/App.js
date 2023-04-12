@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import { useFonts } from "expo-font";
 
 import { FIREBASE_API_KEY } from "@env";
-import ArriveAtDestinationPage from "./pages/ArriveDestinationPage";
+import ArriveAtDestinationPage from "./pages/ArriveAtDestinationPage";
 
 import Navigator from "./routes/stack";
 
@@ -19,7 +19,7 @@ export default function App() {
     return null;
   }
 
-  return <ArriveAtDestinationPage />;
+  return <Navigator />;
 }
 
 const styles = StyleSheet.create({

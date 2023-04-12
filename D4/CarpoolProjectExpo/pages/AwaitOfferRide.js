@@ -17,6 +17,10 @@ const OfferRide = ({ navigation }) => {
     navigation.navigate("OfferRideConfirmationPage");
   };
 
+  const proceedRideHandler = () => {
+    navigation.navigate("ArrivalPage");
+  };
+
   return (
     <View style={styles.container}>
       <Image
@@ -63,7 +67,10 @@ const OfferRide = ({ navigation }) => {
 
       <View style={styles.peopleOnTheWayContainer}>
         <Text style={styles.peopleOnTheWayText}>Current Requesters</Text>
-        <TouchableOpacity style={styles.proceedRide}>
+        <TouchableOpacity
+          style={styles.proceedRide}
+          onPress={proceedRideHandler}
+        >
           <Text style={{ fontWeight: 700, fontSize: 16 }}>
             Proceed with Ride
           </Text>

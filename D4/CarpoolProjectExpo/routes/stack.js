@@ -13,6 +13,7 @@ import AwaitOfferRide from "../pages/AwaitOfferRide";
 import OfferorConfirmation from "../pages/OfferorConfirmation";
 import RequestRide from "../pages/RequestRide";
 import RequesterConfirmation from "../pages/RequesterConfirmation";
+import ArriveAtDestinationPage from "../pages/ArriveAtDestinationPage";
 
 const pages = {
   LoginPage: {
@@ -47,6 +48,9 @@ const pages = {
   },
   LegalTermsPage: {
     screen: LegalTermsPage,
+  },
+  ArrivalPage: {
+    screen: ArriveAtDestinationPage,
   },
 };
 

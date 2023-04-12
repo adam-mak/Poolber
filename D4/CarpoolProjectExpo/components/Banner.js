@@ -7,7 +7,7 @@ const displayPicture = {
 
 const Banner = ({ navigation, pageTitle, header, name }) => {
   const returnHandler = () => {
-    navigation.navigate("HomePage");
+    navigation.goBack();
   };
 
   return (
