@@ -6,11 +6,8 @@ const OfferRideConf = ({ navigation, riderName, rideApprox }) => {
     navigation.goBack();
   };
   const handleConfirmPress = () => {
-    // Handle confirmation logic here
-  };
-
-  const handleDeclinePress = () => {
-    // Handle decline logic here
+    navigation.navigate("OfferorLoadingPage");
+    setTimeout(() => navigation.navigate("AwaitRideStartPage"), 5000);
   };
 
   return (
@@ -23,16 +20,11 @@ const OfferRideConf = ({ navigation, riderName, rideApprox }) => {
           />
         </TouchableOpacity>
         <View style={styles.logoContainer}>
-<<<<<<< Updated upstream:D4/CarpoolProjectExpo/pages/OfferorConfirmation.js
           <Image
             source={require("../assets/images/logo.png")}
             style={styles.logo}
           />
-          <Text style={styles.headerTitle}> Request Confirmation</Text>
-=======
-          <Image source={require("../assets/images/logo.png")} style={styles.logo} />
-          <Text style={styles.headerTitle}> Offerer Confirmation</Text>
->>>>>>> Stashed changes:D4/CarpoolProjectExpo/pages/OfferRideConf.js
+          <Text style={styles.headerTitle}>Offerer Confirmation</Text>
         </View>
         <TouchableOpacity onPress={() => console.log("Share pressed")}>
           <Image
@@ -44,8 +36,8 @@ const OfferRideConf = ({ navigation, riderName, rideApprox }) => {
       <View style={styles.container}>
         <View style={styles.confirmationContainer}>
           <Text style={styles.confirmationText}>
-            Do you wish to continue Offering A Ride with John Doe, Saving you
-            approximately $4?
+            Do you wish to add Mary Jane to your carpool, saving you
+            approximately $6?
           </Text>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
@@ -56,7 +48,7 @@ const OfferRideConf = ({ navigation, riderName, rideApprox }) => {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.declineButton}
-              onPress={handleDeclinePress}
+              onPress={returnHandler}
             >
               <Text style={styles.buttonText}>Decline</Text>
             </TouchableOpacity>

@@ -8,14 +8,8 @@ import Navigator from "./routes/stack";
 
 import TaxiScanner from "./components/Barcode";
 
-import ThanksForRidingPage from "./pages/ThanksForRidingPage";
-import OfferorStage1Page from "./pages/OfferorStage1Page";
-import RequestRide from "./pages/RequestRide";
-import OfferRide from "./pages/OfferRide";
-import RequestRideConf from "./pages/RequestRideConf";
-import OfferRideConf from "./pages/OfferRide";
 import OnRoutePage from "./pages/OnRoutePage";
-import Loading from "./pages/Loading";
+import Loading from "./pages/RequesterLoading";
 
 export default function App() {
   /* Load Fonts */
@@ -29,8 +23,6 @@ export default function App() {
   }
 
   return <Navigator />;
-  return <OnRoutePage />;
-  return <Loading />;
 }
 
 const styles = StyleSheet.create({

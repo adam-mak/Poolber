@@ -91,64 +91,67 @@ const RequestRide = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={styles.ellipseContainer}>
-        <View style={styles.ellipseBox}>
-          <Image
-            source={require("../assets/images/Ellipse_50.png")}
-            style={styles.ellipseImage}
-          />
-          <View style={styles.ellipseTextContainer}>
-            <Text style={styles.ellipseTitle}>760 Gage St</Text>
-            <Text style={styles.ellipseRideApprox}>Ride Approx: $20</Text>
-          </View>
-          <TouchableOpacity onPress={submitRequestHandler}>
+      {startName && endName && (
+        <View style={styles.ellipseContainer}>
+          <View style={styles.ellipseBox}>
             <Image
-              source={require("../assets/images/GO.png")}
-              style={styles.goImage}
+              source={require("../assets/images/Ellipse_50.png")}
+              style={styles.ellipseImage}
             />
-          </TouchableOpacity>
-        </View>
+            <View style={styles.ellipseTextContainer}>
+              <Text style={styles.ellipseTitle}>760 Gage St</Text>
+              <Text style={styles.ellipseRideApprox}>Ride Approx: $20</Text>
+            </View>
+            <TouchableOpacity onPress={submitRequestHandler}>
+              <Image
+                source={require("../assets/images/GO.png")}
+                style={styles.goImage}
+              />
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.ellipseBox}>
-          <Image
-            source={require("../assets/images/Ellipse_52.png")}
-            style={styles.ellipseImage}
-          />
-          <View style={styles.ellipseTextContainer}>
-            <Text style={styles.ellipseTitle}>2567 Seven St</Text>
-            <Text style={styles.ellipseRideApprox}>Ride Approx: $12</Text>
-          </View>
-          <TouchableOpacity onPress={submitRequestHandler}>
+          <View style={styles.ellipseBox}>
             <Image
-              source={require("../assets/images/GO.png")}
-              style={styles.goImage}
+              source={require("../assets/images/Ellipse_52.png")}
+              style={styles.ellipseImage}
             />
-          </TouchableOpacity>
-        </View>
+            <View style={styles.ellipseTextContainer}>
+              <Text style={styles.ellipseTitle}>2567 Seven St</Text>
+              <Text style={styles.ellipseRideApprox}>Ride Approx: $12</Text>
+            </View>
+            <TouchableOpacity onPress={submitRequestHandler}>
+              <Image
+                source={require("../assets/images/GO.png")}
+                style={styles.goImage}
+              />
+            </TouchableOpacity>
+          </View>
 
-        <View style={styles.ellipseBox}>
-          <Image
-            source={require("../assets/images/Ellipse_58.png")}
-            style={styles.ellipseImage}
-          />
-          <View style={styles.ellipseTextContainer}>
-            <Text style={styles.ellipseTitle}>Trip to Beach</Text>
-            <Text style={styles.ellipseRideApprox}>Ride Approx: $15</Text>
-          </View>
-          <TouchableOpacity onPress={submitRequestHandler}>
+          <View style={styles.ellipseBox}>
             <Image
-              source={require("../assets/images/GO.png")}
-              style={styles.goImage}
+              source={require("../assets/images/Ellipse_58.png")}
+              style={styles.ellipseImage}
             />
-          </TouchableOpacity>
+            <View style={styles.ellipseTextContainer}>
+              <Text style={styles.ellipseTitle}>Trip to Beach</Text>
+              <Text style={styles.ellipseRideApprox}>Ride Approx: $15</Text>
+            </View>
+            <TouchableOpacity onPress={submitRequestHandler}>
+              <Image
+                source={require("../assets/images/GO.png")}
+                style={styles.goImage}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      )}
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
+    height: "100%",
   },
   backgroundImage: {
     position: "absolute",

@@ -18,7 +18,8 @@ const OfferRide = ({ navigation }) => {
   };
 
   const proceedRideHandler = () => {
-    navigation.navigate("ArrivalPage");
+    navigation.navigate("OnRoutePage");
+    setTimeout(() => navigation.navigate("ArrivalPage"), 5000);
   };
 
   return (
@@ -80,7 +81,7 @@ const OfferRide = ({ navigation }) => {
       <View style={styles.ellipseContainer}>
         <View style={styles.ellipseBox}>
           <Image
-            source={require("../assets/images/Ellipse_50.png")}
+            source={require("../assets/images/mary_jane.png")}
             style={styles.ellipseImage}
           />
           <View style={styles.ellipseTextContainer}>

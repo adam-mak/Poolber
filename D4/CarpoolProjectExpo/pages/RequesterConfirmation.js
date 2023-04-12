@@ -3,11 +3,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 
 const RequestRideConf = ({ navigation, riderName, rideApprox }) => {
   const handleConfirmPress = () => {
-    // Handle confirmation logic here
-  };
-
-  const handleDeclinePress = () => {
-    // Handle decline logic here
+    navigation.navigate("RequesterLoadingPage");
+    setTimeout(() => navigation.navigate("OnRoutePage"), 5000);
+    setTimeout(() => navigation.navigate("ArrivalPage"), 10000);
   };
 
   const returnHandler = () => {
@@ -40,8 +38,8 @@ const RequestRideConf = ({ navigation, riderName, rideApprox }) => {
       <View style={styles.container}>
         <View style={styles.confirmationContainer}>
           <Text style={styles.confirmationText}>
-            Do you wish to continue Requesting A Ride with John Doe worth
-            approximately $12?
+            Do you wish to share a carpool with Bob Ross, saving approximately
+            $12?
           </Text>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
@@ -52,7 +50,7 @@ const RequestRideConf = ({ navigation, riderName, rideApprox }) => {
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.declineButton}
-              onPress={handleDeclinePress}
+              onPress={returnHandler}
             >
               <Text style={styles.buttonText}>Decline</Text>
             </TouchableOpacity>

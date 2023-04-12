@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 const ArriveAtDestinationPage = ({ navigation }) => {
-  const [points, setPoints] = useState(1);
+  const [points, setPoints] = useState(10);
   const [useFreeRide, setUseFreeRide] = useState(false);
   const price = useFreeRide ? 0 : 10;
 
@@ -25,7 +25,7 @@ const ArriveAtDestinationPage = ({ navigation }) => {
   // probs a way better way to handle this lool
   // will redirct them to homepage after 3 seconds
   if (useFreeRide == true) {
-    setTimeout(() => navigation.navigate("HomePage"), 3000);
+    setTimeout(() => navigation.navigate("ThanksForRidingPage"), 3000);
   }
 
   const makePaymentHandler = () => {

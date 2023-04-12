@@ -15,6 +15,9 @@ import RequestRide from "../pages/RequestRide";
 import RequesterConfirmation from "../pages/RequesterConfirmation";
 import ArriveAtDestinationPage from "../pages/ArriveAtDestinationPage";
 import ThanksForRidingPage from "../pages/ThanksForRidingPage";
+import RequesterLoading from "../pages/RequesterLoading";
+import OfferorLoading from "../pages/OfferorLoading";
+import OnRoutePage from "../pages/OnRoutePage";
 
 const pages = {
   LoginPage: {
@@ -55,6 +58,15 @@ const pages = {
   },
   ThanksForRidingPage: {
     screen: ThanksForRidingPage,
+  },
+  RequesterLoadingPage: {
+    screen: RequesterLoading,
+  },
+  OfferorLoadingPage: {
+    screen: OfferorLoading,
+  },
+  OnRoutePage: {
+    screen: OnRoutePage,
   },
 };
 
